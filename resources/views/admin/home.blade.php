@@ -33,7 +33,7 @@
               <div class="inner">
                 <h3>0</h3>
 
-                <p>Total Users nnn</p>
+                <p>Total Users</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
