@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ajaxController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IncomeController;
@@ -53,6 +54,8 @@ Route::get('kyc-requests/update/{id}/{type}',[KycController::class,'updateReques
 
 Route::get('income-report/{type}',[IncomeController::class,'index'])->name('incomeReoprt.index');
 Route::get('withdraw-report',[WithdrawController::class,'index'])->name('withdraw.index');
+
+Route::get('register/success/{id}',[ajaxController::class,'registerSuccess'])->name('register.success');
 
 
 
