@@ -55,4 +55,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(PackageRequest::class,'user_id');
     }
+    function sponsor()
+    {
+        return $this->hasOne(User::class,'sponsor_id','own_id');
+    }
 }

@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('user_id');
+            $table->string('income_type');
+            $table->float('amount');
+            $table->float('admin_charge');
+            $table->float('admin_charge_per');
+            $table->float('net_amount');
         });
     }
 

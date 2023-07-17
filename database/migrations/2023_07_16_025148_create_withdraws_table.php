@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('withdraws', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('user_id');
+            $table->float('amount');
+            $table->float('admin_charge');
+            $table->float('admin_charge_per');
+            $table->float('net_amount');
         });
     }
 

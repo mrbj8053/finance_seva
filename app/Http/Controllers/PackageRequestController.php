@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Helper\myhelper;
+use App\Models\Income;
 use App\Models\Package;
 use App\Models\PackageRequest;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -73,7 +75,7 @@ class PackageRequestController extends Controller
     {
         try {
             $package_id = Crypt::decrypt($request->id);
-            $package=PackageRequest::find($package_id);
+            $package=PackageRequest::with('packageApplied')->find($package_id);
             if($package->status!=0)
             {
                 myhelper::showMessage("Unable to changes packages status, package already applied.");
@@ -82,6 +84,34 @@ class PackageRequestController extends Controller
             {
                 if($request->type==1)
                 {
+                    $packageSelected=$package->packageApplied()->first();
+                    $user=User::with('sponsor')->find($package->user_id);
+                    $user->is_active=1;
+                    $user->save();
+                    //first send direct income
+                    $amount=$packageSelected->entry_amount;
+                    $directIncome=$amount*($packageSelected->direct_income/100);
+                    $adminCharge=$directIncome*0.10;
+
+                    //send only if user is active
+                    if($user->sponsor->is_active==1)
+                    {
+                    $income=new Income();
+                    $income->user_id=$user->sponsor->id;
+                    $income->income_type='Direct';
+                    $income->amount=$directIncome;
+                    $income->admin_charge=$adminCharge;
+                    $income->admin_charge_per=10;
+                    $income->net_amount=$directIncome-$adminCharge;
+                    $income->save();
+                    }
+
+                    //set level income fo crone
+
+
+
+                    $package->status=1;
+                    $package->save();
                     myhelper::showMessage('Package approoved successfully');
 
                 }
