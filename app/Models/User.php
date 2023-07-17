@@ -46,4 +46,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function kyc()
+    {
+        return $this->hasMany(Kyc::class,'user_id');
+    }
+    function packageRequest()
+    {
+        return $this->hasMany(PackageRequest::class,'user_id');
+    }
 }

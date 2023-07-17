@@ -104,7 +104,7 @@
 
 
 
-      <a href="{{route('login')}}" class="text-center">Already have account ? Login Here</a>
+      <a href="{{route('login')}}" class="text-center">Already have an account ? Login Here</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

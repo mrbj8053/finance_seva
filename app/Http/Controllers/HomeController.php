@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kyc;
+use App\Models\PackageRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $arr['totalUsers']=User::all()->count();
+        $arr['activeUsers']=User::where('is_active',1)->count();
+        $arr['bannedUsers']=User::where('is_disabled',1)->count();
+
+        $arr['totalBusiness']=DB::table('package_requests')->join('packages','package','packages.id')->where('package_requests.status',1)->sum('packages.entry_amount');
+        $arr['kycUsers']=Kyc::all()->count();
+        $arr['kycVerifiedUsers']=Kyc::where('status',1)->count();
+        $arr['lastClosing']='Coming Soon';
+        $day=date('D');
+        if($day>=1 && $day<=15)
+        $nextClosing='15/'.date('m').'/'.date('Y');
+        else
+        $nextClosing=date('t').'/'.date('m').'/'.date('Y');
+
+        $arr['nextClosing']=$nextClosing;
+
+        return view('admin.home')->with($arr);
     }
 }
