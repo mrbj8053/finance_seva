@@ -258,39 +258,14 @@
               <div class="inner">
                 <h3>0</h3>
 
-                <p>Approved</p>
+                <p>Paid</p>
               </div>
               <div class="icon">
                 <i class="fa fa-inr"></i>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>0</h3>
 
-                <p>Rejected</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-inr"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>0</h3>
-
-                <p>Total Approved</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-inr"></i>
-              </div>
-            </div>
-          </div>
           <!-- ./col -->
         </div>
         <!-- /.row -->
