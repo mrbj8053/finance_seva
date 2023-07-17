@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Income;
 use App\Models\Kyc;
 use App\Models\PackageRequest;
 use App\Models\User;
@@ -35,6 +36,10 @@ class HomeController extends Controller
         $arr['kycUsers']=Kyc::all()->count();
         $arr['kycVerifiedUsers']=Kyc::where('status',1)->count();
         $arr['lastClosing']='Coming Soon';
+        $arr['directIncome']=Income::where('income_type','Direct')->sum('amount');
+        $arr['levelIncome']=Income::where('income_type','Level')->sum('amount');
+        $arr['royaltyIncome']=Income::where('income_type','Royalty')->sum('amount');
+        $arr['rewardIncome']=Income::where('income_type','Reward')->sum('amount');
         $day=date('D');
         if($day>=1 && $day<=15)
         $nextClosing='15/'.date('m').'/'.date('Y');

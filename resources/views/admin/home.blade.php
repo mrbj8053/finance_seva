@@ -188,7 +188,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$directIncome}}</h3>
 
                 <p>Direct </p>
               </div>
@@ -201,7 +201,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$levelIncome}}</h3>
 
                 <p>Level </p>
               </div>
@@ -214,7 +214,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$royaltyIncome}}</h3>
 
                 <p>Royalty </p>
               </div>
@@ -227,7 +227,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$rewardIncome}}</h3>
 
                 <p>Reward </p>
               </div>
