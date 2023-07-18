@@ -83,7 +83,11 @@ class HomeController extends Controller
         {
             myhelper::showMessage('Invalid Old password',true);
         }
+        if(Auth::user()->role=='user')
         return redirect()->back();
+        else
+        return redirect()->route('allUsers');
+
     }
     /**
      * Show the application dashboard.
