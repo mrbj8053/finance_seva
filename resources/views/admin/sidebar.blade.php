@@ -36,6 +36,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('profile') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Profile
+                        </p>
+                    </a>
+                </li>
                 @if (Auth::user()->role=='admin')
                 <li class="nav-item">
                     <a href="{{ route('allUsers') }}" class="nav-link">

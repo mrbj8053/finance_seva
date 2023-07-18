@@ -55,7 +55,11 @@ Route::get('kyc-requests/update/{id}/{type}',[KycController::class,'updateReques
 Route::get('income-report/{type}',[IncomeController::class,'index'])->name('incomeReoprt.index');
 Route::get('withdraw-report',[WithdrawController::class,'index'])->name('withdraw.index');
 
-Route::get('register/success/{id}',[ajaxController::class,'registerSuccess'])->name('register.success');
+Route::get('profile',function(){
+    return view('admin.profile');
+})->name('profile');
+Route::post('profile',[HomeController::class,'updateProfile'])->name('profile.update');
+Route::post('profile/password',[HomeController::class,'changePassword'])->name('profile.password.chage');
 
 
 

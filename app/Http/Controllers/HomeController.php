@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,38 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+    public function updateProfile(Request $request)
+    {
+        $this->validate($request,[
+            'name'=>'required|string'
+        ]);
+        $user=User::find(Auth::user()->id);
+        $user->name=$request->name;
+        $user->save();
 
+        myhelper::showMessage('Profile updated successfully');
+        return redirect()->back();
+    }
+    public function changePassword(Request $request)
+    {
+        $this->validate($request,[
+            'old_password'=>'required|string',
+            'password'=>'required|confirmed',
+        ]);
+        $user=User::find(Auth::user()->id);
+        if(Hash::check($request->old_password, $user->password))
+        {
+            $user->password=Hash::make($request->password);
+            $user->save();
+            myhelper::showMessage('Password changed successfully');
+
+        }
+        else
+        {
+            myhelper::showMessage('Invalid Old password',true);
+        }
+        return redirect()->back();
+    }
     /**
      * Show the application dashboard.
      *
