@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('profile') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fa fa-user"></i>
                         <p>
                             Profile
                         </p>
