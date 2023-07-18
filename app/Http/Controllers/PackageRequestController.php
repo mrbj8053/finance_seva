@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helper\myhelper;
 use App\Models\Income;
+use App\Models\income_misses;
 use App\Models\Package;
 use App\Models\PackageRequest;
 use App\Models\User;
@@ -107,6 +108,17 @@ class PackageRequestController extends Controller
                             $income->net_amount=$directIncome-$adminCharge;
                             $income->save();
                         }
+                    }
+                    else
+                    {
+                            $income=new income_misses();
+                            $income->user_id=$user->sponsor->id;
+                            $income->income_type='Direct income becuase id inactive when activated '.$user->id;
+                            $income->amount=$directIncome;
+                            $income->admin_charge=$adminCharge;
+                            $income->admin_charge_per=10;
+                            $income->net_amount=$directIncome-$adminCharge;
+                            $income->save();
                     }
 
                     //set level income fo crone
