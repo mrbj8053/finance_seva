@@ -58,7 +58,7 @@
                                                 <td>{{$user->parent_id}}</td>
                                                 <td>{{\Carbon\Carbon::parse($user->created_at)->format('d-m-Y')}}</td>
                                                 <td>
-                                                    @if ($user->is_active==0)
+                                                    @if ($user->is_active==1)
                                                     <p class="badge bg-success">User Active</p>
                                                         @else
                                                     <p class="badge bg-danger">User Inactive</p>

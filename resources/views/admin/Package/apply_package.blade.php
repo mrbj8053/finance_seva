@@ -53,7 +53,7 @@
                                                     class="form-control @error('package') is-invalid @enderror"
                                                     id="">
                                                     @foreach ($packages as $pkg)
-                                                        <option value="1"
+                                                        <option value="{{$pkg->id}}"
                                                             @if ($pkg->id ==old('package') || (!empty($current) && $current->package==$pkg->id)) selected @endif>{{$pkg->package_name."(".$pkg->entry_amount.")" }}</option>
                                                     @endforeach
                                                 </select>
