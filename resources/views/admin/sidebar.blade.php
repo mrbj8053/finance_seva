@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('profile') }}" class="nav-link">
+                    <a href="{{ route('profile',0) }}" class="nav-link">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
                             Profile

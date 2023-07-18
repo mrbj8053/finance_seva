@@ -26,15 +26,18 @@
                             <div class="card-header">
                                 <h3 class="card-title">Profile</h3>
                             </div>
-                            <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('profile.update',$userid) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     @include('admin.message')
+                                    @if ($userid!=0)
+                                        <h5>Update profile for user  :{{$user->name."(".$user->own_id.")"}} </h5>
+                                    @endif
                                     <div class="row">
                                         <div class="col-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="transaction_id">Name</label>
-                                                <input required type="text" value="{{ Auth::user()->name }}"
+                                                <input required type="text" value="{{ $userid==0?Auth::user()->name:$user->name }}"
                                                     name="name" class="form-control @error('name') is-invalid @enderror"
                                                     id="name" placeholder="Enter transaction id ">
                                                 @error('name')
@@ -46,11 +49,11 @@
                                         </div>
                                         <div class="col-6 col-md-4">
                                             <div class="form-group">
-                                                <label for="transaction_id">Email</label>
-                                                <input disabled type="text" value="{{ Auth::user()->email }}"
-                                                    name="name" class="form-control @error('name') is-invalid @enderror"
-                                                    id="name" placeholder="Enter transaction id ">
-                                                @error('name')
+                                                <label for="email">Email</label>
+                                                <input  required type="email" value="{{ $userid==0?Auth::user()->email:$user->email }}"
+                                                    name="email" class="form-control @error('email') is-invalid @enderror"
+                                                    id="email" placeholder="Enter email id ">
+                                                @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -60,10 +63,23 @@
                                         <div class="col-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="transaction_id">Sponsor Id</label>
-                                                <input disabled type="text" value="{{ Auth::user()->sponsor_id }}"
+                                                <input disabled type="text" value="{{ $userid==0?Auth::user()->sponsor_id:$user->sponsor_id }}"
                                                     name="name" class="form-control @error('name') is-invalid @enderror"
                                                     id="name" placeholder="Enter transaction id ">
                                                 @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-group">
+                                                <label for="own_id">User Id</label>
+                                                <input disabled type="text" value="{{ $userid==0?Auth::user()->own_id:$user->own_id }}"
+                                                    name="own_id" class="form-control @error('own_id') is-invalid @enderror"
+                                                    id="own_id" placeholder="Enter user id ">
+                                                @error('own_id')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -87,12 +103,15 @@
                             <div class="card-header">
                                 <h3 class="card-title">Change Password</h3>
                             </div>
-                            <form action="{{ route('profile.password.chage') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('profile.password.chage',$userid) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
+                                        @if ($userid==0)
                                         <div class="col-6 col-md-4">
                                             <div class="form-group">
+
+
                                                 <label for="transaction_id">Old Password</label>
                                                 <input required type="text"
                                                     name="old_password" class="form-control @error('old_password') is-invalid @enderror"
@@ -102,8 +121,11 @@
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
+
                                             </div>
                                         </div>
+                                        @endif
+
                                         <div class="col-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="transaction_id">New Password</label>

@@ -66,6 +66,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
+                                                    <a href="{{route('profile.update',$user->id)}}" class="btn btn-warning">Edit</a>
                                                     @if ($user->is_disabled==0)
                                                     <a onclick="confirmAction('Do you want to Deactivate the user ?','{{route('changeUserStatus',[Crypt::encrypt($user->id)])}}')" href="javascript:void(0);" class="btn bg-danger">Block</a>
                                                         @else

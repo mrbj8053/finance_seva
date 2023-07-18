@@ -19,17 +19,37 @@ class HomeController extends Controller
      *
      * @return void
      */
+    public function showProfile(Request $request)
+    {
+        if(isset($request->userid))
+        {
+            $userid=$request->userid;
+            $user=User::find($userid);
+        }
+        else
+        $userid=0;
+        return view('admin.profile',compact('userid','user'));
+    }
     public function __construct()
     {
         $this->middleware('auth');
     }
     public function updateProfile(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required|string'
-        ]);
+        if($request->userid!=0)
+        $user=User::find($request->userid);
+        else
         $user=User::find(Auth::user()->id);
+
+        $this->validate($request,[
+            'name'=>'required|string',
+            'email'=>"required|email|unique:users,email,$user->id,id"
+        ]);
+
+
+        // dd($user);
         $user->name=$request->name;
+        $user->email=$request->email;
         $user->save();
 
         myhelper::showMessage('Profile updated successfully');
@@ -37,12 +57,22 @@ class HomeController extends Controller
     }
     public function changePassword(Request $request)
     {
+        if($request->userid!=0)
+        $user=User::find($request->userid);
+        else
+        $user=User::find(Auth::user()->id);
+
+        if($request->userid==0)
         $this->validate($request,[
             'old_password'=>'required|string',
             'password'=>'required|confirmed',
         ]);
-        $user=User::find(Auth::user()->id);
-        if(Hash::check($request->old_password, $user->password))
+        else
+        $this->validate($request,[
+            'password'=>'required|confirmed',
+        ]);
+
+        if(Hash::check($request->old_password, $user->password) || $request->userid!=0)
         {
             $user->password=Hash::make($request->password);
             $user->save();
