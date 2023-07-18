@@ -53,7 +53,10 @@ class HomeController extends Controller
         $user->save();
 
         myhelper::showMessage('Profile updated successfully');
+        if(Auth::user()->role=='user')
         return redirect()->back();
+        else
+        return redirect()->route('allUsers');
     }
     public function changePassword(Request $request)
     {
