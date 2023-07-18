@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\myhelper;
 use App\Models\Income;
 use App\Models\Kyc;
 use App\Models\PackageRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller

@@ -53,10 +53,14 @@ class User extends Authenticatable
     }
     function packageRequest()
     {
-        return $this->hasMany(PackageRequest::class,'user_id');
+        return $this->hasOne(PackageRequest::class,'user_id');
     }
     function sponsor()
     {
         return $this->hasOne(User::class,'sponsor_id','own_id');
+    }
+    function income()
+    {
+        return $this->hasMany(Income::class,'user_id');
     }
 }

@@ -75,9 +75,9 @@
                                     <li class="nav-item ">
                                        <a class="nav-link" href="#packages">Packages</a>
                                     </li>
-                                    <li class="nav-item ">
+                                    {{-- <li class="nav-item ">
                                        <a class="nav-link" href="#rewards">Rewards</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item ">
                                        <a class="nav-link" href="{{route('login')}}">Login/Register</a>
                                     </li>
@@ -156,9 +156,7 @@
       <!-- Slider -->
       <iframe src="https://fxpricing.com/fx-widget/ticker-tape-widget.php?id=1,2,3,5,14,20&d_mode=compact-name" width="100%" height="85" style="border: unset;"></iframe> <div id="fx-pricing-widget-copyright"> <span>Powered by </span><a href="https://fxpricing.com/" target="_blank">FX Pricing</a> </div> <style type="text/css"> #fx-pricing-widget-copyright{ text-align: center; font-size: 13px; font-family: sans-serif; margin-top: 10px; margin-bottom: 10px; color: #9db2bd; } #fx-pricing-widget-copyright a{ text-decoration: unset; color: #bb3534; font-weight: 600; } </style>
       <!-- About -->
-      <section class="about-area page-padding-big" style="
-      padding-top: 19px;
-  " id="incomes">
+      <section class="about-area page-padding-big" style="padding-top: 19px;" id="incomes">
          <img src="{{asset('frontend')}}/img/blur-left.png" alt="blur-img" class="blur-left">
          <img src="{{asset('frontend')}}/img/blur-right.png" alt="blur-img" class="blur-right">
          <div class="container">
@@ -455,7 +453,7 @@
       </section>
       <!-- Leading -->
       <!-- Trader Join -->
-      <section class="trader-join-area page-padding " id="rewards">
+      <section class="trader-join-area page-padding d-none" id="rewards">
          <div class="container">
             <div class="row">
                <div class="col-xl-12">

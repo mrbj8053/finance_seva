@@ -1,6 +1,7 @@
 <?php
 namespace App\Helper;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class myhelper
@@ -9,6 +10,17 @@ class myhelper
     static function showMessage($msg,$isError=false)
     {
         Session::flash($isError?'errorMessage':'successMessage',$msg);
+    }
+    static function incomeLimitReached($user_id)
+    {
+        $user=User::find($user_id);
+        $income=$user->income->sum('amount');
+        $package=$user->packageRequest->packageApplied;
+        $maxIncome=$package->max_income;
+        if($income>=$maxIncome)
+        return true;
+        else
+       return false;
     }
     static function uploadImage($image,$path)
 {

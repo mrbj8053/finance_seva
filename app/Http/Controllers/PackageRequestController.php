@@ -96,14 +96,17 @@ class PackageRequestController extends Controller
                     //send only if user is active
                     if($user->sponsor->is_active==1)
                     {
-                    $income=new Income();
-                    $income->user_id=$user->sponsor->id;
-                    $income->income_type='Direct';
-                    $income->amount=$directIncome;
-                    $income->admin_charge=$adminCharge;
-                    $income->admin_charge_per=10;
-                    $income->net_amount=$directIncome-$adminCharge;
-                    $income->save();
+                        if(!myhelper::incomeLimitReached($user->sponsor->id))
+                        {
+                            $income=new Income();
+                            $income->user_id=$user->sponsor->id;
+                            $income->income_type='Direct';
+                            $income->amount=$directIncome;
+                            $income->admin_charge=$adminCharge;
+                            $income->admin_charge_per=10;
+                            $income->net_amount=$directIncome-$adminCharge;
+                            $income->save();
+                        }
                     }
 
                     //set level income fo crone
