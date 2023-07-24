@@ -110,8 +110,8 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'parent_id' => $data['sponsorId'],
-            'sponsor_id' => $data['sponsorId'],
+            'parent_id' => strtoupper($data['sponsorId']),
+            'sponsor_id' => strtoupper($data['sponsorId']),
             'own_id' => $ownId,
             'position' => 'noneed',
             'password' => Hash::make($data['password']),
