@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -34,7 +35,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = "/login";
 
     /**
      * Create a new controller instance.
@@ -45,7 +46,15 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    public function registerSuccess(Request $request)
+    {
+        if(isset($request->own_id))
+            $user=User::select('name','email','own_id','sponsor_id')->where('own_id',$request->own_id)->first();
+        else
+        return redirect()->login();
 
+        return view('auth.registerSuccess',compact('user'));
+    }
     /**
      * Get a validator for an incoming registration request.
      *

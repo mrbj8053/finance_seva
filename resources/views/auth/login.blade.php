@@ -16,7 +16,7 @@
       <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="input-group mb-3">
-          <input  id="text" type="text" class="form-control @error('own_id') is-invalid @enderror" name="own_id" value="{{ old('own_id') }}" required autocomplete="ownid" autofocus placeholder="Enter your user ID">
+          <input  id="text" type="text" class="form-control @error('own_id') is-invalid @enderror" name="own_id" value="{{ isset($_GET['own_id'])?$_GET['own_id']:old('own_id') }}" required autocomplete="ownid" autofocus placeholder="Enter your user ID">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

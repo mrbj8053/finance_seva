@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ajaxController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IncomeController;
@@ -30,8 +32,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/register/success/{own_id}', [RegisterController::class, 'registerSuccess'])->name('registerSuccess');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/all-users', [AdminController::class, 'showAllUsers'])->name('allUsers');
+Route::get('/all-users/{type}', [AdminController::class, 'showAllUsers'])->name('allUsers');
+Route::get('/login/user/{id}', [AdminController::class, 'loginUser'])->name('loginUser');
 Route::get('/user/status/{userid}',[UserController::class,'changeUserStatus'])->name('changeUserStatus');
 
 Route::resource('/package',PackageController::class);

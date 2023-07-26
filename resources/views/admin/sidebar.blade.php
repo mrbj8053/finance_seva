@@ -46,12 +46,39 @@
                 </li>
                 @if (Auth::user()->role=='admin')
                 <li class="nav-item">
-                    <a href="{{ route('allUsers') }}" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
                         <p>
-                            All Users
+                            Manage Users
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview" >
+                        <li class="nav-item">
+                            <a href="{{ route('allUsers','Active') }}" class="nav-link">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>
+                                    Active  Users
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('allUsers','Inactive') }}" class="nav-link">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>
+                                    Inactive  Users
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('allUsers','Blocked') }}" class="nav-link">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>
+                                    Blocked Users
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 @endif
                 @if (Auth::user()->role=='user')

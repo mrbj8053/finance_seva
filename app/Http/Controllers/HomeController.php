@@ -8,6 +8,7 @@ use App\Models\income_misses;
 use App\Models\Kyc;
 use App\Models\PackageRequest;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -105,6 +106,7 @@ class HomeController extends Controller
         $arr['bannedUsers']=User::where('is_disabled',1)->count();
 
         $arr['totalBusiness']=DB::table('package_requests')->join('packages','package','packages.id')->where('package_requests.status',1)->sum('packages.entry_amount');
+        $arr['todayBusiness']=DB::table('package_requests')->join('packages','package','packages.id')->where('package_requests.status',1)->whereDate('package_requests.updated_at',Carbon::today())->sum('packages.entry_amount');
         $arr['kycUsers']=Kyc::all()->count();
         $arr['kycVerifiedUsers']=Kyc::where('status',1)->count();
         $arr['lastClosing']='Coming Soon';
@@ -112,6 +114,7 @@ class HomeController extends Controller
         $arr['levelIncome']=Income::where('income_type','Level')->sum('amount');
         $arr['royaltyIncome']=Income::where('income_type','Royalty')->sum('amount');
         $arr['rewardIncome']=Income::where('income_type','Reward')->sum('amount');
+        $arr['totalIncome']=$arr['directIncome']+$arr['levelIncome']+$arr['royaltyIncome']+$arr['rewardIncome'];
         $day=date('D');
         if($day>=1 && $day<=15)
         $nextClosing='15/'.date('m').'/'.date('Y');

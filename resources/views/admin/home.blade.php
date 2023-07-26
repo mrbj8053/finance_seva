@@ -80,6 +80,19 @@
               </div>
             </div>
           </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$todayBusiness}}</h3>
+
+                <p>Today Business</p>
+              </div>
+              <div class="icon">
+               <i class="ion ion-podium"></i>
+              </div>
+            </div>
+          </div>
           <!-- ./col -->
 
           <div class="col-lg-3 col-6">
@@ -135,7 +148,7 @@
           @endif
 @if(Auth::user()->role=='user')
 
-<div class="col-md-4">
+<div class="col-md-6">
 
     <div class="card card-widget widget-user">
 
@@ -150,7 +163,7 @@
    </div>
    <div class="card-footer" style="padding-top: 2px;">
    <div class="row">
-   <div class="col-sm-4 border-right">
+   <div class="col-sm-3 border-right">
    <div class="description-block">
    <h5 class="description-header">User Id</h5>
    <span class="description-text">{{Auth::user()->own_id}}</span>
@@ -158,7 +171,7 @@
 
    </div>
 
-   <div class="col-sm-4 border-right">
+   <div class="col-sm-3 border-right">
    <div class="description-block">
    <h5 class="description-header">Sponsor ID </h5>
    <span class="description-text">{{Auth::user()->sponsor_id}}</span>
@@ -166,13 +179,26 @@
 
    </div>
 
-   <div class="col-sm-4">
+   <div class="col-sm-3 border-right">
    <div class="description-block">
    <h5 class="description-header">Joined On</h5>
    <span class="description-text">{{Carbon\Carbon::parse(Auth::user()->created_at)->format('d-m-Y')}}</span>
    </div>
 
    </div>
+   <div class="col-sm-3">
+    <div class="description-block">
+    <h5 class="description-header">Current ID Status</h5>
+    <span class="description-text">
+        @if (Auth::user()->is_active==1)
+        <p class="badge bg-success">ID  Activated</p>
+        @else
+        <p class="badge bg-danger">ID Inactive</p>
+        @endif
+    </span>
+    </div>
+
+    </div>
 
    </div>
 
@@ -236,8 +262,21 @@
               </div>
             </div>
           </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{$totalIncome}}</h3>
+
+                <p>Total Income </p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-inr"></i>
+              </div>
+            </div>
+          </div>
           <div class="col-12">
-            <h3>Withdraw Details</h3>
+            <h3>Closing Details</h3>
           </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -245,7 +284,7 @@
               <div class="inner">
                 <h3>0</h3>
 
-                <p>Requested</p>
+                <p>Applied</p>
               </div>
               <div class="icon">
                 <i class="fa fa-inr"></i>

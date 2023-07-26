@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>All Users</h1>
+                        <h1>{{$type}} Users</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{url('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active">All Users</li>
+                            <li class="breadcrumb-item active">{{$type}} Users</li>
                         </ol>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">All Users</h3>
+                                <h3 class="card-title">{{$type}} Users</h3>
                             </div>
 
                             <div class="card-body">
@@ -38,7 +38,7 @@
                                                 <th>Email</th>
                                                 <th>Ownid</th>
                                                 <th>Sponsor Id</th>
-                                                <th>Parent Id</th>
+                                                {{-- <th>Parent Id</th> --}}
                                                 <th>Join On</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -51,11 +51,11 @@
                                             @foreach ($userList as $user )
                                             <tr>
                                                 <td>{{++$i}}</td>
-                                                <td>{{$user->name}}</td>
+                                                <td><a href="{{route('loginUser',Crypt::encrypt($user->id))}}">{{$user->name}}</a></td>
                                                 <td>{{$user->email}}</td>
                                                 <td>{{$user->own_id}}</td>
                                                 <td>{{$user->sponsor_id}}</td>
-                                                <td>{{$user->parent_id}}</td>
+                                                {{-- <td>{{$user->parent_id}}</td> --}}
                                                 <td>{{\Carbon\Carbon::parse($user->created_at)->format('d-m-Y')}}</td>
                                                 <td>
                                                     @if ($user->is_active==1)
