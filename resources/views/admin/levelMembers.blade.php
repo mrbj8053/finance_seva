@@ -49,6 +49,9 @@
                                                 $i=0;
                                             @endphp
                                             @foreach ($user->levelMembers as $item )
+                                            @if ($item->level<16)
+
+
                                             <tr>
                                                 <td>{{++$i}}</td>
                                                 <td><a href="{{route('loginUser',Crypt::encrypt($item->user->id))}}">{{$item->user->name}}</a></td>
@@ -76,6 +79,7 @@
                                                 </td> --}}
 
                                             </tr>
+                                            @endif
                                             @endforeach
 
                                         </tbody>
