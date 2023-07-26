@@ -25,7 +25,8 @@ class User extends Authenticatable
         'parent_id',
         'own_id',
         'sponsor_id',
-        'position'
+        'position',
+        'password_crypt'
     ];
 
     /**
