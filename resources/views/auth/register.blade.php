@@ -15,7 +15,7 @@
       <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="input-group mb-3">
-            <input id="sponsorId" type="text" maxlength="10" minlength="10" class="form-control @error('sponsarId') is-invalid @enderror" name="sponsorId" value="{{ old('sponsorId') }}" required autocomplete="name" autofocus placeholder="Enter Sponsor ID">
+            <input id="sponsorId" type="text" maxlength="10" minlength="10" class="form-control @error('sponsarId') is-invalid @enderror" name="sponsorId" value="{{ isset($_GET['sponsor'])?$_GET['sponsor']:old('sponsorId') }}" required autocomplete="name" autofocus placeholder="Enter Sponsor ID">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>

@@ -74,4 +74,27 @@ function confirmAction(msg,url)
             document.location.href=url;
         }
     }
+    function copyText(id,msg)
+    {
+        var content = $("#"+id).text();
+
+                // Create a temporary textarea element to store the content
+                var tempTextArea = $("<textarea>");
+                tempTextArea.text(content);
+
+                // Append the temporary textarea to the document body
+                $("body").append(tempTextArea);
+
+                // Select the text in the textarea
+                tempTextArea.select();
+
+                // Copy the selected text to the clipboard
+                document.execCommand("copy");
+
+                // Remove the temporary textarea from the document body
+                tempTextArea.remove();
+
+                // Display a message or perform any other actions after copying
+                alert("Referal URL copied : " + content);
+    }
 </script>

@@ -8,6 +8,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\KycController;
+use App\Http\Controllers\LevelMembersController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageRequestController;
 use App\Http\Controllers\UserController;
@@ -38,6 +39,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/all-users/{type}', [AdminController::class, 'showAllUsers'])->name('allUsers');
 Route::get('/login/user/{id}', [AdminController::class, 'loginUser'])->name('loginUser');
 Route::get('/user/status/{userid}',[UserController::class,'changeUserStatus'])->name('changeUserStatus');
+
+Route::get('/level/members/{ownid?}',[LevelMembersController::class,'showLevelmemebrs'])->name('levelMembers');
+Route::get('/level/tree/{ownid?}',[LevelMembersController::class,'showLevelTree'])->name('levelTree');
 
 Route::resource('/package',PackageController::class);
 Route::resource('/company',CompanyController::class);

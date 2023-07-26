@@ -64,4 +64,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Income::class,'user_id');
     }
+    function levelMembers()
+    {
+        return $this->hasMany(LevelMember::class,'ownid','own_id');
+    }
 }

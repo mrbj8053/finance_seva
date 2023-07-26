@@ -98,6 +98,22 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('levelMembers') }}" class="nav-link">
+                        <i class="nav-icon fa fa-users"></i>
+                        <p>
+                            Downline
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('levelTree') }}" class="nav-link">
+                        <i class="nav-icon fa fa-tree"></i>
+                        <p>
+                            My Tree
+                        </p>
+                    </a>
+                </li>
                 @endif
                 <li class="nav-item">
                     <a href="#" class="nav-link">
