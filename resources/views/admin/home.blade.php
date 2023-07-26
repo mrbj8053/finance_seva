@@ -191,7 +191,7 @@
     <h5 class="description-header">Current ID Status</h5>
     <span class="description-text">
         @if (Auth::user()->is_active==1)
-        <p class="badge bg-success">ID  Activated</p>
+        <p class="badge bg-success">ID  Activated at <br>{{\Carbon\Carbon::parse(Auth::user()->packageRequest->updated_at)->format('d/m/Y h:i:s')}}</p>
         @else
         <p class="badge bg-danger">ID Inactive</p>
         @endif

@@ -2,6 +2,7 @@
 namespace App\Helper;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Session;
 
 class myhelper
@@ -43,9 +44,22 @@ class myhelper
     // Return a response or redirect as needed
     return $path.'/'.$imageName;
 }
+public static function sendMail($from , $to, $subject, $body)
+    {
+        try
+        {
+
+        $headers = "From: $from\r\n";
+        $headers .= "Reply-To: $from\r\n";
+        $headers .= "Content-Type: text/html";
+
+        $send = (mail($to,$subject, $body, $headers));
+        }
+        catch(Exception $e)
+        {
+
+        }
+
+    }
 
 }
-
-
-
-?>
