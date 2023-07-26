@@ -54,14 +54,7 @@ class RegisterController extends Controller
         else
         return redirect()->login();
 
-        $subject="Registered successfully";
-        $body='<h1>Registered successfully</h1>
-        <p>Congratulations your account on '.env('APP_NAME').' is created successfully,find your registration details below</p>
-        <p><strong>User ID :</strong>'.$user->own_id.' </p>
-        <p><strong>Email :</strong>'.$user->email.' </p>
-        <strong>Invite Code :</strong>'.strtoupper($user->own_id).' </p>
-        ';
-        myhelper::sendMail(env('MAIL_FROM_ADDRESS'),$user->email,$subject,$body);
+
 
         return view('auth.registerSuccess',compact('user'));
     }
