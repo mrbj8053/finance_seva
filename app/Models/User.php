@@ -58,7 +58,7 @@ class User extends Authenticatable
     }
     function sponsor()
     {
-        return $this->hasOne(User::class,'sponsor_id','own_id');
+        return $this->belongsTo(User::class,'sponsor_id','own_id');
     }
     function income()
     {
