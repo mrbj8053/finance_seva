@@ -62,6 +62,19 @@
                                         </div>
                                         <div class="col-6 col-md-4">
                                             <div class="form-group">
+                                                <label for="email">Mobile</label>
+                                                <input  required minlength="10" maxlength="10" type="mobile" value="{{ $userid==0?Auth::user()->mobile:$user->mobile }}"
+                                                    name="mobile" class="form-control @error('email') is-invalid @enderror"
+                                                    id="mobile" placeholder="Enter mobile no ">
+                                                @error('mobile')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-group">
                                                 <label for="transaction_id">Sponsor Id</label>
                                                 <input disabled type="text" value="{{ $userid==0?Auth::user()->sponsor_id:$user->sponsor_id }}"
                                                     name="name" class="form-control @error('name') is-invalid @enderror"
@@ -84,6 +97,26 @@
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-group">
+                                                <label for="own_id">Profile Pic</label>
+                                                <input  type="file"
+                                                    name="profile_pic" class="form-control @error('profile_pic') is-invalid @enderror"
+                                                    id="profile_pic" placeholder="Enter user id ">
+                                                @error('profile_pic')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-group">
+                                                <br>
+                                                <img style="width:100px" src="{{asset($userid==0?Auth::user()->image:$user->image )}}" alt="">
+
                                             </div>
                                         </div>
 

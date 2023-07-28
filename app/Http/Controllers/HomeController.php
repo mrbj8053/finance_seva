@@ -45,20 +45,26 @@ class HomeController extends Controller
 
         $this->validate($request,[
             'name'=>'required|string',
-            'email'=>"required|email|unique:users,email,$user->id,id"
+            'email'=>"required|email|unique:users,email,$user->id,id",
+            "mobile"=>'required'
         ]);
 
 
         // dd($user);
         $user->name=$request->name;
         $user->email=$request->email;
+        $user->mobile=$request->mobile;
+        if(!empty($request->profile_pic))
+        {
+            $user->image=myhelper::uploadImage($request->profile_pic,"ProfilePic");
+        }
         $user->save();
 
         myhelper::showMessage('Profile updated successfully');
         if(Auth::user()->role=='user')
         return redirect()->back();
         else
-        return redirect()->route('allUsers');
+        return redirect()->back();
     }
     public function changePassword(Request $request)
     {
