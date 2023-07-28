@@ -65,6 +65,19 @@
       @enderror
         </div>
         <div class="input-group mb-3">
+            <input id="mobile" type="text" onkeypress="return isNumberKey(event)" maxlength="10" minlength="10" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" placeholder="Mobile">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            @error('mobile')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+          </div>
+        <div class="input-group mb-3">
           <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -111,5 +124,13 @@
 </div>
 <!-- /.register-box -->
 @include('auth.authFooter')
+<script>
+    function isNumberKey(evt) {
+  var charCode = (evt.which) ? evt.which : evt.keyCode
+  if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+  return true;
+}
+</script>
 </body>
 </html>

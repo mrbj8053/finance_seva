@@ -71,7 +71,8 @@ class RegisterController extends Controller
             // 'position'=>['required','string','in:Left,Right'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed']
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'mobile'=>['required','string']
         ]);
 
 
@@ -128,6 +129,7 @@ class RegisterController extends Controller
             'position' => 'noneed',
             'password' => Hash::make($data['password']),
             'password_crypt' => Crypt::encrypt($data['password']),
+            'mobile' => $data['mobile'],
         ]);
 
     }
