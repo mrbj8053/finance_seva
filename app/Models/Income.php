@@ -11,10 +11,11 @@ class Income extends Model
     use HasFactory;
     public function newQuery()
     {
+
         if(Auth::user() && Auth::user()->role=='user')
         return parent::newQuery()->where('user_id', Auth::user()->id);
         else
-        return parent::newQuery()->where('user_id', Auth::user()->id);
+        return parent::newQuery();
     }
 
 }
