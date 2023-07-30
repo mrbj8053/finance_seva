@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\myhelper;
+use App\Models\PackageRequest;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -32,5 +33,11 @@ class AdminController extends Controller
             myhelper::showMessage("Invalid user, unable to login.",true);
         }
         return redirect()->back();
+    }
+    function showBusiness()
+    {
+        $title="Today";
+        $business=PackageRequest::where('status',1)->get();
+        return view('admin.companyBusiness',compact('business','title'));
     }
 }

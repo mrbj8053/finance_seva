@@ -38,6 +38,8 @@ Route::get('/register/success/{own_id}', [RegisterController::class, 'registerSu
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/all-users/{type}', [AdminController::class, 'showAllUsers'])->name('allUsers');
 Route::get('/login/user/{id}', [AdminController::class, 'loginUser'])->name('loginUser');
+Route::get('/company/business', [AdminController::class, 'showBusiness'])->name('companyBusiness');
+
 Route::get('/user/status/{userid}',[UserController::class,'changeUserStatus'])->name('changeUserStatus');
 
 Route::get('/level/members/{ownid?}',[LevelMembersController::class,'showLevelmemebrs'])->name('levelMembers');

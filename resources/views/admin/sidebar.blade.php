@@ -80,6 +80,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('companyBusiness') }}" class="nav-link">
+                        <i class="nav-icon fa fa-inr"></i>
+                        <p>
+                            Today Business
+                        </p>
+                    </a>
+                </li>
                 @endif
                 @if (Auth::user()->role=='user')
                 <li class="nav-item">
