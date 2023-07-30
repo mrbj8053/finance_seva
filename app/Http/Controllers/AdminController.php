@@ -14,11 +14,11 @@ class AdminController extends Controller
     function showAllUsers($type="Active")
     {
         if($type=='Active')
-        $userList=User::where('role','user')->where('is_disabled',0)->where('is_active',1)->get();
+        $userList=User::where('role','user')->with('packageRequest')->where('is_disabled',0)->where('is_active',1)->get();
         else if($type=="Inactive")
-        $userList=User::where('role','user')->where('is_disabled',0)->where('is_active',0)->get();
+        $userList=User::where('role','user')->with('packageRequest')->where('is_disabled',0)->where('is_active',0)->get();
         else if($type=="Blocked")
-        $userList=User::where('role','user')->where('is_disabled',1)->get();
+        $userList=User::where('role','user')->with('packageRequest')->where('is_disabled',1)->get();
 
         return view('admin.allUsers',compact('userList','type'));
     }
