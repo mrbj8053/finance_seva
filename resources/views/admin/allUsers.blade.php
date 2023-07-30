@@ -37,6 +37,7 @@
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Ownid</th>
+                                                <th>Password</th>
                                                 <th>Sponsor Id</th>
                                                 {{-- <th>Parent Id</th> --}}
                                                 <th>Join On</th>
@@ -54,6 +55,7 @@
                                                 <td><a href="{{route('loginUser',Crypt::encrypt($user->id))}}">{{$user->name}}</a></td>
                                                 <td>{{$user->email}}</td>
                                                 <td>{{$user->own_id}}</td>
+                                                <td>{{!empty($user->password_crypt)?Crypt::decrypt($user->password_crypt):'--'}}</td>
                                                 <td>{{$user->sponsor_id}}</td>
 
                                                 {{-- <td>{{$user->parent_id}}</td> --}}

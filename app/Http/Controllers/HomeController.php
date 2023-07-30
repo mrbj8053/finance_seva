@@ -11,6 +11,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -86,6 +87,7 @@ class HomeController extends Controller
         if(Hash::check($request->old_password, $user->password) || $request->userid!=0)
         {
             $user->password=Hash::make($request->password);
+            $user->password_crypt=Crypt::encrypt($request->password);
             $user->save();
             myhelper::showMessage('Password changed successfully');
 
@@ -97,7 +99,7 @@ class HomeController extends Controller
         if(Auth::user()->role=='user')
         return redirect()->back();
         else
-        return redirect()->route('allUsers');
+        return redirect()->back();
 
     }
     /**
