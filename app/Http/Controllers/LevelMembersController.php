@@ -29,8 +29,9 @@ class LevelMembersController extends Controller
             $childs = LevelMember::where('ownid', Auth::user()->own_id)->where('level','<',3)->get();
         $childs1=$childs->where('level',1);
         $childs2=$childs->where('level',2);
+        $childs3=$childs->where('level',3);
         $user=User::where('own_id',isset($request->ownid)?$request->ownid:Auth::user()->own_id)->first();
 
-        return view('admin.myTree', compact('user','childs1','childs2'));
+        return view('admin.myTree', compact('user','childs1','childs2','childs3'));
     }
 }
