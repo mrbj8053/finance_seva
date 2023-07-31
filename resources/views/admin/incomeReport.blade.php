@@ -34,10 +34,12 @@
                                         <thead>
                                             <tr>
                                                 <th>Sr No.</th>
-                                                <th>Ownid</th>
+                                                <th>From User</th>
+                                                <th>To User</th>
+                                                <th>Level</th>
                                                 <th>User Name</th>
                                                 <th>Income Type</th>
-                                                <th>Ammount</th>
+                                                <th>Amount</th>
                                                 <th>Admin Charge</th>
                                                 <th>Net Amount</th>
                                                 <th>Created On</th>
@@ -47,11 +49,20 @@
                                             @php
                                                 $i=0;
                                             @endphp
-                                            {{-- @foreach ($packageRequests as $item )
+                                            @foreach ($incomes as $item )
                                             <tr>
-
+                                                <td>{{++$i}}</td>
+                                                <td>{{$item->fromUser->own_id}}</td>
+                                                <td>{{$item->toUser->own_id}}</td>
+                                                <td>{{$item->level}}</td>
+                                                <td>{{$item->toUser->name}}</td>
+                                                <td>{{$item->income_type}}</td>
+                                                <td>{{$item->amount}}</td>
+                                                <td>{{$item->admin_charge}}</td>
+                                                <td>{{$item->net_amount}}</td>
+                                                <td>{{\Carbon\Carbon::parse($item->created_at)->format('d/m/Y')}}</td>
                                             </tr>
-                                            @endforeach --}}
+                                            @endforeach
 
                                         </tbody>
                                     </table>

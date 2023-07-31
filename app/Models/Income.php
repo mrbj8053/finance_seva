@@ -17,5 +17,13 @@ class Income extends Model
         else
         return parent::newQuery();
     }
+    function toUser()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+    function fromUser()
+    {
+        return $this->belongsTo(User::class,'from_user');
+    }
 
 }
