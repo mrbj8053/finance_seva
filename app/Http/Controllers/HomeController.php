@@ -117,7 +117,8 @@ class HomeController extends Controller
         $arr['todayBusiness']=DB::table('package_requests')->join('packages','package','packages.id')->where('package_requests.status',1)->whereDate('package_requests.updated_at',Carbon::today())->sum('packages.entry_amount');
         $arr['kycUsers']=Kyc::all()->count();
         $arr['kycVerifiedUsers']=Kyc::where('status',1)->count();
-        $arr['lastClosing']=Carbon::parse((Income::where('income_type','ROI')->orderBy('id','desc')->first())->created_at)->format('d/m/Y');
+        $lastClosing=Income::where('income_type','ROI')->orderBy('id','desc')->first();
+        $arr['lastClosing']=!empty($lastClosing)?Carbon::parse($lastClosing->created_at)->format('d/m/Y'):"Coming Soon";
         $arr['directIncome']=Income::where('income_type','Direct')->sum('amount');
         $arr['levelIncome']=Income::where('income_type','Level')->sum('amount');
         $arr['royaltyIncome']=Income::where('income_type','Royalty')->sum('amount');
