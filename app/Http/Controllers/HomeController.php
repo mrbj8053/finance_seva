@@ -125,7 +125,9 @@ class HomeController extends Controller
         $arr['roiIncome']=Income::where('income_type','ROI')->sum('amount');
         $arr['rewardIncome']=Income::where('income_type','Reward')->sum('amount');
         $arr['totalIncome']=$arr['directIncome']+$arr['levelIncome']+$arr['royaltyIncome']+$arr['rewardIncome'];
-        $arr['closingApplied']=Income::where('income_type','ROI')->count();
+        $arr['closingApplied']=(Income::where('income_type','ROI')->get()->groupBy(function ($item) {
+            return Carbon::parse($item->created_at)->format('Y-m-d');
+    }))->count();
         $day=date('D');
         if($day>=1 && $day<=15)
         $nextClosing='15/'.date('m').'/'.date('Y');
