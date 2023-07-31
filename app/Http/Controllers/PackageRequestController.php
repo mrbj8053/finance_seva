@@ -108,6 +108,11 @@ class PackageRequestController extends Controller
                             $income->admin_charge_per=10;
                             $income->net_amount=$directIncome-$adminCharge;
                             $income->save();
+
+                            //set direct business
+                            $incomeUser=User::find($user->sponsor->id);
+                            $incomeUser->direct_business=$incomeUser->direct_business+$amount;
+                            $incomeUser->save();
                         }
                     }
                     else
