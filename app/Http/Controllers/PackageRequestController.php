@@ -101,6 +101,7 @@ class PackageRequestController extends Controller
                         {
                             $income=new Income();
                             $income->user_id=$user->sponsor->id;
+                            $income->from_user=$user->sponsor->id;
                             $income->income_type='Direct';
                             $income->amount=$directIncome;
                             $income->admin_charge=$adminCharge;

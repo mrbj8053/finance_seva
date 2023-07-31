@@ -141,6 +141,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('incomeReoprt.index', 'ROI') }}" class="nav-link">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>
+                                    ROI Income
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('incomeReoprt.index', 'Level') }}" class="nav-link">
                                 <i class="fa fa-minus nav-icon"></i>
                                 <p>

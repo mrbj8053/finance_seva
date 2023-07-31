@@ -16,6 +16,8 @@ use App\Http\Controllers\WithdrawController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Models\Sms;
+use Symfony\Component\HttpKernel\DataCollector\AjaxDataCollector;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +36,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/register/success/{own_id}', [RegisterController::class, 'registerSuccess'])->name('registerSuccess');
+Route::get('/set/direct/business', [ajaxController::class, 'setDirectBusinessAll'])->name('registerSuccess');
+Route::get('/sendRoi', [ajaxController::class, 'sendRoiAndLevel'])->name('registerSuccess');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/all-users/{type}', [AdminController::class, 'showAllUsers'])->name('allUsers');
