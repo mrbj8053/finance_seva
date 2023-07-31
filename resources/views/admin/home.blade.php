@@ -317,7 +317,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$closingApplied}}</h3>
 
                 <p>Applied</p>
               </div>

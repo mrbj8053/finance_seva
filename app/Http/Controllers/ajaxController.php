@@ -33,6 +33,17 @@ class ajaxController extends Controller
     }
     function sendRoiAndLevel()
     {
+        $day=date('D');
+        if($day>=1 && $day<=15)
+        $nextClosing='15';
+        else
+        $nextClosing=date('t');
+
+        if($day!=$nextClosing)
+        {
+            return;
+        }
+
 
         $users=User::with('sponsor')->where('is_active',1)->get();
         foreach($users as $user)
