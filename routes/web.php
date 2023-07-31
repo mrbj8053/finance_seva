@@ -36,7 +36,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/register/success/{own_id}', [RegisterController::class, 'registerSuccess'])->name('registerSuccess');
-Route::get('/set/direct/business', [ajaxController::class, 'setDirectBusinessAll'])->name('registerSuccess');
+Route::get('/set/direct/business', [ajaxController::class, 'setDirectBusinessAll'])->name('setDirectBusiness');
 Route::get('/sendRoi', [ajaxController::class, 'sendRoiAndLevel'])->name('registerSuccess');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
