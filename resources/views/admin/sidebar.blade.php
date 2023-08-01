@@ -88,6 +88,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('closings') }}" class="nav-link">
+                        <i class="nav-icon fa fa-inr"></i>
+                        <p>
+                            Closings
+                        </p>
+                    </a>
+                </li>
                 @endif
                 @if (Auth::user()->role=='user')
                 <li class="nav-item">

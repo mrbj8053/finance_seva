@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Closings extends Model
 {
     use HasFactory;
+
+    function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ajaxController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ClosingsController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IncomeController;
@@ -38,6 +39,13 @@ Auth::routes();
 Route::get('/register/success/{own_id}', [RegisterController::class, 'registerSuccess'])->name('registerSuccess');
 Route::get('/set/direct/business', [ajaxController::class, 'setDirectBusinessAll'])->name('setDirectBusiness');
 Route::get('/sendRoi', [ajaxController::class, 'sendRoiAndLevel'])->name('registerSuccess');
+
+
+
+Route::get('/closings', [ClosingsController::class, 'showClosings'])->name('closings');
+Route::get('/closings/details/{date}', [ClosingsController::class, 'showClosingsDetail'])->name('closingsDetail');
+
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/all-users/{type}', [AdminController::class, 'showAllUsers'])->name('allUsers');
