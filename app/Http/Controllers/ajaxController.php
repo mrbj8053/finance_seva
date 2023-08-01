@@ -38,16 +38,16 @@ class ajaxController extends Controller
 
 
 
-        // $day=date('D');
-        // if($day>=1 && $day<=15)
-        // $nextClosing='15';
-        // else
-        // $nextClosing=date('t');
+        $day=date('D');
+        if($day>=1 && $day<=15)
+        $nextClosing='15';
+        else
+        $nextClosing=date('t');
 
-        // if($day!=$nextClosing)
-        // {
-        //     return;
-        // }
+        if($day!=$nextClosing)
+        {
+            return;
+        }
 
 
         $users=User::with('sponsor')->where('is_active',1)->whereDate('created_at','<','2023-08-01')->get();
