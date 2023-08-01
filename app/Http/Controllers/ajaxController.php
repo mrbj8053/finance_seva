@@ -46,7 +46,7 @@ class ajaxController extends Controller
         // }
 
 
-        $users=User::with('sponsor')->where('is_active',1)->get();
+        $users=User::with('sponsor')->where('is_active',1)->whereDate('created_at','<','2023-08-01')->get();
         foreach($users as $user)
         {
             if(!empty($user->packageRequest))
