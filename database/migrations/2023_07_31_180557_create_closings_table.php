@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('closings', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->float('direct');
+            $table->float('level');
+            $table->float('royalty');
+            $table->float('roi');
+            $table->float('reward');
+            $table->float('user_id');
 
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Closings;
 use App\Models\Income;
 use App\Models\PackageRequest;
 use App\Models\User;
@@ -33,27 +34,30 @@ class ajaxController extends Controller
     }
     function sendRoiAndLevel()
     {
-        $created_at=Carbon::now();
-        $day=date('D');
-        if($day>=1 && $day<=15)
-        $nextClosing='15';
-        else
-        $nextClosing=date('t');
-
-        if($day!=$nextClosing)
-        {
-            return;
-        }
+        $created_at='2023-07-31';
 
 
-        $users=User::with('sponsor')->where('is_active',1)->get();
+
+        // $day=date('D');
+        // if($day>=1 && $day<=15)
+        // $nextClosing='15';
+        // else
+        // $nextClosing=date('t');
+
+        // if($day!=$nextClosing)
+        // {
+        //     return;
+        // }
+
+
+        $users=User::with('sponsor')->where('is_active',1)->whereDate('created_at','<','2023-08-01')->get();
         foreach($users as $user)
         {
             if(!empty($user->packageRequest))
             {
             $package=$user->packageRequest->packageApplied;
             $roi=$package->entry_amount*($package->roi/100);
-            $day=date("d");
+            $day='31';//date("d");
             $activeDateDay=Carbon::parse($user->PackageRequest->updated_at)->format('d');
             if($user->is_old==0)
             {
@@ -151,15 +155,28 @@ class ajaxController extends Controller
                if(empty($sponsor))
                break;
             }
-
-
-
-
-
             }
-
-
         }
+
+        $all=DB::select("select user_id,(select sum(amount) from incomes where income_type='Direct' and is_old=0 and user_id=i.user_id) as Direct,
+        (select sum(amount) from incomes where income_type='Level' and is_old=0 and user_id=i.user_id) as Level,
+        (select sum(amount) from incomes where income_type='Royalty' and is_old=0 and user_id=i.user_id) as Royalty,
+        (select sum(amount) from incomes where income_type='ROI' and is_old=0 and user_id=i.user_id) as ROI,
+        (select sum(amount) from incomes where income_type='Reward' and is_old=0 and user_id=i.user_id) as Reward from incomes as i where is_old=0 GROUP by user_id;");
+        foreach($all as $inc)
+        {
+            $closing=new Closings();
+            $closing->created_at=$created_at;
+            $closing->updated_at=$created_at;
+            $closing->direct=$inc->Direct??0;
+            $closing->level=$inc->Level??0;
+            $closing->royalty=$inc->Royalty??0;
+            $closing->roi=$inc->ROI??0;
+            $closing->reward=$inc->Reward??0;
+            $closing->user_id=$inc->user_id;
+            $closing->save();
+        }
+        Income::query()->update(['is_old'=>true]);
     }
     function isEligibleForLevel($directBusiness,$level)
     {
