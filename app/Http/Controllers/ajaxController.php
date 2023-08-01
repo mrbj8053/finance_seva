@@ -34,7 +34,7 @@ class ajaxController extends Controller
     }
     function sendRoiAndLevel()
     {
-        $created_at='2023-07-31';
+        $created_at=Carbon::now();
 
 
 
@@ -57,7 +57,7 @@ class ajaxController extends Controller
             {
             $package=$user->packageRequest->packageApplied;
             $roi=$package->entry_amount*($package->roi/100);
-            $day='31';//date("d");
+            $day=date("d");
             $activeDateDay=Carbon::parse($user->PackageRequest->updated_at)->format('d');
             if($user->is_old==0)
             {
