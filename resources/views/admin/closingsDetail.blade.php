@@ -35,8 +35,8 @@
                                             <tr>
                                                 <th>Sr No.</th>
                                                 <th>Date</th>
-                                                <th>Name</th>
                                                 <th>User ID</th>
+                                                <th>Name</th>
                                                 <th>Direct</th>
                                                 <th>Level</th>
                                                 <th>ROI</th>
