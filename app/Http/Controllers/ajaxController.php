@@ -34,20 +34,20 @@ class ajaxController extends Controller
     }
     function sendRoiAndLevel()
     {
-        $created_at=Carbon::now();
+        $created_at='2023-07-31';//Carbon::now();
 
 
 
-        $day=date('D');
-        if($day>=1 && $day<=15)
-        $nextClosing='15';
-        else
-        $nextClosing=date('t');
+        // $day=date('D');
+        // if($day>=1 && $day<=15)
+        // $nextClosing='15';
+        // else
+        // $nextClosing=date('t');
 
-        if($day!=$nextClosing)
-        {
-            return;
-        }
+        // if($day!=$nextClosing)
+        // {
+        //     return;
+        // }
 
 
         $users=User::with('sponsor')->where('is_active',1)->whereDate('created_at','<','2023-08-01')->get();
@@ -57,7 +57,7 @@ class ajaxController extends Controller
             {
             $package=$user->packageRequest->packageApplied;
             $roi=$package->entry_amount*($package->roi/100);
-            $day=date("d");
+            $day='31';//date("d");
             $activeDateDay=Carbon::parse($user->PackageRequest->updated_at)->format('d');
             if($user->is_old==0)
             {
