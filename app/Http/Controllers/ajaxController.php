@@ -33,16 +33,17 @@ class ajaxController extends Controller
     }
     function sendRoiAndLevel()
     {
-        $day=date('D');
-        if($day>=1 && $day<=15)
-        $nextClosing='15';
-        else
-        $nextClosing=date('t');
+        $created_at='2023-07-31';
+        // $day=date('D');
+        // if($day>=1 && $day<=15)
+        // $nextClosing='15';
+        // else
+        // $nextClosing=date('t');
 
-        if($day!=$nextClosing)
-        {
-            return;
-        }
+        // if($day!=$nextClosing)
+        // {
+        //     return;
+        // }
 
 
         $users=User::with('sponsor')->where('is_active',1)->get();
@@ -52,16 +53,25 @@ class ajaxController extends Controller
             {
             $package=$user->packageRequest->packageApplied;
             $roi=$package->entry_amount*($package->roi/100);
-            $day=date("d");
+            $day='31';//date("d");
             $activeDateDay=Carbon::parse($user->PackageRequest->updated_at)->format('d');
-            if($day>=1 && $day<=15)
+            if($user->is_old==0)
             {
-                $diff=15-$activeDateDay;
+                if($day>=1 && $day<=15)
+                {
+                    $diff=15-$activeDateDay;
+                }
+                else
+                {
+                    $diff=31-$activeDateDay;
+                }
             }
             else
             {
-                $diff=31-$activeDateDay;
+                $diff=15;
             }
+            $user->is_old=true;
+            $user->save();
             $roi=$roi/30;
             $roi=$roi*$diff;
 
@@ -77,6 +87,8 @@ class ajaxController extends Controller
             $income->admin_charge=$adminCharge;
             $income->admin_charge_per=10;
             $income->net_amount=$netAmount;
+            $income->created_at=$created_at;
+            $income->updated_at=$created_at;
             $income->save();
 
             $level=1;
@@ -122,11 +134,13 @@ class ajaxController extends Controller
                             $insertLevelIncome->user_id=$sponsor->id;
                             $insertLevelIncome->from_user=$user->id;
                             $insertLevelIncome->income_type="Level";
-                            $insertLevelIncome->amount=$roi;
+                            $insertLevelIncome->amount=$levelIncome;
                             $insertLevelIncome->level=$level;
                             $insertLevelIncome->admin_charge=$levelAdminCharge;
                             $insertLevelIncome->admin_charge_per=10;
                             $insertLevelIncome->net_amount=$netLevelIncome;
+                            $insertLevelIncome->created_at=$created_at;
+                            $insertLevelIncome->updated_at=$created_at;
                             $insertLevelIncome->save();
                             $level++;
                         }
