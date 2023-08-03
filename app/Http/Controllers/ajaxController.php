@@ -56,7 +56,7 @@ class ajaxController extends Controller
             if(!empty($user->packageRequest))
             {
             $package=$user->packageRequest->packageApplied;
-            $roi=$package->entry_amount*($package->roi/100);
+            $roi=$package->entry_amount*( $package->roi/100);
             $day=date("d");
             $activeDateDay=Carbon::parse($user->PackageRequest->updated_at)->format('d');
             if($user->is_old==0)
