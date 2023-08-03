@@ -63,7 +63,7 @@
                                                 <td>
                                                     @if ($user->is_active==1)
 
-                                                    <p class="badge bg-success">User Active with package <br>{{$user->packageRequest->packageApplied->package_name}}</p>
+                                                    <p class="badge bg-success">User Active with package <br>{{ !empty($user->packageRequest)? $user->packageRequest->packageApplied->package_name:""}}</p>
                                                         @else
                                                     <p class="badge bg-danger">User Inactive</p>
 
