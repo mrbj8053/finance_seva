@@ -62,7 +62,7 @@
                                                 <td>{{$item->user->name}}</td>
                                                 <td>{{$item->user->sponsar_id}}</td>
                                                 <td>{{$item->transaction_id}}</td>
-                                                <td><a target="_blank" href="{{asset($item->payment_screenshot)}}" style="width:100%" alt=""></a></td>
+                                                <td><a target="_blank" href="{{asset($item->payment_screenshot)}}" style="width:100%" alt="">View</a></td>
                                                 <td>{{\Carbon\Carbon::parse($item->created_at)->format('d-m-Y')}}</td>
                                                 <td>
                                                     @if ($item->status==0)
