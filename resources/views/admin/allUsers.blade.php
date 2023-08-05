@@ -40,7 +40,8 @@
                                                 <th>Password</th>
                                                 <th>Sponsor Id</th>
                                                 {{-- <th>Parent Id</th> --}}
-                                                <th>Join On</th>
+                                                <th>Create On</th>
+                                                <th>Active On</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -60,6 +61,7 @@
 
                                                 {{-- <td>{{$user->parent_id}}</td> --}}
                                                 <td>{{\Carbon\Carbon::parse($user->created_at)->format('d-m-Y')}}</td>
+                                                <td>{{!empty($user->packageRequest)?\Carbon\Carbon::parse($user->packageRequest->updated_at)->format('d-m-Y h:i A'):'--'}}</td>
                                                 <td>
                                                     @if ($user->is_active==1)
 

@@ -23,6 +23,11 @@ class KycController extends Controller
 
     function apply(Request $request)
     {
+        if(Auth::user()->is_active==0)
+        {
+            myhelper::showMessage("Please activate your account first for kyc",true);
+            return redirect()->back();
+        }
         $this->validate($request,[
             'bank_name'=>'required|string',
             'account_holder_name'=>'required|string',
