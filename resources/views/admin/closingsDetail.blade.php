@@ -37,6 +37,10 @@
                                                 <th>Date</th>
                                                 <th>User ID</th>
                                                 <th>Name</th>
+                                                <th>Bank Name</th>
+                                                <th>Account Holder</th>
+                                                <th>Account Number</th>
+                                                <th>IFSC Code</th>
                                                 <th>Direct</th>
                                                 <th>Level</th>
                                                 <th>ROI</th>
@@ -65,6 +69,10 @@
                                                 <td>{{\Carbon\Carbon::parse($date)->format('d/m/Y')}}</td>
                                                 <td>{{$item->own_id}}</td>
                                                 <td>{{$item->name}}</td>
+                                                <td>{{$item->bank_name}}</td>
+                                                <td>{{$item->account_holder_name}}</td>
+                                                <td>{{$item->account_number}}</td>
+                                                <td>{{$item->ifsc_code}}</td>
                                                 <td>{{$item->Direct??0}}</td>
                                                 <td>{{$item->Level??0}}</td>
                                                 <td>{{$item->ROI??0}}</td>
