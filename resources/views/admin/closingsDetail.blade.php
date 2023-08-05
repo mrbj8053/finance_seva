@@ -25,7 +25,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Closings Detail</h3>
+                                <h3 class="card-title">Closings Detail for {{\Carbon\Carbon::parse($date)->format('d/m/Y')}}</h3>
                             </div>
 
                             <div class="card-body">
@@ -34,18 +34,17 @@
                                         <thead>
                                             <tr>
                                                 <th>Sr No.</th>
-                                                <th>Date</th>
                                                 <th>User ID</th>
                                                 <th>Name</th>
                                                 <th>Bank Name</th>
                                                 <th>Account Holder</th>
                                                 <th>Account Number</th>
                                                 <th>IFSC Code</th>
+                                                <th>ROI</th>
                                                 <th>Direct</th>
                                                 <th>Level</th>
-                                                <th>ROI</th>
-                                                <th>Royalty</th>
                                                 <th>Reward</th>
+                                                <th>Royalty</th>
                                                 <th>Total</th>
                                                 <th>Admin Charge</th>
                                                 <th>Net Amount</th>
@@ -66,18 +65,17 @@
                                                 @endphp
                                             <tr>
                                                 <td>{{++$i}}</td>
-                                                <td>{{\Carbon\Carbon::parse($date)->format('d/m/Y')}}</td>
                                                 <td>{{$item->own_id}}</td>
                                                 <td>{{$item->name}}</td>
                                                 <td>{{$item->bank_name}}</td>
                                                 <td>{{$item->account_holder_name}}</td>
                                                 <td>{{$item->account_number}}</td>
                                                 <td>{{$item->ifsc_code}}</td>
+                                                <td>{{$item->ROI??0}}</td>
                                                 <td>{{$item->Direct??0}}</td>
                                                 <td>{{$item->Level??0}}</td>
-                                                <td>{{$item->ROI??0}}</td>
-                                                <td>{{$item->Royalty??0}}</td>
                                                 <td>{{$item->Reward??0}}</td>
+                                                <td>{{$item->Royalty??0}}</td>
                                                 <td>{{ $total }}</td>
                                                 <td>{{ $admin }}</td>
                                                 <td>{{ $net }}</td>
