@@ -128,7 +128,7 @@ class HomeController extends Controller
         $arr['closingApplied']=(Income::where('income_type','ROI')->get()->groupBy(function ($item) {
             return Carbon::parse($item->created_at)->format('Y-m-d');
     }))->count();
-        $day=date('D');
+        $day=date('d');
         if($day>=1 && $day<=15)
         $nextClosing='15/'.date('m').'/'.date('Y');
         else
