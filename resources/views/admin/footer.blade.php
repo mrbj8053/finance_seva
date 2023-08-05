@@ -49,13 +49,18 @@
 <script>
     $(document).ready(function() {
     $('table').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
+        dom: 'lBfrtip',
+        pageLength: 25,
+        lengthMenu: [
+        [25, 50,100, -1],
+        [25, 50,100, 'All']
+    ],
+    buttons: [
             'copyHtml5',
             'excelHtml5',
             'csvHtml5',
             'pdfHtml5'
-        ]
+        ],
     } );
 
 
