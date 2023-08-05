@@ -51,6 +51,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/all-users/{type}', [AdminController::class, 'showAllUsers'])->name('allUsers');
 Route::get('/login/user/{id}', [AdminController::class, 'loginUser'])->name('loginUser');
 Route::get('/company/business', [AdminController::class, 'showBusiness'])->name('companyBusiness');
+Route::get('company//business/detail/{date}', [AdminController::class, 'showBusinessDetail'])->name('companyBusinessDetail');
 
 Route::get('/user/status/{userid}',[UserController::class,'changeUserStatus'])->name('changeUserStatus');
 

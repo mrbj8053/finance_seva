@@ -34,9 +34,12 @@
                                         <thead>
                                             <tr>
                                                 <th>Sr No.</th>
-                                                <th>Date</th>
-                                                <th>Total</th>
-                                                <th>Action</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Ownid</th>
+                                                <th>Package</th>
+                                                <th>Sponsor Id</th>
+                                                <th>Active On</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -44,19 +47,29 @@
                                                 $i=0;
                                                 $totalBusiness=0;
                                             @endphp
-                                            @foreach ($business as $item )
-
+                                            @foreach ($business as $packageRequest )
+                                            @php
+                                                $package=$packageRequest->packageApplied;
+                                                $user=$packageRequest->user;
+                                                $totalBusiness+=$package->entry_amount;
+                                            @endphp
                                             <tr>
                                                 <td>{{++$i}}</td>
-                                                <td>{{\Carbon\Carbon::parse($item->upd)->format('d/m/Y')}}</td>
-                                                <td>{{$item->entry_amount}}</td>
-                                                <td><a href="{{route('companyBusinessDetail',$item->upd)}}" class="btn btn-primary">View Detail</a></td>
+                                                <td><a href="{{route('loginUser',Crypt::encrypt($user->id))}}">{{$user->name}}</a></td>
+                                                <td>{{$user->email}}</td>
+                                                <td>{{$user->own_id}}</td>
+                                                <td>{{$package->package_name}}</td>
+                                                <td>{{$user->sponsor_id}}</td>
+                                                <td>{{\Carbon\Carbon::parse($packageRequest->updated_at)->format('d-m-Y')}}</td>
+
+
 
                                             </tr>
                                             @endforeach
 
                                         </tbody>
                                     </table>
+                                    <h3>Total Business : <strong>{{$totalBusiness}}</strong></h3>
                                 </div>
                             </div>
 
