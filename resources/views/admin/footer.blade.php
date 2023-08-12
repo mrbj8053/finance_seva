@@ -104,6 +104,8 @@ function confirmAction(msg,url)
     }
     function payUser(closing_id,e)
     {
+        if(!confirm('Are you sure to pay amount ?'))
+        return;
         var CSRF_TOKEN = '@csrf';
         $.ajax({
             url:'{{route('payClosing')}}',
