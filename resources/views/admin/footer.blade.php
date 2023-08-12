@@ -102,4 +102,28 @@ function confirmAction(msg,url)
                 // Display a message or perform any other actions after copying
                 alert("Referal URL copied : " + content);
     }
+    function payUser(closing_id,e)
+    {
+        var CSRF_TOKEN = '@csrf';
+        $.ajax({
+            url:'{{route('payClosing')}}',
+            method:'post',
+            data: {_token: "{{ csrf_token() }}", closing_id:closing_id},
+            dataType: 'JSON',
+            success:function(res){
+                alert(res.msg);
+                if(res.status==1)
+                {
+                    $(e).removeAttr('onclick');
+                    $(e).removeClass('btn-primary');
+                    $(e).addClass('btn-success');
+                    $(e).html('Paid Successfully');
+
+                }
+            }
+
+        })
+
+    }
+
 </script>

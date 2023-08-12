@@ -121,10 +121,11 @@ class HomeController extends Controller
         $arr['lastClosing']=!empty($lastClosing)?Carbon::parse($lastClosing->created_at)->format('d/m/Y'):"Coming Soon";
         $arr['directIncome']=Income::where('income_type','Direct')->sum('amount');
         $arr['levelIncome']=Income::where('income_type','Level')->sum('amount');
+        $arr['closingPaid']=Income::where('income_type','Closing')->sum('amount')*-1;
         $arr['royaltyIncome']=Income::where('income_type','Royalty')->sum('amount');
         $arr['roiIncome']=Income::where('income_type','ROI')->sum('amount');
         $arr['rewardIncome']=Income::where('income_type','Reward')->sum('amount');
-        $arr['totalIncome']=$arr['directIncome']+$arr['levelIncome']+$arr['royaltyIncome']+$arr['rewardIncome'];
+        $arr['totalIncome']=$arr['directIncome']+$arr['roiIncome']+$arr['levelIncome']+$arr['royaltyIncome']+$arr['rewardIncome'];
         $arr['closingApplied']=(Income::where('income_type','ROI')->get()->groupBy(function ($item) {
             return Carbon::parse($item->created_at)->format('Y-m-d');
     }))->count();

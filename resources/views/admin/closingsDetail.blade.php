@@ -48,6 +48,7 @@
                                                 <th>Total</th>
                                                 <th>Admin Charge</th>
                                                 <th>Net Amount</th>
+                                                <th>Action</th>
 
 
                                             </tr>
@@ -59,7 +60,7 @@
                                             @foreach ($closings as $item )
 
                                                 @php
-                                                    $total=$item->Direct+$item->Level+$item->ROI+$item->Royalty+$item->Reward;
+                                                    $total=$item->direct+$item->level+$item->roi+$item->royalty+$item->reward;
                                                     $admin=$total*0.10;
                                                     $net=$total-$admin;
                                                 @endphp
@@ -71,14 +72,22 @@
                                                 <td>{{$item->account_holder_name}}</td>
                                                 <td>{{$item->account_number}}</td>
                                                 <td>{{$item->ifsc_code}}</td>
-                                                <td>{{$item->ROI??0}}</td>
-                                                <td>{{$item->Direct??0}}</td>
-                                                <td>{{$item->Level??0}}</td>
-                                                <td>{{$item->Reward??0}}</td>
-                                                <td>{{$item->Royalty??0}}</td>
+                                                <td>{{$item->roi??0}}</td>
+                                                <td>{{$item->direct??0}}</td>
+                                                <td>{{$item->level??0}}</td>
+                                                <td>{{$item->reward??0}}</td>
+                                                <td>{{$item->royalty??0}}</td>
                                                 <td>{{ $total }}</td>
                                                 <td>{{ $admin }}</td>
                                                 <td>{{ $net }}</td>
+                                                <td>
+                                                    @if($item->is_paid==0)
+                                                        <button type="button" onclick="payUser('{{$item->id}}',this)" class="btn btn-primary">Pay Now</button>
+                                                    @else
+                                                    <button type="button"  class="btn btn-success">Already Paid</button>
+
+                                                    @endif
+                                                </td>
 
                                             </tr>
                                             @endforeach

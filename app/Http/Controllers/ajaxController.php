@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\myhelper;
 use App\Models\Closings;
 use App\Models\Income;
 use App\Models\PackageRequest;
@@ -192,6 +193,63 @@ class ajaxController extends Controller
             return false;
 
         }
+    }
+    function testDirects()
+    {
+        $packageRequests=PackageRequest::where('status',1)->get();
+        $miss=0;
+        $notMiss=0;
+        foreach($packageRequests as $pkg)
+        {
+            $user=$pkg->user;
+            $sponsor=$user->sponsor;
+
+            if(!empty($user) && $sponsor)
+            {
+                $spPackage=$sponsor->packageRequest;
+                if($sponsor->is_active==1 && $user->is_active==1)
+                {
+                    if($spPackage->updated_at>$pkg->updated_at)
+                    {
+                        $miss++;
+                    }
+                    else
+                    {
+                        if(!myhelper::incomeLimitReached($user->sponsor->id))
+                        {
+                            $packageSelected=$pkg->packageApplied;
+                            $amount=$packageSelected->entry_amount;
+                            $directIncome=$amount*($packageSelected->direct_income/100);
+                            $adminCharge=$directIncome*0.10;
+
+
+                            $income=new Income();
+                            $income->user_id=$user->sponsor->id;
+                            $income->from_user=$user->sponsor->id;
+                            $income->income_type='Direct';
+                            $income->amount=$directIncome;
+                            $income->admin_charge=$adminCharge;
+                            $income->admin_charge_per=10;
+                            $income->net_amount=$directIncome-$adminCharge;
+                            $income->created_at=$pkg->updated_at;
+                            $income->updated_at=$pkg->updated_at;
+                            $income->is_old=1;
+
+                            $income->save();
+
+                            //set direct business
+                            $incomeUser=User::find($user->sponsor->id);
+                            $incomeUser->direct_business=$incomeUser->direct_business+$amount;
+                            $incomeUser->save();
+                        }
+                    }
+                }
+
+            }
+
+        }
+        echo $miss."<br>";
+        echo $notMiss;
     }
 
 }

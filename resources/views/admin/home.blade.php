@@ -330,7 +330,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$closingPaid}}</h3>
 
                 <p>Paid</p>
               </div>

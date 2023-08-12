@@ -40,6 +40,9 @@ Route::get('/register/success/{own_id}', [RegisterController::class, 'registerSu
 Route::get('/set/direct/business', [ajaxController::class, 'setDirectBusinessAll'])->name('setDirectBusiness');
 Route::get('/sendRoi', [ajaxController::class, 'sendRoiAndLevel'])->name('registerSuccess');
 
+Route::post('/pay/closing',[ClosingsController::class,'payClosing'])->name('payClosing');
+// Route::get('/testDirects', [ajaxController::class, 'testDirects'])->name('registerSuccess');
+
 
 
 Route::get('/closings', [ClosingsController::class, 'showClosings'])->name('closings');
