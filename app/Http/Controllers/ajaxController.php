@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Helper\myhelper;
 use App\Models\Closings;
 use App\Models\Income;
+use App\Models\LevelMember;
 use App\Models\PackageRequest;
+use App\Models\Reward;
+use App\Models\RewardIncome;
+use App\Models\RewardWinner;
 use App\Models\User;
 use Carbon\Carbon;
 use Exception;
@@ -39,12 +43,13 @@ class ajaxController extends Controller
 
 
 
-        $day=date('D');
+        $day=date('d');
         if($day>=1 && $day<=15)
         $nextClosing='15';
         else
         $nextClosing=date('t');
 
+        dd($day);
         if($day!=$nextClosing)
         {
             return;
@@ -250,6 +255,77 @@ class ajaxController extends Controller
         }
         echo $miss."<br>";
         echo $notMiss;
+    }
+
+    function checkRewards()
+    {
+        $businesRes=[];
+        $parent=User::find(142);
+        $directMembers=User::where('sponsor_id',$parent->own_id)->get();
+        $totalBusiness=0;
+        $powerBusiness=0;
+        foreach($directMembers as $member)
+        {
+            $sum=DB::select("select a.ownid,sum((select p.entry_amount from package_requests as pr join packages as p on pr.package=p.id where pr.user_id=b.id )) as business from levelmembers as a join users as b on a.child=b.own_id where a.ownid='$member->own_id' group by a.ownid;");
+            $obj['ownid']=$member->own_id;
+            $obj['parent_id']=$parent->id;
+            $obj['sum']=$sum[0]->business??0;
+
+            if($obj['sum']>$powerBusiness)
+            {
+                $powerBusiness=$obj['sum'];
+            }
+            $totalBusiness+=$obj['sum'];
+        }
+        $otherBusiness=$totalBusiness-$powerBusiness;
+        $buss['total']=$totalBusiness;
+        $buss['power']=$powerBusiness*0.40;
+        $buss['other']=$otherBusiness*0.60;
+        $buss['reward_business']=$buss['power']+$buss['other'];
+        $buss['parent_id']=$parent->id;
+        $buss['parent_own_id']=$parent->own_id;
+        dd($buss);
+        $rewards=Reward::where("business_total",'<=',$buss['reward_business'])->get();
+        dd($rewards);
+        foreach($rewards as $rw)
+        {
+            $check=RewardWinner::where('user_id',$buss['parent_id'])->where('reward_id',$rw->id)->count();
+            if($check==0)
+            {
+                //insert reward
+                $rewardWinner=new RewardWinner();
+                $rewardWinner->user_id=$buss['parent_id'];
+                $rewardWinner->reward_id=$rw->id;
+                $rewardWinner->save();
+
+
+                for($i=1;$i<=$rw->multiplier;$i++)
+                {
+                    if($rw->is_cash==0)
+                    {
+                        $rewardIncome=new RewardIncome();
+                        $rewardIncome->user_id=$buss['parent_id'];
+                        $rewardIncome->refer_id=$rewardWinner->id;
+                        $rewardIncome->amount=0;
+                        $rewardIncome->type='Reward';
+                        $rewardIncome->save();
+                    }
+                    else
+                    {
+                        $amount=$rw->reward/$rw->multiplier;
+                        $rewardIncome=new RewardIncome();
+                        $rewardIncome->user_id=$buss['parent_id'];
+                        $rewardIncome->refer_id=$rewardWinner->id;
+                        $rewardIncome->amount=$amount;
+                        $rewardIncome->type='Reward';
+                        $rewardIncome->save();
+                    }
+                }
+
+            }
+        }
+        dd($businesRes);
+
     }
 
 }

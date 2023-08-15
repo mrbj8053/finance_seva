@@ -14,4 +14,6 @@ class LevelMember extends Model
     {
         return $this->belongsTo(User::class,'child','own_id');
     }
+
+
 }
