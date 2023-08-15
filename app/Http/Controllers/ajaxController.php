@@ -49,7 +49,7 @@ class ajaxController extends Controller
         else
         $nextClosing=date('t');
 
-        dd($day);
+
         if($day!=$nextClosing)
         {
             return;
