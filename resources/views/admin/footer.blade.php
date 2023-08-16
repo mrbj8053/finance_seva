@@ -46,6 +46,30 @@
 <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
 {{-- datatable js end --}}
 
+
+{{-- modal for image enlage start --}}
+<div class="modal fade" id="viewImage" tabindex="-1" role="dialog" aria-labelledby="viewImageLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="viewImageLabel">Preview</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="" id="previewImage" style="width:100%" alt="">
+          <i onclick="rotatePreviewImage('left')" class="fa fa-arrow-circle-left rotatePreviewImage">&nbsp; Left</i>
+          <i onclick="rotatePreviewImage('right')" class="fa fa-arrow-circle-right rotatePreviewImage">&nbsp; Right</i>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{{-- modal for image enlage end --}}
+
 <script>
     $(document).ready(function() {
     $('table').DataTable( {
@@ -69,7 +93,35 @@
 
 
 } );
+function previewImage(url)
+{
+    $('#previewImage').attr('src',url);
+    $('#viewImage').modal('show');
+}
 
+function rotatePreviewImage(type)
+{
+    if(type=='right')
+    rotate("#previewImage",90)
+    else
+    rotate("#previewImage",-90)
+
+}
+function rotate(whom,angle)
+{
+    var rv=$(whom).prop("data-rot")?$(whom).prop("data-rot"):0;
+    rv=rv+1;
+    n=rv*angle;
+    if(Math.abs(n)>=360){n=0;rv=0;}
+
+    $(whom).css({
+        "-webkit-transform": "rotate(" + n + "deg)",
+        "-moz-transform": "rotate(" + n + "deg)",
+        "transform": "rotate(" + n + "deg)"
+     });
+
+     $(whom).prop("data-rot",rv);
+}
 
     //to show confirmation message
 function confirmAction(msg,url)

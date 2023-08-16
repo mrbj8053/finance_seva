@@ -30,6 +30,14 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
   {{-- datatable css end --}}
   <style>
+    .rotatePreviewImage{
+    font-size: small;
+    margin: 5px;
+    background: #5b5be0;
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
+}
     .blink_me {
   animation: blinker 2s linear infinite;
 }

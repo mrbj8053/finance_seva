@@ -86,11 +86,11 @@
                                                 <td>{{$item->ifsc_code}}</td>
                                                 <td>{{$item->account_number}}</td>
                                                 <td>{{$item->pan_number}}</td>
-                                                <td><a target="_blank" href="{{asset($item->adhar_front_image)}}" style="width:100%" alt="">View</a></td>
-                                                <td><a target="_blank" href="{{asset($item->adhar_back_image)}}" style="width:100%" alt="">View</a></td>
-                                                <td><a target="_blank" href="{{asset($item->pan_image)}}" style="width:100%" alt="">View</a></td>
-                                                <td><a target="_blank" href="{{asset($item->passbook_image)}}" style="width:100%" alt="">View</a></td>
-                                                <td><a target="_blank" href="{{asset($item->cancel_cheque_image)}}" style="width:100%" alt="">View</a></td>
+                                                <td><a href="javascript:void(0);" onClick="previewImage('{{asset($item->adhar_front_image)}}')" style="width:100%" alt="">View</a></td>
+                                                <td><a href="javascript:void(0);" onClick="previewImage('{{asset($item->adhar_back_image)}}')" style="width:100%" alt="">View</a></td>
+                                                <td><a href="javascript:void(0);" onClick="previewImage('{{asset($item->pan_image)}}')" style="width:100%" alt="">View</a></td>
+                                                <td><a href="javascript:void(0);" onClick="previewImage('{{asset($item->passbook_image)}}')" style="width:100%" alt="">View</a></td>
+                                                <td><a href="javascript:void(0);" onClick="previewImage('{{asset($item->cancel_cheque_image)}}')" style="width:100%" alt="">View</a></td>
                                                 <td>{{\Carbon\Carbon::parse($item->created_at)->format('d-m-Y')}}</td>
 
 
