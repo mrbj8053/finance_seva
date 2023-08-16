@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reward;
+use App\Models\RewardWinner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RewardController extends Controller
 {
@@ -16,5 +18,10 @@ class RewardController extends Controller
     {
         $reward=Reward::with('rewardAchievers')->find($reward_id);
         return view('admin.rewardAchievers',compact('reward'));
+    }
+    function rewardsAchieved()
+    {
+        $rewards=RewardWinner::with('rewardDetail')->with('user')->where('user_id',Auth::user()->id)->get();
+        return view('admin.myRewards',compact('rewards'));
     }
 }

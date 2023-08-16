@@ -54,6 +54,7 @@ Route::get('/closings/details/{date}', [ClosingsController::class, 'showClosings
 
 Route::get('/rewards', [RewardController::class, 'showRewards'])->name('showRewards');
 Route::get('/rewards/{reward_id}', [RewardController::class, 'rewardAchievers'])->name('rewardAchievers');
+Route::get('/my/rewards', [RewardController::class, 'rewardsAchieved'])->name('rewardsAchieved');
 
 
 

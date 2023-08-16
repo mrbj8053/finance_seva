@@ -107,6 +107,14 @@
                 @endif
                 @if (Auth::user()->role=='user')
                 <li class="nav-item">
+                    <a href="{{ route('rewardsAchieved') }}" class="nav-link">
+                        <i class="nav-icon fa fa-inr"></i>
+                        <p>
+                            Rewards Achieved
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('packageRequest.index') }}" class="nav-link">
                         <i class="nav-icon fa fa-inr"></i>
                         <p>
