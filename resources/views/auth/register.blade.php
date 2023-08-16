@@ -7,6 +7,8 @@
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
+        <img src="{{asset('logo.png')}}" style="width:150px" alt="">
+        <br>
       <a href="{{route('login')}}" class="h1"><b>{{env('APP_NAME')}}</b></a>
     </div>
     <div class="card-body">
