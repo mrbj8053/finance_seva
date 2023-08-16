@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Auth;
 class LevelMembersController extends Controller
 {
     //
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function showLevelmemebrs(Request $request)
     {
         if (isset($request->ownid))

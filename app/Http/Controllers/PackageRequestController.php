@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Crypt;
 
 class PackageRequestController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function index()
     {
         $packages=Package::where('is_disabled',0)->get();

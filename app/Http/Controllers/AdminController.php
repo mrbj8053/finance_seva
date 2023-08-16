@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     function showAllUsers($type="Active")
     {
         if($type=='Active')

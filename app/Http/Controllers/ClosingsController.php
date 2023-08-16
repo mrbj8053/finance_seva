@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class ClosingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     function showClosings()
     {
         $closings=DB::select('select sum(direct) as direct,sum(level) as level,sum(roi) as roi,sum(reward) as reward,sum(royalty) as royalty,cast(created_at as Date) as created_at from closings group by created_at');

@@ -44,8 +44,9 @@ Route::get('/checkRewards', [ajaxController::class, 'checkRewards'])->name('chec
 
 Route::post('/checkSponsor', [ajaxController::class, 'checkSponsor'])->name('checkSponsor');
 
+Route::middleware(['auth'])->group(function () {
+
 Route::post('/pay/closing',[ClosingsController::class,'payClosing'])->name('payClosing');
-// Route::get('/testDirects', [ajaxController::class, 'testDirects'])->name('registerSuccess');
 
 
 
@@ -95,5 +96,5 @@ Route::get('profile/{userid?}',[HomeController::class,'showProfile'])->name('pro
 Route::post('profile/{userid?}',[HomeController::class,'updateProfile'])->name('profile.update');
 Route::post('profile/password/{userid?}',[HomeController::class,'changePassword'])->name('profile.password.chage');
 
-
+});
 
