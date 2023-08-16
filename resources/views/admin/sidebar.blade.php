@@ -96,6 +96,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('showRewards') }}" class="nav-link">
+                        <i class="nav-icon fa fa-inr"></i>
+                        <p>
+                            Rewards
+                        </p>
+                    </a>
+                </li>
                 @endif
                 @if (Auth::user()->role=='user')
                 <li class="nav-item">

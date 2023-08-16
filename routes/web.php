@@ -12,6 +12,7 @@ use App\Http\Controllers\KycController;
 use App\Http\Controllers\LevelMembersController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageRequestController;
+use App\Http\Controllers\RewardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WithdrawController;
 use App\Models\Product;
@@ -50,6 +51,9 @@ Route::post('/pay/closing',[ClosingsController::class,'payClosing'])->name('payC
 
 Route::get('/closings', [ClosingsController::class, 'showClosings'])->name('closings');
 Route::get('/closings/details/{date}', [ClosingsController::class, 'showClosingsDetail'])->name('closingsDetail');
+
+Route::get('/rewards', [RewardController::class, 'showRewards'])->name('showRewards');
+Route::get('/rewards/{reward_id}', [RewardController::class, 'rewardAchievers'])->name('rewardAchievers');
 
 
 

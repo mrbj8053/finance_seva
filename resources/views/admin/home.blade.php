@@ -25,6 +25,14 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
+
+        @if(Auth::user()->role!='admin')
+            @if(!empty($rank))
+            <div class="blink_me" style="background:blue;color:white;border-radius:8px;padding:10px;margin-bottom:10px">
+                Congratulation {{Auth::user()->name}}, You have achieved the rank of <strong>{{$rank->rewardDetail->rewardRank->name}} and recieve 0.25 extra every month</strong>
+            </div>
+                @endif
+        @endif
         <div class="row">
             @if(Auth::user()->role=='admin')
           <div class="col-lg-3 col-6">

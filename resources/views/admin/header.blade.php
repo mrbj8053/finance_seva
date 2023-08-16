@@ -30,6 +30,15 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
   {{-- datatable css end --}}
   <style>
+    .blink_me {
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
     .navbar-white {
     color: #ffffff;
     /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(18,18,218,1) 0%, rgba(0,212,255,1) 100%); */

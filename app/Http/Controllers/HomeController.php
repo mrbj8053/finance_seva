@@ -7,6 +7,8 @@ use App\Models\Income;
 use App\Models\income_misses;
 use App\Models\Kyc;
 use App\Models\PackageRequest;
+use App\Models\RewardIncome;
+use App\Models\RewardWinner;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -126,6 +128,7 @@ class HomeController extends Controller
         $arr['roiIncome']=Income::where('income_type','ROI')->sum('amount');
         $arr['rewardIncome']=Income::where('income_type','Reward')->sum('amount');
         $arr['totalIncome']=$arr['directIncome']+$arr['roiIncome']+$arr['levelIncome']+$arr['royaltyIncome']+$arr['rewardIncome'];
+        $arr['rank']=RewardWinner::with('rewardDetail')->where('user_id',2)->orderBy('reward_id','desc')->first();
         $arr['closingApplied']=(Income::where('income_type','ROI')->get()->groupBy(function ($item) {
             return Carbon::parse($item->created_at)->format('Y-m-d');
     }))->count();
