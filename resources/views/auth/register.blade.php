@@ -15,18 +15,20 @@
       <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="input-group mb-3">
-            <input id="sponsorId" type="text" maxlength="10" minlength="10" class="form-control @error('sponsarId') is-invalid @enderror" name="sponsorId" value="{{ isset($_GET['sponsor'])?$_GET['sponsor']:old('sponsorId') }}" required autocomplete="name" autofocus placeholder="Enter Sponsor ID">
+            <input id="sponsorId" type="text" onkeyup="checkSponsor(this.value)" maxlength="10" minlength="10" class="form-control @error('sponsarId') is-invalid @enderror" name="sponsorId" value="{{ isset($_GET['sponsor'])?$_GET['sponsor']:old('sponsorId') }}" required autocomplete="name" autofocus placeholder="Enter Sponsor ID">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
               </div>
             </div>
+
             @error('sponsorId')
             <span class="invalid-feedback" style="display:block" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
           </div>
+          <p id="spname" style="font-weight: 700;font-size:smaller"></p>
           {{-- <div class="input-group mb-3">
            <select name="position" id="position" class="form-control">
             <option value="Right" selected>Right</option>

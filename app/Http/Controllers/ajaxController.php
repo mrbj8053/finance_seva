@@ -25,6 +25,21 @@ class ajaxController extends Controller
         $arr['user'] = User::where('own_id', $ownid)->first();
         return view('registerSuccess', $arr);
     }
+    function checkSponsor(Request $request)
+    {
+        $user=User::where("own_id",$request->own_id)->first();
+        if($user)
+        {
+            $obj['status']=1;
+            $obj['msg']="$user->name";
+        }
+        else
+        {
+            $obj['status']=0;
+            $obj['msg']='Invalud Sponsor Id';
+        }
+        return $obj;
+    }
     function setDirectBusinessAll()
     {
         $allUser=User::all();

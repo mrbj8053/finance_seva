@@ -38,8 +38,10 @@ Auth::routes();
 
 Route::get('/register/success/{own_id}', [RegisterController::class, 'registerSuccess'])->name('registerSuccess');
 Route::get('/set/direct/business', [ajaxController::class, 'setDirectBusinessAll'])->name('setDirectBusiness');
-Route::get('/sendRoi', [ajaxController::class, 'sendRoiAndLevel'])->name('registerSuccess');
+Route::get('/sendRoi', [ajaxController::class, 'sendRoiAndLevel'])->name('sendRoi');
 Route::get('/checkRewards', [ajaxController::class, 'checkRewards'])->name('checkRewards');
+
+Route::post('/checkSponsor', [ajaxController::class, 'checkSponsor'])->name('checkSponsor');
 
 Route::post('/pay/closing',[ClosingsController::class,'payClosing'])->name('payClosing');
 // Route::get('/testDirects', [ajaxController::class, 'testDirects'])->name('registerSuccess');

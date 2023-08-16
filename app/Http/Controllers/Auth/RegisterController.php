@@ -50,7 +50,7 @@ class RegisterController extends Controller
     public function registerSuccess(Request $request)
     {
         if(isset($request->own_id))
-            $user=User::select('name','email','own_id','sponsor_id')->where('own_id',$request->own_id)->first();
+            $user=User::select('name','email','own_id','sponsor_id','password_crypt')->where('own_id',$request->own_id)->first();
         else
         return redirect()->login();
 

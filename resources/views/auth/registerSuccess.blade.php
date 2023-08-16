@@ -31,7 +31,7 @@ table {
 
         <div class="text-left">
         @if(!empty($user))
-        <h5>Hello <strong>{{$user->name}}</strong>, welcome to {{env('APP_NAME')}} , your acount was successfully created,  use below details to login in your id .</h5>
+        <h5>Hello <strong>{{$user->name}}</strong>, welcome to {{env('APP_NAME')}} , your account was successfully created,  use below details to login in your id .</h5>
         <table>
             <tr>
                 <td>User ID </td>
@@ -44,6 +44,10 @@ table {
             <tr>
                 <td>Sponsor ID</td>
                 <td>{{$user->sponsor_id}}</td>
+            </tr>
+            <tr>
+                <td>Password </td>
+                <td>{{\Crypt::decrypt($user->password_crypt)    }}</td>
             </tr>
         </table>
         @endif
