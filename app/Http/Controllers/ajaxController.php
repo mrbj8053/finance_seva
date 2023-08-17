@@ -296,18 +296,22 @@ class ajaxController extends Controller
         }
         $otherBusiness=$totalBusiness-$powerBusiness;
         $powerBusinessSave=$powerBusiness;
-        $powerBusiness=$powerBusiness*0.40;
+        $powerBusiness=$powerBusiness;
         $otherBusinessSave=$otherBusiness;
-        $otherBusiness=$otherBusiness*0.60;
+        $otherBusiness=$otherBusiness;
         $buss['total']=$totalBusiness;
         $buss['power']=$powerBusiness;
         $buss['other']=$otherBusiness;
         $buss['reward_business']=$buss['power']+$buss['other'];
         $buss['parent_id']=$parent->id;
         $buss['parent_own_id']=$parent->own_id;
-        $rewards=Reward::where("business_total",'<=',$buss['reward_business'])->get();
+        $rewards=Reward::get();
         foreach($rewards as $rw)
         {
+            if($powerBusiness>=$rw->reward_40 && $otherBusiness>=$rw->reward_60)
+            {
+
+
             $check=RewardWinner::where('user_id',$buss['parent_id'])->where('reward_id',$rw->id)->count();
             if($check==0)
             {
@@ -316,7 +320,7 @@ class ajaxController extends Controller
                 $rewardWinner->user_id=$buss['parent_id'];
                 $rewardWinner->reward_id=$rw->id;
                 $remark="Reward win by $parent->name($parent->own_id), total business is ".$buss['total'].", power
-                 business is ".$powerBusinessSave." and picked is $powerBusiness, other business is ".$otherBusinessSave." and picked $otherBusiness, Reward business is ".$buss['reward_business'];
+                 business is ".$powerBusinessSave." and picked is ".$rw->reward_40.", other business is ".$otherBusinessSave." and picked ".$rw->reward_60.", Reward business is ".$buss['reward_business'];
                 $rewardWinner->remarks=$remark;
                  $rewardWinner->save();
 
@@ -345,6 +349,7 @@ class ajaxController extends Controller
                 }
 
             }
+        }
         }
     }
         dd($businesRes);
