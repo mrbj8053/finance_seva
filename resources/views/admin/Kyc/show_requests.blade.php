@@ -63,8 +63,8 @@
 
                                                 <td>
                                                     @if ($item->status==0)
-                                                    <a onclick="confirmAction('Do you want to Approve the package ?','{{route('kycRequest.update',[Crypt::encrypt($item->id),1])}}')" href="javascript:void(0);" class="btn bg-success">Approve</a>
-                                                    <a onclick="confirmAction('Do you want to Reject the package ?','{{route('kycRequest.update',[Crypt::encrypt($item->id),2])}}')" href="javascript:void(0);" class="btn bg-danger">Reject</a>
+                                                    <a onclick="confirmAction('Do you want to Approve the KYC ?','{{route('kycRequest.update',[Crypt::encrypt($item->id),1])}}')" href="javascript:void(0);" class="btn bg-success">Approve</a>
+                                                    <a onclick="confirmAction('Do you want to Reject the KYC ?','{{route('kycRequest.update',[Crypt::encrypt($item->id),2])}}')" href="javascript:void(0);" class="btn bg-danger">Reject</a>
                                                     @endif
                                                 </td>
                                                 @endif
