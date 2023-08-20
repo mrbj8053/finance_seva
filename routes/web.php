@@ -43,6 +43,7 @@ Route::get('/sendRoi', [ajaxController::class, 'sendRoiAndLevel'])->name('sendRo
 Route::get('/checkRewards', [ajaxController::class, 'checkRewards'])->name('checkRewards');
 
 Route::post('/checkSponsor', [ajaxController::class, 'checkSponsor'])->name('checkSponsor');
+Route::get('/repair', [ajaxController::class, 'repair'])->name('checkSponsor');
 
 Route::middleware(['auth'])->group(function () {
 

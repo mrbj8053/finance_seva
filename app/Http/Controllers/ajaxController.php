@@ -19,6 +19,20 @@ use Illuminate\Support\Facades\DB;
 class ajaxController extends Controller
 {
 
+    function repair()
+    {
+        $created_at='2023-08-15';
+        $all=DB::select("select '$created_at' as created_at,'$created_at' as updated_at,user_id,
+        (select ifnull(sum(amount),0) from incomes where income_type='Direct' and is_old=0 and user_id=i.user_id) as Direct,
+        (select ifnull(sum(amount),0) from incomes where income_type='Level' and is_old=0 and user_id=i.user_id) as Level,
+        (select ifnull(sum(amount),0) from incomes where income_type='Royalty' and is_old=0 and user_id=i.user_id) as Royalty,
+        (select ifnull(sum(amount),0) from incomes where income_type='ROI' and is_old=0 and user_id=i.user_id) as ROI,
+        (select ifnull(sum(amount),0) from incomes where income_type='Reward' and is_old=0 and user_id=i.user_id) as Reward from incomes as i where is_old=0 GROUP by user_id;");
+
+
+
+
+    }
     function registerSuccess($ownid)
     {
 
@@ -178,25 +192,43 @@ class ajaxController extends Controller
             }
             }
         }
+        $rows_inserted = DB::table('closings')
+        ->insertUsing(['created_at','updated_at','user_id',
+        'direct', 'level','royalty','roi','reward'],"select '$created_at' as created_at,'$created_at' as updated_at,user_id,
+        (select ifnull(sum(amount),0) from incomes where income_type='Direct' and is_old=0 and user_id=i.user_id) as Direct,
+        (select ifnull(sum(amount),0) from incomes where income_type='Level' and is_old=0 and user_id=i.user_id) as Level,
+        (select ifnull(sum(amount),0) from incomes where income_type='Royalty' and is_old=0 and user_id=i.user_id) as Royalty,
+        (select ifnull(sum(amount),0) from incomes where income_type='ROI' and is_old=0 and user_id=i.user_id) as ROI,
+        (select ifnull(sum(amount),0) from incomes where income_type='Reward' and is_old=0 and user_id=i.user_id) as Reward from incomes as i where is_old=0 GROUP by user_id;");
+        file_put_contents('./ClosingLog/log_'.date("j.n.Y").'.log',"\n-----Closing Row Inserted----\n".json_encode($rows_inserted)."\n-----Closing Row Inserted End----\n", FILE_APPEND);
 
-        $all=DB::select("select user_id,(select sum(amount) from incomes where income_type='Direct' and is_old=0 and user_id=i.user_id) as Direct,
-        (select sum(amount) from incomes where income_type='Level' and is_old=0 and user_id=i.user_id) as Level,
-        (select sum(amount) from incomes where income_type='Royalty' and is_old=0 and user_id=i.user_id) as Royalty,
-        (select sum(amount) from incomes where income_type='ROI' and is_old=0 and user_id=i.user_id) as ROI,
-        (select sum(amount) from incomes where income_type='Reward' and is_old=0 and user_id=i.user_id) as Reward from incomes as i where is_old=0 GROUP by user_id;");
-        foreach($all as $inc)
-        {
-            $closing=new Closings();
-            $closing->created_at=$created_at;
-            $closing->updated_at=$created_at;
-            $closing->direct=$inc->Direct??0;
-            $closing->level=$inc->Level??0;
-            $closing->royalty=$inc->Royalty??0;
-            $closing->roi=$inc->ROI??0;
-            $closing->reward=$inc->Reward??0;
-            $closing->user_id=$inc->user_id;
-            $closing->save();
-        }
+
+
+    #-----Old Code
+        // $all=DB::select("select user_id,(select sum(amount) from incomes where income_type='Direct' and is_old=0 and user_id=i.user_id) as Direct,
+        // (select sum(amount) from incomes where income_type='Level' and is_old=0 and user_id=i.user_id) as Level,
+        // (select sum(amount) from incomes where income_type='Royalty' and is_old=0 and user_id=i.user_id) as Royalty,
+        // (select sum(amount) from incomes where income_type='ROI' and is_old=0 and user_id=i.user_id) as ROI,
+        // (select sum(amount) from incomes where income_type='Reward' and is_old=0 and user_id=i.user_id) as Reward from incomes as i where is_old=0 GROUP by user_id;");
+        // foreach($all as $inc)
+        // {
+        //     $closing=new Closings();
+        //     $closing->created_at=$created_at;
+        //     $closing->updated_at=$created_at;
+        //     $closing->direct=$inc->Direct??0;
+        //     $closing->level=$inc->Level??0;
+        //     $closing->royalty=$inc->Royalty??0;
+        //     $closing->roi=$inc->ROI??0;
+        //     $closing->reward=$inc->Reward??0;
+        //     $closing->user_id=$inc->user_id;
+        //     $closing->save();
+        //     file_put_contents('./ClosingLog/log_'.date("j.n.Y").'.log',"\n-----Closing Log Start----\n".json_encode($closing)."\n-----Closing Log End----\n", FILE_APPEND);
+
+
+        // }
+        // file_put_contents('./ClosingLog/log_'.date("j.n.Y").'.log',"\n-----Closing All Log Start----\n".json_encode($all)."\n-----Closing All Log End----\n", FILE_APPEND);
+
+
         Income::query()->update(['is_old'=>true]);
     }
     function isEligibleForLevel($directBusiness,$level)
