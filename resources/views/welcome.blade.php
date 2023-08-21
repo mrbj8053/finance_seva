@@ -12,23 +12,23 @@
         <title>{{env('APP_NAME')}}</title>
 
         <!-- Icon css link -->
-        <link href="{{asset('frontend')}}/css/font-awesome.min.css" rel="stylesheet">
-        <link href="{{asset('frontend')}}/vendors/flat-icon/flaticon.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/vendors/flat-icon/flaticon.css" rel="stylesheet">
         <!-- Bootstrap -->
-        <link href="{{asset('frontend')}}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Rev slider css -->
-        <link href="{{asset('frontend')}}/vendors/revolution/css/settings.css" rel="stylesheet">
-        <link href="{{asset('frontend')}}/vendors/revolution/css/layers.css" rel="stylesheet">
-        <link href="{{asset('frontend')}}/vendors/revolution/css/navigation.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/vendors/revolution/css/settings.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/vendors/revolution/css/layers.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/vendors/revolution/css/navigation.css" rel="stylesheet">
 
         <!-- Extra plugin css -->
-        <link href="{{asset('frontend')}}/vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
-        <link href="{{asset('frontend')}}/vendors/animate-css/animate.css" rel="stylesheet">
-        <link href="{{asset('frontend')}}/vendors/nice-select/nice-select.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/vendors/animate-css/animate.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/vendors/nice-select/nice-select.css" rel="stylesheet">
 
-        <link href="{{asset('frontend')}}/css/style.css" rel="stylesheet">
-        <link href="{{asset('frontend')}}/css/responsive.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/css/style.css" rel="stylesheet">
+        <link href="{{asset('frontend_new')}}/css/responsive.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +46,7 @@
                 <div class="circle">
                     <div class="red">
                         <div class="rotator">
-                            <img src="{{asset('frontend')}}/img/curve.png" alt="">
+                            <img src="{{asset('frontend_new')}}/img/curve.png" alt="">
                         </div>
                         <a href="#" class="logo"><img src="{{asset('logo.png')}}" style="width: 100%" alt=""></a>
                     </div>
@@ -127,7 +127,7 @@
                 <ul>
                     <li data-index="rs-1587" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="img/home-slider/slider-1.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="{{asset('frontend')}}/img/home-slider/slider-1.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+                    <img src="{{asset('frontend_new')}}/img/home-slider/slider-1.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
 
                         <!-- LAYER NR. 1 -->
                         <div class="slider_text_box">
@@ -181,7 +181,7 @@
                     </li>
                     <li data-index="rs-1588" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="img/home-slider/slider-2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="{{asset('frontend')}}/img/home-slider/slider-2.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+                    <img src="{{asset('frontend_new')}}/img/home-slider/slider-2.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
                         <!-- LAYERS -->
 
@@ -340,7 +340,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
-                        <div class="bitcoin_about_img" data-parallax="scroll" data-image-src="{{asset('frontend')}}/img/bitcoin-about.jpg">
+                        <div class="bitcoin_about_img" data-parallax="scroll" data-image-src="{{asset('frontend_new')}}/img/bitcoin-about.jpg">
 
                         </div>
                     </div>
@@ -545,7 +545,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="trending_img">
-                            <img class="img-fluid" src="{{asset('frontend')}}/img/bitcoin-chart.jpg" alt="">
+                            <img class="img-fluid" src="{{asset('frontend_new')}}/img/bitcoin-chart.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -629,19 +629,19 @@
             <div class="container">
                 <div class="clients_slider owl-carousel">
                     <div class="item">
-                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-1.png" alt="">
+                        <img src="{{asset('frontend_new')}}/img/studio-clients/s-clients-1.png" alt="">
                     </div>
                     <div class="item">
-                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-2.png" alt="">
+                        <img src="{{asset('frontend_new')}}/img/studio-clients/s-clients-2.png" alt="">
                     </div>
                     <div class="item">
-                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-3.png" alt="">
+                        <img src="{{asset('frontend_new')}}/img/studio-clients/s-clients-3.png" alt="">
                     </div>
                     <div class="item">
-                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-4.png" alt="">
+                        <img src="{{asset('frontend_new')}}/img/studio-clients/s-clients-4.png" alt="">
                     </div>
                     <div class="item">
-                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-5.png" alt="">
+                        <img src="{{asset('frontend_new')}}/img/studio-clients/s-clients-5.png" alt="">
                     </div>
                 </div>
             </div>
@@ -707,33 +707,33 @@
 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="{{asset('frontend')}}/js/jquery-3.2.1.min.js"></script>
+        <script src="{{asset('frontend_new')}}/js/jquery-3.2.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="{{asset('frontend')}}/js/popper.min.js"></script>
-        <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>
+        <script src="{{asset('frontend_new')}}/js/popper.min.js"></script>
+        <script src="{{asset('frontend_new')}}/js/bootstrap.min.js"></script>
         <!-- Rev slider js -->
-        <script src="{{asset('frontend')}}/vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
         <!-- Extra plugin css -->
-        <script src="{{asset('frontend')}}/vendors/counterup/jquery.waypoints.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/counterup/jquery.counterup.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/animate-css/wow.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/parallax/parallax.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/counterup/jquery.waypoints.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/counterup/jquery.counterup.min.js"></script>
-        <script src="{{asset('frontend')}}/vendors/counterup/apear.js"></script>
-        <script src="{{asset('frontend')}}/vendors/counterup/countto.js"></script>
-        <script src="{{asset('frontend')}}/vendors/nice-select/jquery.nice-select.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/counterup/jquery.waypoints.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/counterup/jquery.counterup.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/animate-css/wow.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/parallax/parallax.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/counterup/jquery.waypoints.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/counterup/jquery.counterup.min.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/counterup/apear.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/counterup/countto.js"></script>
+        <script src="{{asset('frontend_new')}}/vendors/nice-select/jquery.nice-select.min.js"></script>
 
 
-        <script src="{{asset('frontend')}}/js/theme.js"></script>
+        <script src="{{asset('frontend_new')}}/js/theme.js"></script>
     </body>
 
 <!-- Mirrored from wethemez.com/demo/crypto/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Aug 2023 02:47:38 GMT -->
