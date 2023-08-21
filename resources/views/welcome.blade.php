@@ -1,835 +1,740 @@
 <!DOCTYPE html>
-<html lang="zxx">
-   <head>
-      <title>{{env('APP_NAME')}}</title>
-      <!-- Css -->
-      <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/owl.carousel.min.css">
-      <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/style.css">
-      <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/responsive.css">
-      <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/fonts/fontawesome/css/all.min.css">
-      <!-- Css -->
-      <!-- Favicon -->
-      <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="{{asset('logo.png')}}" sizes="72x72">
-      <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="{{asset('logo.png')}}" sizes="114x114">
-      <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="{{asset('logo.png')}}" sizes="144x144">
-      <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="{{asset('logo.png')}}">
-      <!-- Favicon -->
-   </head>
-   <body>
-      <!-- Header -->
-      <header class="header-main fixed-header">
-         {{-- <div class="header-top">
-            <div class="container">
-               <div class="row">
-                  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-                     <div class="left-topbar">
-                        <ul>
-                           <li><i class="fas fa-phone-alt"></i> 888 666 000</li>
-                           <li><i class="fas fa-envelope-open"></i>  info@yourstore.com</li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                     <div class="right-topbar">
-                        <ul>
-                           <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                           <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                           <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                           <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div> --}}
-         <div class="header-bottom">
-            <div class="header-right clearfix">
-               <div class="header-nav-menu">
-                  <div class="container">
-                     <div class="main-headers">
-                        <div class="logo-header">
-                           <a class="logo-link" href="index.html">
-                              <div class="logo-box">
-                                 <img src="{{asset('frontend')}}/img/logo.png" style="width: 58px;" alt="logo">
-                              </div>
-                           </a>
-                        </div>
-                        <div class="header-navbar-menu clearfix">
-                           <nav class="navbar navbar-expand-lg navbar-light">
-                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                              <i class="fas fa-bars"></i>
-                              </button>
-                              <div class="collapse navbar-collapse header-links" id="navbarSupportedContent">
-                                 <ul class="navbar-nav mr-auto nav-list">
-                                    <li class="nav-item active">
-                                       <a class="nav-link" href="index.html">Home</a>
-                                    </li>
-                                    <li class="nav-item ">
-                                       <a class="nav-link" href="#incomes">Incomes</a>
+<html lang="en">
 
-                                    </li>
-                                    <li class="nav-item ">
-                                       <a class="nav-link" href="#downloadPlan">Download Plan</a>
-                                    </li>
-                                    <li class="nav-item ">
-                                       <a class="nav-link" href="#packages">Packages</a>
-                                    </li>
-                                    {{-- <li class="nav-item ">
-                                       <a class="nav-link" href="#rewards">Rewards</a>
-                                    </li> --}}
-                                    <li class="nav-item ">
-                                       <a class="nav-link" href="{{route('login')}}">Login</a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="{{route('register')}}">Register</a>
-                                     </li>
-                                 </ul>
-                              </div>
-                           </nav>
+<!-- Mirrored from wethemez.com/demo/crypto/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Aug 2023 02:46:05 GMT -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </header>
-      <!-- Header -->
-      <!-- Slider -->
-      <section class="slider-aera">
-         <div class="container">
-            <div class="slider-main-box">
-               <div class="slider-inner">
-                  <div class="contain-box">
-                     <h1 class="theme-title">New Level <span class="text-link">Financial</span> Markets For trade <span class="text-link">Forex</span></h1>
-                     <p class="theme-description">Trade Forex with a single account</p>
-                     <div class="btn-box">
-                        <a href="{{route('register')}}" style="color:white" class="theme-btn">Join Now</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="slider-bottom">
-                  <div class="row">
-                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                        <div class="inner-main">
-                           <div class="img-box">
-                              <img src="{{asset('frontend')}}/img/enhance-tools.png" alt="slider-img">
-                           </div>
-                           <div class="content-box">
-                              <h3 class="theme-title">Enhanced Tools</h3>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                        <div class="inner-main">
-                           <div class="img-box">
-                              <img src="{{asset('frontend')}}/img/open-book.png" alt="slider-img">
-                           </div>
-                           <div class="content-box">
-                              <h3 class="theme-title">Trading Guides</h3>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                        <div class="inner-main">
-                           <div class="img-box">
-                              <img src="{{asset('frontend')}}/img/flash-execution.png" alt="slider-img">
-                           </div>
-                           <div class="content-box">
-                              <h3 class="theme-title">Fast execution</h3>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                        <div class="inner-main">
-                           <div class="img-box">
-                              <img src="{{asset('frontend')}}/img/no-commission.png" alt="slider-img">
-                           </div>
-                           <div class="content-box">
-                              <h3 class="theme-title">0% Commission</h3>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Slider -->
-      <iframe src="https://fxpricing.com/fx-widget/ticker-tape-widget.php?id=1,2,3,5,14,20&d_mode=compact-name" width="100%" height="85" style="border: unset;"></iframe> <div id="fx-pricing-widget-copyright"> <span>Powered by </span><a href="https://fxpricing.com/" target="_blank">FX Pricing</a> </div> <style type="text/css"> #fx-pricing-widget-copyright{ text-align: center; font-size: 13px; font-family: sans-serif; margin-top: 10px; margin-bottom: 10px; color: #9db2bd; } #fx-pricing-widget-copyright a{ text-decoration: unset; color: #bb3534; font-weight: 600; } </style>
-      <!-- About -->
-      <section class="about-area page-padding-big" style="padding-top: 19px;" id="incomes">
-         <img src="{{asset('frontend')}}/img/blur-left.png" alt="blur-img" class="blur-left">
-         <img src="{{asset('frontend')}}/img/blur-right.png" alt="blur-img" class="blur-right">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                  <div class="left-about">
-                     <img src="{{asset('frontend')}}/img/about-img.jpg" alt="about-img">
-                     <img src="{{asset('frontend')}}/img/image-shape.png" alt="shape" class="shape-top">
-                     <img src="{{asset('frontend')}}/img/image-shape.png" alt="shape" class="shape-bottom">
-                  </div>
-               </div>
-               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                  <div class="right-about">
-                     <div class="page-title mb-4">
-                        <span>Invest and get multiple incomes</span>
-                        <h2 class="theme-title">{{env('APP_NAME')}} Provides you 4 type of investement benefits .</h2>
-                        <p class="theme-description">fulfill your dreams with our effective income packages</p>
-                     </div>
-                     <div class="data-box">
-                        <div class="row">
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="inner-about">
-                                 <div class="img-box">
-                                    <img src="{{asset('frontend')}}/img/calculator.png" alt="cal">
-                                 </div>
-                                 <p class="theme-description">Direct Income</p>
-                              </div>
-                           </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="inner-about">
-                                 <div class="img-box">
-                                    <img src="{{asset('frontend')}}/img/market-analysis.png" alt="cal">
-                                 </div>
-                                 <p class="theme-description">Level Income</p>
-                              </div>
-                           </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="inner-about">
-                                 <div class="img-box">
-                                    <img src="{{asset('frontend')}}/img/market-review.png" alt="cal">
-                                 </div>
-                                 <p class="theme-description">Reward Income</p>
-                              </div>
-                           </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="inner-about">
-                                 <div class="img-box">
-                                    <img src="{{asset('frontend')}}/img/trading.png" alt="cal">
-                                 </div>
-                                 <p class="theme-description">Royalty Income</p>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- About -->
-      <!-- Fast Execution -->
-      <section class="fast-execution-area page-padding" id="downloadPlan">
-         <img src="{{asset('frontend')}}/img/graph-bg.png" alt="graph-img" class="graph-img">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                  <div class="right-about">
-                     <div class="page-title mb-4">
-                        <span>download our plan</span>
-                        <h2 class="theme-title">Need more details? </h2>
-                        <p class="theme-description">Download our plan and know everything you want to know.</p>
-                     </div>
-                     <div class="data-box">
-                        <div class="equity-list">
-                            <button class="btn btn-primary">Download Plan</button>
-                           {{-- <ul>
-                              <li><i class="fas fa-chevron-right"></i>Negative balance protection</li>
-                              <li><i class="fas fa-chevron-right"></i>Segregated and supervised client funds</li>
-                              <li><i class="fas fa-chevron-right"></i>Instant deposit & fast withdrawal</li>
-                           </ul> --}}
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                  <div class="right-execution">
-                     <div class="table-responsive">
-                        <iframe src="https://fxpricing.com/fx-widget/market-currency-rates-widget.php?id=1,2,3,5,14,20" width="100%" height="290" style="border: 1px solid #eee;"></iframe> <div id="fx-pricing-widget-copyright"> <span>Powered by </span><a href="https://fxpricing.com/" target="_blank">FX Pricing</a> </div> <style type="text/css"> #fx-pricing-widget-copyright{ text-align: center; font-size: 13px; font-family: sans-serif; margin-top: 10px; margin-bottom: 10px; color: #9db2bd; } #fx-pricing-widget-copyright a{ text-decoration: unset; color: #bb3534; font-weight: 600; } </style>
-                        <table class="d-none table">
-                           <tbody>
-                              <tr>
-                                 <td class="coin-box">
-                                    <img src="{{asset('frontend')}}/img/crypto-exchange1.png" alt="coin">
-                                    <div class="coin-name">EURUSD<span>Euro / U.S. Dollar</span></div>
-                                 </td>
-                                 <td>1.04530</td>
-                                 <td class="value-box"><span class="text-success">+0.22%</span><span class="text-success">+0.00225  </span></td>
-                              </tr>
-                              <tr>
-                                 <td class="coin-box">
-                                    <img src="{{asset('frontend')}}/img/crypto-exchange2.png" alt="coin">
-                                    <div class="coin-name">GBPUSD<span>British Pound / U.S. Dollar</span></div>
-                                 </td>
-                                 <td>1.04530</td>
-                                 <td class="value-box"><span class="text-success">+0.22%</span><span class="text-success">+0.00225  </span></td>
-                              </tr>
-                              <tr>
-                                 <td class="coin-box">
-                                    <img src="{{asset('frontend')}}/img/crypto-exchange1.png" alt="coin">
-                                    <div class="coin-name">USDJPY<span>U.S. Dollar / Japanese Yen</span></div>
-                                 </td>
-                                 <td>1.04530</td>
-                                 <td class="value-box"><span class="text-danger">−0.22%</span><span class="text-danger">−0.00212</span></td>
-                              </tr>
-                              <tr>
-                                 <td class="coin-box">
-                                    <img src="{{asset('frontend')}}/img/crypto-exchange2.png" alt="coin">
-                                    <div class="coin-name">USDCHF<span>U.S. Dollar / Swiss Franc</span></div>
-                                 </td>
-                                 <td>1.04530</td>
-                                 <td class="value-box"><span class="text-success">+0.22%</span><span class="text-success">+0.00225  </span></td>
-                              </tr>
-                              <tr>
-                                 <td class="coin-box">
-                                    <img src="{{asset('frontend')}}/img/crypto-exchange2.png" alt="coin">
-                                    <div class="coin-name">AUDUSD<span>Australian Dollar / U.S. Dollar</span></div>
-                                 </td>
-                                 <td>1.04530</td>
-                                 <td class="value-box"><span class="text-danger">−0.13%</span><span class="text-danger">−0.00161</span></td>
-                              </tr>
-                              <tr>
-                                 <td class="coin-box">
-                                    <img src="{{asset('frontend')}}/img/crypto-exchange1.png" alt="coin">
-                                    <div class="coin-name">USDCAD<span>U.S. Dollar / Canadian Dollar</span></div>
-                                 </td>
-                                 <td>1.04530</td>
-                                 <td class="value-box"><span class="text-success">+0.22%</span><span class="text-success">+0.00225  </span></td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Fast Execution -->
-      <!-- Popular Products -->
-      <section class="popular-products page-padding " id="packages">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-12">
-                  <div class="page-title text-center mb-0 page-center">
-                     <span>MULTIPLE PACKAGES</span>
-                     <h2 class="theme-title">Join with package according to your budget</h2>
-                     <p class="theme-description">we have multiple packages with great income for you</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="popular-box">
-                     <h3 class="theme-title">10K</h3>
-                     {{-- <p class="theme-decsription">Income upto </p> --}}
-                     <div class="popular-bottom clearfix">
-                        <div class="inner-box">
-                           <span class="theme-bg-color">10K</span>
-                        </div>
-                        <div class="link-box">
-                           <a href="{{route('register')}}" class="text-link">Join Now<i class="fas fa-angle-double-right ml-2"></i></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="popular-box">
-                     <h3 class="theme-title">50K</h3>
-                     {{-- <p class="theme-decsription">Access 1,200+ listed options across equities, indices, interest rates, energy, metals and more.</p> --}}
-                     <div class="popular-bottom clearfix">
-                        <div class="inner-box">
-                           <span class="theme-bg-color">50K</span>
-                        </div>
-                        <div class="link-box">
-                           <a href="{{route('register')}}" class="text-link">Join Now<i class="fas fa-angle-double-right ml-2"></i></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="popular-box">
-                     <h3 class="theme-title">1 Lakh</h3>
-                     {{-- <p class="theme-decsription">Access 300+ futures covering equity indices, energy, metals, agriculture, rates and more.</p> --}}
-                     <div class="popular-bottom clearfix">
-                        <div class="inner-box">
-                           <span class="theme-bg-color">1L</span>
-                        </div>
-                        <div class="link-box">
-                           <a href="{{route('register')}}" class="text-link">Join Now<i class="fas fa-angle-double-right ml-2"></i></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="popular-box">
-                     <h3 class="theme-title">3 Lakh</h3>
-                     {{-- <p class="theme-decsription">Access 300+ futures covering equity indices, energy, metals, agriculture, rates and more.</p> --}}
-                     <div class="popular-bottom clearfix">
-                        <div class="inner-box">
-                           <span class="theme-bg-color">3L</span>
-                        </div>
-                        <div class="link-box">
-                           <a href="{{route('register')}}" class="text-link">Join Now<i class="fas fa-angle-double-right ml-2"></i></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="popular-box">
-                     <h3 class="theme-title">5 Lakh</h3>
-                     {{-- <p class="theme-decsription">Access 300+ futures covering equity indices, energy, metals, agriculture, rates and more.</p> --}}
-                     <div class="popular-bottom clearfix">
-                        <div class="inner-box">
-                           <span class="theme-bg-color">5L</span>
-                        </div>
-                        <div class="link-box">
-                           <a href="{{route('register')}}" class="text-link">Join Now<i class="fas fa-angle-double-right ml-2"></i></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <h3 style="text-align: center">Live Rates</h3>
-      <!-- Popular Products -->
-      <iframe src="https://fxpricing.com/fx-widget/forex-cross-rates.php?symbol=EUR,USD,JPY,NZD,GBP,CHF,AED,PKR" width="100%" height="370" style="border: 1px solid #eee;"></iframe> <div id="fx-pricing-widget-copyright"> <span>Powered by </span><a href="https://fxpricing.com/" target="_blank">FX Pricing</a> </div> <style type="text/css"> #fx-pricing-widget-copyright{ text-align: center; font-size: 13px; font-family: sans-serif; margin-top: 10px; margin-bottom: 10px; color: #9db2bd; } #fx-pricing-widget-copyright a{ text-decoration: unset; color: #bb3534; font-weight: 600; } </style>
-      <!-- Leading -->
-      <section class="leading-area page-padding bg-overlay d-none" id="topAchievers" >
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-12">
-                  <div class="get-start-box">
-                     <h3 class="theme-title mb-0">Trade with <span class="text-link">world-leading</span> broker.</h3>
-                     <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
-                           <div class="leading-box">
-                              <div class="img-box">
-                                 <img src="{{asset('frontend')}}/img/leading1.png" alt="leading-img">
-                              </div>
-                              <div class="data-box">
-                                 <h4 class="theme-title">Leading</h4>
-                                 <span>Experience</span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
-                           <div class="leading-box">
-                              <div class="img-box">
-                                 <img src="{{asset('frontend')}}/img/leading2.png" alt="leading-img">
-                              </div>
-                              <div class="data-box">
-                                 <h4 class="theme-title">15 Years</h4>
-                                 <span>UK Regulated</span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
-                           <div class="leading-box">
-                              <div class="img-box">
-                                 <img src="{{asset('frontend')}}/img/leading3.png" alt="leading-img">
-                              </div>
-                              <div class="data-box">
-                                 <h4 class="theme-title">18k</h4>
-                                 <span>Order per day</span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
-                           <div class="leading-box">
-                              <div class="img-box">
-                                 <img src="{{asset('frontend')}}/img/leading4.png" alt="leading-img">
-                              </div>
-                              <div class="data-box">
-                                 <h4 class="theme-title">24/5</h4>
-                                 <span>Customer supports</span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Leading -->
-      <!-- Trader Join -->
-      <section class="trader-join-area page-padding d-none" id="rewards">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-12">
-                  <div class="page-title mb-0 text-center">
-                     <span>exciting rewards</span>
-                     <h2 class="theme-title mb-0">Multiple exiting rewards</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-                  <div class="col-6 col-md-4 col-lg-4">
-                     <div class="data-box data-box-mine">
-                        <p class="theme-description">Business : 3 Lakh</p>
-                        <div class="bottom-testimonial">
-                           <i class="fas fa-quote-right"></i>
-                           <h4 class="theme-title">Domestic tour</h4>
-                           <span>from United Kingdom</span>
-                        </div>
-                     </div>
+        <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>{{env('APP_NAME')}}</title>
 
-                  </div>
-                  <div class="col-6 col-md-4 col-lg-4">
-                     <div class="data-box data-box-mine">
-                        <p class="theme-description">Business : +6 Lakh</p>
-                        <div class="bottom-testimonial">
-                           <i class="fas fa-quote-right"></i>
-                           <h4 class="theme-title">21,000 Cash</h4>
-                           <span>from United Kingdom</span>
-                        </div>
-                     </div>
-                     </div>
-                  <div class="col-6 col-md-4 col-lg-4">
-                     <div class="data-box data-box-mine">
-                        <p class="theme-description">Business : +12 Lakh</p>
-                        <div class="bottom-testimonial">
-                           <i class="fas fa-quote-right"></i>
-                           <h4 class="theme-title">International Tour</h4>
-                           <span>from United Kingdom</span>
-                        </div>
-                     </div>
-                     </div>
+        <!-- Icon css link -->
+        <link href="{{asset('frontend')}}/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{asset('frontend')}}/vendors/flat-icon/flaticon.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="{{asset('frontend')}}/css/bootstrap.min.css" rel="stylesheet">
 
-                  <div class="col-6 col-md-4 col-lg-4">
-                     <div class="data-box data-box-mine">
-                        <p class="theme-description">Business : +25 Lakh</p>
-                        <div class="bottom-testimonial">
-                           <i class="fas fa-quote-right"></i>
-                           <h4 class="theme-title">75,000</h4>
-                           <span>from United Kingdom</span>
+        <!-- Rev slider css -->
+        <link href="{{asset('frontend')}}/vendors/revolution/css/settings.css" rel="stylesheet">
+        <link href="{{asset('frontend')}}/vendors/revolution/css/layers.css" rel="stylesheet">
+        <link href="{{asset('frontend')}}/vendors/revolution/css/navigation.css" rel="stylesheet">
+
+        <!-- Extra plugin css -->
+        <link href="{{asset('frontend')}}/vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+        <link href="{{asset('frontend')}}/vendors/animate-css/animate.css" rel="stylesheet">
+        <link href="{{asset('frontend')}}/vendors/nice-select/nice-select.css" rel="stylesheet">
+
+        <link href="{{asset('frontend')}}/css/style.css" rel="stylesheet">
+        <link href="{{asset('frontend')}}/css/responsive.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+       <div class="preloader">
+            <div class="left_pre"></div>
+            <div class="right_pre"></div>
+            <div class="row m0 content">
+                <div class="circle">
+                    <div class="red">
+                        <div class="rotator">
+                            <img src="{{asset('frontend')}}/img/curve.png" alt="">
                         </div>
-                     </div>
-                     </div>
-                  <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +50 Lakh</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">1.5 Lakh</h4>
-                          <span>from United Kingdom</span>
-                       </div>
+                        <a href="#" class="logo"><img src="{{asset('logo.png')}}" style="width: 100%" alt=""></a>
                     </div>
-                   </div>
-                 <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +1 Crore</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">3 Lakh</h4>
-                          <span>from United Kingdom</span>
-                       </div>
-                    </div>
-                     </div>
-                 <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +2.5 Crore</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">7.5 Lakh</h4>
-                          <span>from United Kingdom</span>
-                       </div>
-                    </div>
-                     </div>
-                 <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +5 Crore</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">15 Lakh</h4>
-                          <span>from United Kingdom</span>
-                       </div>
-                    </div>
-                    </div>
-                 <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +10 Crore</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">30 Lakh</h4>
-                          <span>from United Kingdom</span>
-                       </div>
-                    </div>
-                    </div>
-                 <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +25 Crore</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">75 Lakh</h4>
-                          <span>from United Kingdom</span>
-                       </div>
-                    </div>
-                    </div>
-                 <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +50 Crore</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">1.5 Crore</h4>
-                          <span>from United Kingdom</span>
-                       </div>
-                    </div>
-                    </div>
-                 <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +100 Crore</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">3 Crore</h4>
-                          <span>from United Kingdom</span>
-                       </div>
-                    </div>
-                    </div>
-                 <div class="col-6 col-md-4 col-lg-4">
-                    <div class="data-box data-box-mine">
-                       <p class="theme-description">Business : +200 Crore</p>
-                       <div class="bottom-testimonial">
-                          <i class="fas fa-quote-right"></i>
-                          <h4 class="theme-title">5 Crore</h4>
-                          <span>from United Kingdom</span>
-                       </div>
-                    </div>
-                     </div>
-            </div>
-         </div>
-      </section>
-      <style>
-        .data-box-mine{
-            padding: 2px;
-    border: 1px solid #cacaca;
-    border-radius: 6px;
-    box-shadow: 1px 1px 3px #cacaca;
-    margin-top:5px;
-        }
-      </style>
-      <!-- Trader Join -->
-      <!-- Mobile App -->
-      <section class="d-none mobile-app-area page-padding">
-         <div class="container">
-            <div class="chalange-main-box">
-               <div class="box-left">
-                  <div class="page-title mb-0">
-                     <span>with Liquid mobile app</span>
-                     <h2 class="theme-title">Enhance your trading experience</h2>
-                     <p class="theme-description">Lorem aute enim adipisicing laborum occaecat velit et amet duis deserunt dolor sit.</p>
-                     <div class="btn-box app-btn">
-                        <ul>
-                           <li><a href=""><img src="{{asset('frontend')}}/img/in-app-store.svg" alt="android-btn"></a></li>
-                           <li><a href=""><img src="{{asset('frontend')}}/img/in-google-play.svg" alt="ios-btn"></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="box-right">
-                  <div class="app-img-box">
-                     <img src="{{asset('frontend')}}/img/mobile-app.png" alt="Mobile-app-img">
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Mobile App -->
-      <!-- Blog -->
-      <section class="d-none Blog-area page-padding">
-         <img src="{{asset('frontend')}}/img/blur-left.png" alt="blur-img" class="blur-left">
-         <img src="{{asset('frontend')}}/img/blur-right.png" alt="blur-img" class="blur-right">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-12">
-                  <div class="page-title text-center page-center">
-                     <span>Blog</span>
-                     <h2 class="theme-title">Our Blog</h2>
-                     <p class="theme-description">Some believe you must choose between an online broker and a wealth management firm. At our company, you don’t need to compromise. Whether you invest on your own, with an advisor, or a little of both — we can support you.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="blog-main-box">
-                     <div class="img-box">
-                        <img src="{{asset('frontend')}}/img/about-img.jpg" alt="blog-img">
-                        <span>Markets</span>
-                     </div>
-                     <div class="content-box">
-                        <h4 class="theme-title"><a href="#">Sony buys $400m stake in China’s Bilibili</a></h4>
-                        <p class="theme-description">After a series of previous projects together, Sony has secured a ...</p>
-                     </div>
-                     <div class="blog-bottom clearfix">
-                        <div class="left-box">
-                           <div class="blog-imgbox">
-                              <span> <img src="{{asset('frontend')}}/img/blog-avtar.png" alt="avtar">  Sachin Diwar</span>
-                           </div>
-                        </div>
-                        <div class="right-box">
-                           <span><i class="fas fa-calendar"></i> October 19, 2021</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="blog-main-box">
-                     <div class="img-box">
-                        <img src="{{asset('frontend')}}/img/blog-2.jpg" alt="blog-img">
-                        <span>Auto Motive</span>
-                     </div>
-                     <div class="content-box">
-                        <h4 class="theme-title"><a href="#">Sony buys $400m stake in China’s Bilibili</a></h4>
-                        <p class="theme-description">After a series of previous projects together, Sony has secured a ...</p>
-                     </div>
-                     <div class="blog-bottom clearfix">
-                        <div class="left-box">
-                           <div class="blog-imgbox">
-                              <span> <img src="{{asset('frontend')}}/img/blog-avtar.png" alt="avtar">  Sachin Diwar</span>
-                           </div>
-                        </div>
-                        <div class="right-box">
-                           <span><i class="fas fa-calendar"></i> October 19, 2021</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="blog-main-box">
-                     <div class="img-box">
-                        <img src="{{asset('frontend')}}/img/blog-3.jpg" alt="blog-img">
-                        <span>Investment</span>
-                     </div>
-                     <div class="content-box">
-                        <h4 class="theme-title"><a href="#">Sony buys $400m stake in China’s Bilibili</a></h4>
-                        <p class="theme-description">After a series of previous projects together, Sony has secured a ...</p>
-                     </div>
-                     <div class="blog-bottom clearfix">
-                        <div class="left-box">
-                           <div class="blog-imgbox">
-                              <span> <img src="{{asset('frontend')}}/img/blog-avtar.png" alt="avtar">  Sachin Diwar</span>
-                           </div>
-                        </div>
-                        <div class="right-box">
-                           <span><i class="fas fa-calendar"></i> October 19, 2021</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Blog -->
-      <!-- Get Start -->
-      <section class="Get-start-area page-padding bg-overlay">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-12">
-                  <div class="get-start-box">
-                     <h3 class="theme-title">Ready to get started?</h3>
-                     <p class="theme-description">Global access to financial markets from a single account <a href="{{route('register')}}">Open Your Account </a></p>
-                     {{-- <div class="btn-box">
-                        <a href=""><img src="{{asset('frontend')}}/img/in-app-store.svg" alt="app"></a>
-                        <a href=""><img src="{{asset('frontend')}}/img/in-google-play.svg" alt="app"></a>
-                     </div> --}}
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Get Start -->
-      <!-- Footer -->
-      <footer class="footer">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                  <div class="footer-box">
-                     <div class="img-box">
-                        <img src="{{asset('frontend')}}/img/logo-black.png" alt="logo">
-                     </div>
-                     <p class="theme-description">Connect with us to make your Forex trading experience worthy and Get the exact solution to the mark for your forex exchange.</p>
-                     <div class="social-links">
-                        {{-- <ul>
-                           <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                           <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                           <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                           <li><a href=""><i class="fab fa-youtube"></i></a></li>
-                           <li><a href=""><i class="fab fa-telegram-plane"></i></a></li>
-                        </ul> --}}
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-9 col-12">
-                  <div class="footer-box">
-                     <h4 class="theme-title">Contact us </h4>
-                     <div class="links-box">
-                        <ul>
-                           <li><strong>Email </strong><a href="index.html"><i class="fas fa-angle-right"></i>{{env('APP_EMAIL')}}</a></li>
-                           <li><strong>Contact </strong><a href="about.html"><i class="fas fa-angle-right"></i>{{env('APP_PHONE')}}</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-9 col-12">
-                <div class="footer-box">
-                   <h4 class="theme-title">Forex</h4>
-                   <div class="links-box">
-                    <div class="trade-warning">
-                        <h6 class="mb-1"><span><i class="fas fa-triangle-exclamation fa-sm"></i>Desclaimer</span></h6>
-                        <p class="mb-0">The prices of securities fluctuate, sometimes dramatically. The price of a security may move up or down, and may become valueless. It is as likely that losses will be incurred rather than profit made as a result of buying and selling securities.</p>
-                    </div>
-                   </div>
                 </div>
-             </div>
-               {{-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                  <div class="footer-box">
-                     <h4 class="theme-title">Analytics</h4>
-                     <div class="links-box">
-                        <ul>
-                           <li><a href="markets.html"><i class="fas fa-angle-right"></i>World Markets</a></li>
-                           <li><a href="#"><i class="fas fa-angle-right"></i>Trading Central</a></li>
-                           <li><a href="#"><i class="fas fa-angle-right"></i>Forex charts online</a></li>
-                           <li><a href="#"><i class="fas fa-angle-right"></i>Market calendar</a></li>
-                           <li><a href="#"><i class="fas fa-angle-right"></i>Central banks</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                  <div class="footer-box">
-                     <h4 class="theme-title">Education</h4>
-                     <div class="links-box">
-                        <ul>
-                           <li><a href="Education.html"><i class="fas fa-angle-right"></i>Education</a></li>
-                           <li><a href="#"><i class="fas fa-angle-right"></i>Basic course</a></li>
-                           <li><a href="about.html"><i class="fas fa-angle-right"></i>About academy</a></li>
-                           <li><a href="Privacy-policy.html"><i class="fas fa-angle-right"></i>Privacy policy</a></li>
-                           <li><a href="terms-condition.html"><i class="fas fa-angle-right"></i>Terms & Condition</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div> --}}
             </div>
-         </div>
-         <footer class="main-footer text-center">
-            <hr>
-            <strong>Copyright &copy; 2021 <a href="{{env('APP_WEBSITE')}}">{{env("APP_NAME")}}</a>.</strong>
-            All rights reserved.
-            {{-- <div class="float-right d-none d-sm-inline-block">
-              <b>Version</b> 3.2.0
-            </div> --}}
-          </footer>
-      </footer>
-      <!-- Footer -->
-      <!-- Javascript -->
-      <script src="{{asset('frontend')}}/js/jquery.min.js"></script>
-      <script src="{{asset('frontend')}}js/popper.min.js"></script>
-      <script src="{{asset('frontend')}}js/owl.carousel.min.js"></script>
-      <script src="{{asset('frontend')}}js/bootstrap.min.js"></script>
-      <script src="{{asset('frontend')}}js/custom.js"></script>
-      <!-- Javascript -->
-   </body>
+        </div>
+
+        <!--================Header Menu Area =================-->
+        <header class="main_menu_area">
+            <div class="top_menu">
+                <div class="container">
+                    <div class="float-md-left">
+                        <div class="top_contact">
+                            <a href="tel:+12345615523"><i class="fa fa-phone"></i>{{env('APP_PHONE')}}</a>
+                            <a href="mailto:info@wethemez.com"><i class="fa fa-envelope"></i>{{env('APP_EMAIL')}}</a>
+                        </div>
+                    </div>
+                    <div class="float-md-right">
+                        <ul class="top_social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="main_menu_inner">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#"><img src="{{asset('logo.png')}}" style="width:120px" alt=""></a>
+                        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="my_toggle_menu">
+                            	<span></span>
+                            	<span></span>
+                            	<span></span>
+                            </span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item dropdown submenu active">
+                                    <a class="nav-link" href="index.html" role="button"  aria-haspopup="true" aria-expanded="false">
+                                    Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#aboutus">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#income">Income</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#packages">Packages</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#chart">Chart</a>
+                                </li>
+
+                            </ul>
+                            <ul class="navbar-nav justify-content-end">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">Sign In?</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="/register">Register?</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!--================End Footer Area =================-->
+
+        <!--================Slider Area =================-->
+        <section class="home_agency_slider_area">
+            <div id="home_slider" class="rev_slider" data-version="5.3.1.6">
+                <ul>
+                    <li data-index="rs-1587" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="img/home-slider/slider-1.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                    <!-- MAIN IMAGE -->
+                    <img src="{{asset('frontend')}}/img/home-slider/slider-1.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="slider_text_box">
+                            <div class="tp-caption tp-resizeme first_text"
+                            data-x="['left','left','left','left','left','center']"
+                            data-hoffset="['0','80','80','0','15','0']"
+                            data-y="['top','top','top','top']"
+                            data-voffset="['290','290','290','290','320','180']"
+                            data-fontsize="['70','70','70','70','50','30']"
+                            data-lineheight="['80','80','80','80','60','40']"
+                            data-width="['none','none','none','none','none']"
+                            data-height="none"
+                            data-whitespace="nowrap"
+                            data-type="text"
+                            data-responsive_offset="on"
+                            data-frames='[{"delay":"+290","speed":2000,"frame":"0","from":"y:50px;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                            data-textAlign="['left','left','left','left','left','center']">We Trade <span> Forex</span><br/>Currency<span>.</span></div>
+
+                            <div class="tp-caption tp-resizeme secand_text"
+                                data-x="['left','left','left','left','left','center']"
+                                data-hoffset="['0','80','80','0','15','0']"
+                                data-y="['top','top','top','top']"
+                                data-voffset="['475','475',475','475','475','270']"
+                                data-fontsize="['22','22','22','22','16','16']"
+                                data-lineheight="['38','38','38','38','28','28']"
+                                data-width="['none','none','none','none','none','300']"
+                                data-height="none"
+                                data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap','normal']"
+                                data-type="text"
+                                data-transform_idle="o:1;"
+                                data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
+                                data-textAlign="['left','left','left','left','left','center']">We receive result combining marketing, a creative and <br /> industry experience...
+                            </div>
+
+                            <div class="tp-caption tp-resizeme"
+                                data-x="['left','left','left','left','left','center']"
+                                data-hoffset="['0','80','80','0','15','0']"
+                                data-y="['top','top','top','top']"
+                                data-voffset="['580','580','580','580','580','380']"
+                                data-width="['none','none','none','none','none']"
+                                data-height="none"
+                                data-whitespace="nowrap"
+                                data-type="text"
+                                data-responsive_offset="on"
+                                data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
+                                data-textAlign="['left','left','left','left','left','center']">
+                                <a class="slider_btn" href="/login">Login </a>
+                                <a class="slider_btn" href="/register">Register Now</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-index="rs-1588" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="img/home-slider/slider-2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                    <!-- MAIN IMAGE -->
+                    <img src="{{asset('frontend')}}/img/home-slider/slider-2.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+                    <!-- LAYERS -->
+                        <!-- LAYERS -->
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="slider_text_box">
+                            <div class="tp-caption tp-resizeme first_text"
+                            data-x="['left','left','left','left','left','center']"
+                            data-hoffset="['0','80','80','0','15','0']"
+                            data-y="['top','top','top','top']"
+                            data-voffset="['290','290','290','290','320','180']"
+                            data-fontsize="['70','70','70','70','50','30']"
+                            data-lineheight="['80','80','80','80','60','40']"
+                            data-width="['none','none','none','none','none']"
+                            data-height="none"
+                            data-whitespace="nowrap"
+                            data-type="text"
+                            data-responsive_offset="on"
+                            data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
+                            data-textAlign="['left','left','left','left','left','center']">Hassale Free Your <br /><span>Trasaction</span>.</div>
+
+                            <div class="tp-caption tp-resizeme secand_text"
+                                data-x="['left','left','left','left','left','center']"
+                                data-hoffset="['0','80','80','0','15','0']"
+                                data-y="['top','top','top','top']"
+                                data-voffset="['475','475',475','475','475','270']"
+                                data-fontsize="['22','22','22','22','16','16']"
+                                data-lineheight="['38','38','38','38','28','28']"
+                                data-width="['none','none','none','none','none','300']"
+                                data-height="none"
+                                data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap','normal']"
+                                data-type="text"
+                                data-responsive_offset="on"
+                                data-transform_idle="o:1;"
+                                data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
+                                data-textAlign="['left','left','left','left','left','center']">We receive result combining marketing, a creative and <br /> industry experience...
+                            </div>
+
+                            <div class="tp-caption tp-resizeme"
+                                data-x="['left','left','left','left','left','center']"
+                                data-hoffset="['0','80','80','0','15','0']"
+                                data-y="['top','top','top','top']"
+                                data-voffset="['580','580','580','580','580','380']"
+                                data-width="['none','none','none','none','none']"
+                                data-type="text"
+                                data-responsive_offset="on"
+                                data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
+                                data-textAlign="['left','left','left','left','left','center']">
+                                <a class="slider_btn" href="/login">Login </a>
+                                <a class="slider_btn" href="/register">Register Now</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+      <iframe src="https://fxpricing.com/fx-widget/ticker-tape-widget.php?id=1,2,3,5,14,20&d_mode=compact-name" width="100%" height="85" style="border: unset;"></iframe> <div id="fx-pricing-widget-copyright"> <span>Powered by </span><a href="https://fxpricing.com/" target="_blank">FX Pricing</a> </div> <style type="text/css"> #fx-pricing-widget-copyright{ text-align: center; font-size: 13px; font-family: sans-serif; margin-top: 10px; margin-bottom: 10px; color: #9db2bd; } #fx-pricing-widget-copyright a{ text-decoration: unset; color: #bb3534; font-weight: 600; } </style>
+
+        <!--================End Slider Area =================-->
+
+        <!--================Small Feature Area =================-->
+        <section class="small_feature_area p_100" >
+            <div class="container">
+                <div class="row small_feature_inner">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="media">
+                            <div class="d-flex">
+                                <h3>01</h3>
+                            </div>
+                            <div class="media-body">
+                                <p>Register your <br /> trading account.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="media">
+                            <div class="d-flex">
+                                <h3>02</h3>
+                            </div>
+                            <div class="media-body">
+                                <p>Deposit funds, <br /> and activate your account </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="media">
+                            <div class="d-flex">
+                                <h3>03</h3>
+                            </div>
+                            <div class="media-body">
+                                <p>Grow your downline <br /> and earn income.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Small Feature Area =================-->
+
+        <!--================Choose Bitcoin Area =================-->
+        <section class="choose_bitcoin_area p_100" id="income">
+            <div class="container">
+                <div class="main_title">
+                    <h2>Why Choose Us</h2>
+                    <p>We provide multiple types of attractive income.</p>
+                </div>
+                <div class="row choose_bit_inner">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="choose_botcoin_item">
+                            <i class="fa fa-line-chart"></i>
+                            <a href="#!"><h4>Direct Income</h4></a>
+                            <p>Get direct income for the every referal/Sponsor</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="choose_botcoin_item">
+                            <i class="fa fa-area-chart"></i>
+                            <a href="#!"><h4>Level Income</h4></a>
+                            <p>Attractive level income upto 15 levels</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="choose_botcoin_item">
+                            <i class="fa fa-bar-chart"></i>
+                            <a href="#!"><h4>ROI Income</h4></a>
+                            <p>Get amazing returns on your investments.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="choose_botcoin_item">
+                            <i class="fa fa-star"></i>
+                            <a href="#!"><h4>Royalty Income</h4></a>
+                            <p>Become royal member of our team and get royal income</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="choose_botcoin_item">
+                            <i class="fa fa-gift"></i>
+                            <a href="#!"><h4>Reward Income</h4></a>
+                            <p>Good work also have some bonus, by following this our company provide you attractive rewards.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-none">
+                        <div class="choose_botcoin_item">
+                            <i class="flaticon-money-8"></i>
+                            <a href="#"><h4>Instant Exchange</h4></a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolorem dicta libero veritatis reiciendis quis pariatur magni.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Choose Bitcoin Area =================-->
+
+        <!--================Bitcoin About Area =================-->
+        <section class="bitcoin_about_area p_100" id="aboutus">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="bitcoin_about_img" data-parallax="scroll" data-image-src="{{asset('frontend')}}/img/bitcoin-about.jpg">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="bit_about_text">
+                            <div class="left_title">
+                                <h2>Buy, sell and Exchange all you need to know about forex</h2>
+                                <!-- <h6>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Perspiciatis.</h6> -->
+                            </div>
+                            <p>Forex, short for foreign exchange, is the global marketplace for trading currencies. It's the largest and most liquid financial market, where participants exchange one currency for another at determined exchange rates. Forex trading serves various purposes, from facilitating international trade to speculative investment. Traders can profit by buying a currency pair if they anticipate its value will rise or selling if they predict a decline. Factors impacting forex include economic indicators, geopolitical events, interest rates, and market sentiment. Key players encompass banks, financial institutions, corporations, governments, and individual investors. The advent of online platforms has democratized forex trading, allowing individuals to access the market with relative ease. While potential for profit exists, forex trading carries risks due to its volatile nature, requiring thorough research, risk management, and a disciplined approach.</p>
+                            <a class="btn btn=warning" href="/register" style="background: #fab915;padding:10px;border-radius:8px;color:white" >Download Plan</a>
+                            <div class="our_skill_inner d-none">
+                                <div class="single_skill">
+                                    <h3>Support Countries</h3>
+                                    <div class="progress" data-value="85">
+                                        <div class="progress-bar">
+                                            <div class="progress_parcent"><span class="counter count-text" data-speed="3000" data-stop="85%">85</span>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single_skill">
+                                    <h3>Operators</h3>
+                                    <div class="progress" data-value="90">
+                                        <div class="progress-bar">
+                                            <div class="progress_parcent"><span class="counter count-text">90</span>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single_skill">
+                                    <h3>CryptoCoin ATMs</h3>
+                                    <div class="progress" data-value="60">
+                                        <div class="progress-bar">
+                                            <div class="progress_parcent"><span class="counter count-text">60</span>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single_skill">
+                                    <h3>Producers</h3>
+                                    <div class="progress" data-value="70">
+                                        <div class="progress-bar">
+                                            <div class="progress_parcent"><span class="counter count-text">70</span>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Bitcoin About Area =================-->
+
+        <!--================Why Gain Bitcoin Area =================-->
+        <section class="why_gain_bitcoin p_100">
+            <div class="container">
+                <div class="main_title">
+                    <h2>{{env('APP_NAME')}} Features</h2>
+                    <p></p>
+                </div>
+                <div class="row gain_coin_inner">
+                    <div class="col-lg-3">
+                        <div class="gain_coin_item coint_right wow fadeInRight animated" data-rel="1">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4>Pass Free Account</h4>
+                                    <p>Very easy to open an account, like abcd. No experience needed.</p>
+                                </div>
+                                <div class="d-flex">
+                                    <i class="fa fa-inr"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gain_coin_item coint_right wow fadeInRight animated" data-rel="2">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4>Affordable Plans</h4>
+                                    <p>You will happy to sign-in our very light volume trading plans.</p>
+                                </div>
+                                <div class="d-flex">
+                                    <i class="fa fa-line-chart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="gain_coin_round">
+                            <div class="g_coin_r_item" data-rel="1">
+                                <h4>Pass Free Account</h4>
+                                <p>Very easy to open an account, like abcd. No experience needed.</p>
+                            </div>
+                            <div class="g_coin_r_item" data-rel="2">
+                                <h4>Affordable Plans</h4>
+                                <p>You will happy to sign-in our very light volume trading plans.</p>
+                            </div>
+                            <div class="g_coin_r_item" data-rel="3">
+                                <h4>Easy To Start</h4>
+                                <p>Very easy to start your crypto currency trading business with CryptoCoin.</p>
+                            </div>
+                            <div class="g_coin_r_item" data-rel="4">
+                                <h4>24/7 Support</h4>
+                                <p>We have dedicated support team to help you if need.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="gain_coin_item wow fadeInLeft animated" data-rel="3">
+                            <div class="media">
+                                <div class="d-flex"><i class="fa fa-pie-chart"></i></div>
+                                <div class="media-body">
+                                    <h4>Easy To Start</h4>
+                                    <p>Very easy to start your crypto currency trading business with CryptoCoin.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gain_coin_item wow fadeInLeft animated" data-rel="4">
+                            <div class="media">
+                                <div class="d-flex">
+                                    <i class="flaticon-computer-1"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>24/7 Support</h4>
+                                    <p>We have dedicated support team to help you if need.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Why Gain Bitcoin Area =================-->
+
+        <!--================Team Area =================-->
+        <section class="team_area p_100" id="packages">
+            <div class="container">
+                <div class="main_title">
+                    <h2>Multiple Packages</h2>
+                    <p>Join With Package According To Your Budget.</p>
+                </div>
+                <div class="team_slider owl-carousel">
+
+                    <div class="item">
+                        <h2 style="background-color: rgb(46, 46, 239);color: white;padding: 75px;border-radius: 50%;width: 200px;height:200px;text-align: center;">10 K</h2>
+                    </div>
+                    <div class="item">
+                        <h2 style="background-color: rgb(46, 46, 239);color: white;padding: 75px;border-radius: 50%;width: 200px;height:200px;text-align: center;">50 K</h2>
+                    </div>
+                    <div class="item">
+                        <h2 style="background-color: rgb(46, 46, 239);color: white;padding: 75px;border-radius: 50%;width: 200px;height:200px;text-align: center;">1 Lakh</h2>
+                    </div>
+                    <div class="item">
+                        <h2 style="background-color: rgb(46, 46, 239);color: white;padding: 75px;border-radius: 50%;width: 200px;height:200px;text-align: center;">3 Lakh</h2>
+                    </div>
+                    <div class="item">
+                        <h2 style="background-color: rgb(46, 46, 239);color: white;padding: 75px;border-radius: 50%;width: 200px;height:200px;text-align: center;">5 Lakh</h2>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--================End Team Area =================-->
+
+        <!--================Counter Area Area =================-->
+        <section class="counter_area p_100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter_item">
+                            <h3 class="counter">1609</h3>
+                            <p>Transactions in last 24h</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter_item">
+                            <h3 class="counter">21</h3>
+                            <p>Transactions per hour</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter_item">
+                            <h3 class="counter">165</h3>
+                            <p>Largest Transactions</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter_item">
+                            <h3 class="counter">4</h3>
+                            <p>Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Counter Area Area =================-->
+
+        <!--================Trending Area Area =================-->
+        <section class="own_trending_area p_100">
+            <div class="container">
+                <div class="main_title">
+                    <h2>Build Your Own Trading</h2>
+                    <p>We have trusted investors.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="trending_img">
+                            <img class="img-fluid" src="{{asset('frontend')}}/img/bitcoin-chart.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="trending_list">
+                            <div class="media">
+                                <div class="d-flex">
+                                    <i class="fa fa-cloud"></i>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"><h4>Automated trading bots in the cloud</h4></a>
+                                    <p>No software installation required. Bots run on our servers.</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="d-flex">
+                                    <i class="fa fa-fire" aria-hidden="true"></i>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"><h4>Support for all major forex exchanges</h4></a>
+                                    <p>All major forex exchanges are supported for both backtesting and live trading</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="d-flex">
+                                    <i class="fa fa-linode" aria-hidden="true"></i>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"><h4>Strategies Marketplace</h4></a>
+                                    <p>The place where trading strategies can be bought and sold</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="d-flex">
+                                    <i class="fa fa-flask" aria-hidden="true"></i>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"><h4>Backtesting trading strategies</h4></a>
+                                    <p>See how your strategy would work over different market condition by using our backtesting</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="d-flex">
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"><h4>Instant Email alerts & SMS notifications</h4></a>
+                                    <p>No software installation required. Bots run on our servers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Trending Area Area =================-->
+
+        <!--================Bitcoin Calculater Area =================-->
+        <section class="bitcoin_calculater_area p_100" id="chart">
+            <div class="container">
+                <div class="main_title wh_title">
+                    <h2>Forex Chart</h2>
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="calculater_left_text">
+      <iframe src="https://fxpricing.com/fx-widget/forex-cross-rates.php?symbol=EUR,USD,JPY,NZD,GBP,CHF,AED,PKR" width="100%" height="370" style="border: 1px solid #eee;"></iframe> <div id="fx-pricing-widget-copyright"> <span>Powered by </span><a href="https://fxpricing.com/" target="_blank">FX Pricing</a> </div> <style type="text/css"> #fx-pricing-widget-copyright{ text-align: center; font-size: 13px; font-family: sans-serif; margin-top: 10px; margin-bottom: 10px; color: #9db2bd; } #fx-pricing-widget-copyright a{ text-decoration: unset; color: #bb3534; font-weight: 600; } </style>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--================End Bitcoin Calculater Area =================-->
+
+
+        <!--================Clients Slider Area =================-->
+        <section class="clients_slider_area">
+            <div class="container">
+                <div class="clients_slider owl-carousel">
+                    <div class="item">
+                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-1.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-2.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-3.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-4.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="{{asset('frontend')}}/img/studio-clients/s-clients-5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Clients Slider Area =================-->
+
+        <!--================Footer Area =================-->
+        <footer class="footer_area">
+            <div class="footer_widgets_area p_100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <aside class="f_widget about_widget">
+                                <img class="img-fluid" src="{{asset('logo.png')}}" style="width:200px" alt="">
+                                <p>Connect with us to make your Forex trading experience worthy and Get the exact solution to the mark for your forex exchange.</p>
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <aside class="f_widget resource_widget">
+                                <div class="f_title">
+                                    <h3>QUICK Links</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>About Us</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Incomes</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Packages</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Chart</a></li>
+                                </ul>
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <aside class="f_widget resource_widget support_widget">
+                                <div class="f_title">
+                                    <h3>Contact Us</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="mailto:{{env('APP_EMAIL')}}"><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong>Email:</strong>{{env('APP_EMAIL')}}</a></li>
+                                    <li><a href="tel:{{env('APP_PHONE')}}"><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong>Contact:</strong>{{env('APP_PHONE')}}</a></li>
+                                </ul>
+                            </aside>
+                        </div>
+                        <div class="col-lg-2 col-sm-6">
+                            <aside class="f_widget resource_widget support_widget">
+                                <div class="f_title">
+                                    <h3>Forex</h3>
+                                </div>
+                                <p>Desclaimer
+                                    The prices of securities fluctuate, sometimes dramatically. The price of a security may move up or down, and may become valueless. It is as likely that losses will be incurred rather than profit made as a result of buying and selling securities.</p>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_copyright">
+                <h5>Copyright © 2021, <a>{{env('APP_NAME')}}</a>. All Rights Reserved.</h5>
+            </div>
+        </footer>
+        <!--================End Footer Area =================-->
+
+
+
+
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{{asset('frontend')}}/js/jquery-3.2.1.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{asset('frontend')}}/js/popper.min.js"></script>
+        <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>
+        <!-- Rev slider js -->
+        <script src="{{asset('frontend')}}/vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <!-- Extra plugin css -->
+        <script src="{{asset('frontend')}}/vendors/counterup/jquery.waypoints.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/counterup/jquery.counterup.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/animate-css/wow.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/parallax/parallax.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/counterup/jquery.waypoints.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/counterup/jquery.counterup.min.js"></script>
+        <script src="{{asset('frontend')}}/vendors/counterup/apear.js"></script>
+        <script src="{{asset('frontend')}}/vendors/counterup/countto.js"></script>
+        <script src="{{asset('frontend')}}/vendors/nice-select/jquery.nice-select.min.js"></script>
+
+
+        <script src="{{asset('frontend')}}/js/theme.js"></script>
+    </body>
+
+<!-- Mirrored from wethemez.com/demo/crypto/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Aug 2023 02:47:38 GMT -->
 </html>
