@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\myhelper;
+use App\Models\Company;
 use App\Models\Income;
 use App\Models\income_misses;
 use App\Models\Package;
@@ -21,11 +22,18 @@ class PackageRequestController extends Controller
         $this->middleware('auth');
     }
 
-    function index()
+    function index($pkid)
     {
         $packages=Package::where('is_disabled',0)->get();
+        $count=Package::where('id',$pkid)->count();
+        if($count==0)
+        {
+            myhelper::showMessage('Invalid package',true);
+            return redirect()->back();
+        }
         $current=PackageRequest::where('user_id',Auth::user()->id)->first();
-        return view('admin.Package.apply_package',compact('packages','current'));
+        $company=Company::find(1);
+        return view('admin.Package.apply_package',compact('packages','current','pkid','company'));
     }
     function apply(Request $request)
     {
@@ -59,6 +67,7 @@ class PackageRequestController extends Controller
         }
         return redirect()->back();
     }
+
     function showRequests($type=0)
     {
        if($type==0)
@@ -67,13 +76,19 @@ class PackageRequestController extends Controller
        $title="Approoved";
        elseif($type==2)
        $title="Paid";
+       else
+       $title="";
 
        if(Auth::user()->role=='admin')
        $packageRequests=PackageRequest::with('packageApplied','user')->get();
        else
        $packageRequests=PackageRequest::with('packageApplied','user')->where('user_id',Auth::user()->id)->get();
 
+       if($type!=3)
        $packageRequests=$packageRequests->where('status',$type);
+       else
+       $packageRequests=$packageRequests;
+
 
         return view('admin.Package.show_requests',compact('packageRequests','title'));
 
@@ -101,7 +116,7 @@ class PackageRequestController extends Controller
                     $adminCharge=$directIncome*0.15;
 
                     //send only if user is active
-                    if($user->sponsor->is_active==1)
+                    if(true/*$user->sponsor->is_active==1*/)
                     {
                         if(!myhelper::incomeLimitReached($user->sponsor->id))
                         {
@@ -145,7 +160,7 @@ class PackageRequestController extends Controller
 
                     $level=1;
             $sponsor=$user->sponsor;
-            while(!empty($sponsor) && $level<16)
+            while(!empty($sponsor) && $level<8)
             {
 
                if(true/*$sponsor->is_active==1*/)
@@ -219,5 +234,10 @@ class PackageRequestController extends Controller
             myhelper::showMessage($e->getMessage(),true);
         }
         return redirect()->back();
+    }
+    function showProducts()
+    {
+        $packages=Package::all();
+        return view('admin.products',compact('packages'));
     }
 }

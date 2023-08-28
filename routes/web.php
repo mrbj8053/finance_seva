@@ -77,10 +77,14 @@ Route::resource('/company',CompanyController::class);
 Route::get('package/change-status/{id}',[PackageController::class,'changePackageStatus'])->name('changePackageStatus');
 
 
-Route::get('package-request',[PackageRequestController::class,'index'])->name('packageRequest.index');
+Route::get('package-request/{pkid}',[PackageRequestController::class,'index'])->name('packageRequest.index');
 Route::post('package-request/package',[PackageRequestController::class,'apply'])->name('packageRequest.apply');
 Route::get('package-requests/{type?}',[PackageRequestController::class,'showRequests'])->name('packageRequest.show');
 Route::get('package-requests/update/{id}/{type}',[PackageRequestController::class,'updateRequest'])->name('packageRequest.update');
+
+Route::get('products',[PackageRequestController::class,'showProducts'])->name('products');
+
+
 
 
 Route::get('kyc-request',[KycController::class,'index'])->name('kycRequest.index');
@@ -93,9 +97,16 @@ Route::get('income-report/{type}',[IncomeController::class,'index'])->name('inco
 Route::get('withdraw-report',[WithdrawController::class,'index'])->name('withdraw.index');
 
 
-Route::get('profile/{userid?}',[HomeController::class,'showProfile'])->name('profile');
+Route::get('profile/{type?}/{userid?}',[HomeController::class,'showProfile'])->name('profile');
 Route::post('profile/{userid?}',[HomeController::class,'updateProfile'])->name('profile.update');
 Route::post('profile/password/{userid?}',[HomeController::class,'changePassword'])->name('profile.password.chage');
+
+Route::get('my/',[HomeController::class,'profileSection'])->name('profileSection');
+
+Route::get('share-profile/',[HomeController::class,'shareProfile'])->name('shareProfile');
+
+Route::get('withdraw-apply',[WithdrawController::class,'apply'])->name('withdrawApply');
+Route::post('withdraw-apply',[WithdrawController::class,'applyPost'])->name('withdrawApplyPost');
 
 });
 

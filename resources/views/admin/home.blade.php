@@ -137,18 +137,18 @@
 
     <div class="card card-widget widget-user">
 
-   <div class="widget-user-header bg-info" style="
-       background: linear-gradient(2deg, rgba(233,104,40,1) 2%, rgba(110,184,232,1) 20%, rgba(58,110,175,1) 46%);
+   <div class="widget-user-header" style="
+       background-color:#04AA6D;
    ">
    <h3 class="widget-user-username">{{Auth::user()->name}}</h3>
    <h5 class="widget-user-desc">({{Auth::user()->own_id}})</h5>
    </div>
-   <div class="widget-user-image">
-   <img class="img-circle elevation-2" src="{{asset('logo.png')}}" alt="User Avatar">
+   <div class="widget-user-image" style="top:69px">
+   <img class="img-circle elevation-2" style="width:84px" src="{{asset('logo.png')}}" alt="User Avatar">
    </div>
    <div class="card-footer" style="padding-top: 2px;">
    <div class="row">
-   <div class="col-sm-3 border-right">
+   <div class="col-3 border-right">
    <div class="description-block">
    <h5 class="description-header">User Id</h5>
    <span class="description-text">{{Auth::user()->own_id}}</span>
@@ -156,7 +156,7 @@
 
    </div>
 
-   <div class="col-sm-3 border-right">
+   <div class="col-3 border-right">
    <div class="description-block">
    <h5 class="description-header">Sponsor ID </h5>
    <span class="description-text">{{Auth::user()->sponsor_id}}</span>
@@ -164,21 +164,21 @@
 
    </div>
 
-   <div class="col-sm-3 border-right">
+   <div class="col-3 border-right">
    <div class="description-block">
    <h5 class="description-header">Joined On</h5>
    <span class="description-text">{{Carbon\Carbon::parse(Auth::user()->created_at)->format('d-m-Y')}}</span>
    </div>
 
    </div>
-   <div class="col-sm-3">
+   <div class="col-3">
     <div class="description-block">
     <h5 class="description-header">Current ID Status</h5>
-    <span class="description-text">
+    <span class="description-text w-100" >
         @if (Auth::user()->is_active==1)
-        <p class="badge bg-success">ID  Activated at <br>{{!empty(Auth::user()->packageRequest->updated_at)?\Carbon\Carbon::parse(Auth::user()->packageRequest->updated_at)->format('d/m/Y h:i:s'):''}}</p>
+        <p class="badge bg-success" style="text-wrap: wrap;">ID  Activated at <br>{{!empty(Auth::user()->packageRequest->updated_at)?\Carbon\Carbon::parse(Auth::user()->packageRequest->updated_at)->format('d/m/Y h:i:s'):''}}</p>
         @else
-        <p class="badge bg-danger">ID Inactive</p>
+        <p class="badge bg-danger" style="text-wrap: wrap;">ID Inactive</p>
         @endif
     </span>
     </div>
@@ -191,28 +191,22 @@
    </div>
 
    </div>
-   <div class="col-md-6">
+   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
-    <div class="card card-widget widget-user">
-
-   <div class="widget-user-header bg-info"style="height: 115px !important;">
-   <h3 class="widget-user-username"><strong>Refer Now</strong></h3>
-   <h5 class="widget-user-desc">Register users with your referal url and get income</h5>
-   </div>
-
-   <div class="card-footer" style="padding-top: 2px;">
-    Your Referal Link :
-    <h3 id="referUrl" style="
-    font-size: 15px;
-    border: 1px dotted;
-    padding: 9px;
-    border-radius: 8px;
-">{{route('register','sponsor='.Auth::user()->own_id)}}</h3>
-<button type="button" onclick="copyText('referUrl','Referal URL copied.')" class="btn btn-primary">Copy Link</button>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" style="height:150px;border-radius:8px;padding:5px" src="{{asset('slider_02_resized.jpg')}}" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" style="height:150px;border-radius:8px;padding:5px" src="{{asset('slider_02_resized.jpg')}}" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" style="height:150px;border-radius:8px;padding:5px" src="{{asset('slider_02_resized.jpg')}}" alt="Third slide">
+      </div>
     </div>
-   </div>
 
-   </div>
+  </div>
+
 @endif
           <div class="col-12">
             <h3>Income Details</h3>

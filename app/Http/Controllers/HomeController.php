@@ -32,8 +32,19 @@ class HomeController extends Controller
             $user=User::find($userid);
         }
         else
+        {
         $userid=0;
-        return view('admin.profile',compact('userid','user'));
+        $user=Auth::user();
+        }
+        if(!isset($request->type) || $request->type=='Profile')
+        {
+            $type='Profile';
+        }
+        else
+        {
+            $type="Password";
+        }
+        return view('admin.profile',compact('userid','user','type'));
     }
     public function __construct()
     {
@@ -142,5 +153,14 @@ class HomeController extends Controller
         $arr['nextClosing']=$nextClosing;
 
         return view('admin.home')->with($arr);
+    }
+
+    function profileSection()
+    {
+        return view('admin.my');
+    }
+    function shareProfile()
+    {
+        return view('admin.share');
     }
 }

@@ -40,13 +40,21 @@
                                         <strong>Rejected !</strong> Package declined , please apply for the package again.
                                       </div>
                                     @endif
-
                             <form action="{{ route('packageRequest.apply') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     @include('admin.message')
                                     <div class="row">
-                                        <div class="col-6 col-md-4">
+                                        <div class="col-6">
+                                            <h3>Scan QR Code</h3>
+                                            <img style="width: 100%" src="{{asset($company->qr_code)}}" alt="">
+                                        </div>
+                                        <div class="col-6">
+                                            <h3>Copy UPI ID</h3>
+                                            <h5 onclick="copyToClipboard('{{$company->upi_id}}')" style="background-color:bisque;border:1px dotted black;padding:5px;border-radius:8px;margin-top:20px">{{$company->upi_id}} &nbsp; <i class="fa-solid fa-copy"></i></h5>
+                                        </div>
+                                        <div class="col-6"></div>
+                                        <div class="col-12 col-md-4 d-none">
                                             <div class="form-group">
                                                 <label for="package">Select Package</label>
                                                 <select @if(!empty($current) && $current->status==0) disabled @endif required name="package"
@@ -54,7 +62,7 @@
                                                     id="">
                                                     @foreach ($packages as $pkg)
                                                         <option value="{{$pkg->id}}"
-                                                            @if ($pkg->id ==old('package') || (!empty($current) && $current->package==$pkg->id)) selected @endif>{{$pkg->package_name."(".$pkg->entry_amount.")" }}</option>
+                                                            @if ($pkg->id ==old('package') || $pkg->id==$pkid || (!empty($current) && $current->package==$pkg->id)) selected @endif>{{$pkg->package_name."(".$pkg->entry_amount.")" }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('package')
@@ -64,7 +72,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-6 col-md-4">
+                                        <div class="col-12 col-md-4">
                                             <div class="form-group">
                                                 <label for="transaction_id">Transaction Number</label>
                                                 <input  @if(!empty($current) && $current->status==0) disabled @endif type="text"
@@ -80,7 +88,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                            <div class="col-6 col-md-4">
+                                            <div class="col-12 col-md-4">
                                                 <div class="form-group">
                                                     <label for="payment_screenshot">Payment Screenshot</label>
                                                     <input @if(!empty($current) && $current->status==0) disabled @endif required  type="file"

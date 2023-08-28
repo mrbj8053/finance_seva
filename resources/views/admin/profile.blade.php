@@ -21,7 +21,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-
+                        @if($type=="Profile")
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Profile</h3>
@@ -132,6 +132,8 @@
                                 </div>
                             </form>
                         </div>
+                        @endif
+                        @if($type=="Password")
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Change Password</h3>
@@ -198,6 +200,7 @@
                                 </div>
                             </form>
                         </div>
+                        @endif
 
                     </div>
 

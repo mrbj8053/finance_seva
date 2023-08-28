@@ -179,5 +179,20 @@ function confirmAction(msg,url)
         })
 
     }
-
+    function copyToClipboard(upiid)
+    {
+        var temp = $("<input>");
+        $("body").append(temp);
+        temp.val(upiid).select();
+        document.execCommand("copy");
+        temp.remove();
+        alert('UPI Id copied successfully :'+upiid);
+    }
 </script>
+@if(Auth::user()->role=='user')
+  <script>
+    $(document).ready(function(){
+        $('.content-wrapper').css('margin-left','auto');
+    })
+  </script>
+  @endif

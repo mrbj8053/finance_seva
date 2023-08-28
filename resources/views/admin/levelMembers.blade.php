@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Level Members</h1>
+                        <h1>My Team</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{url('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Level Members</li>
+                            <li class="breadcrumb-item active">My Team</li>
                         </ol>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Showing level members for {{$user->own_id."(".$user->name.")"}}</h3>
+                                <h3 class="card-title">Showing My Team members for {{$user->own_id."(".$user->name.")"}}</h3>
                             </div>
 
                             <div class="card-body">

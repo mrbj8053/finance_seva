@@ -50,13 +50,13 @@
     .navbar-white {
     color: #ffffff;
     /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(18,18,218,1) 0%, rgba(0,212,255,1) 100%); */
-    background: linear-gradient(267deg, rgba(233,104,40,1) 2%, rgba(110,184,232,1) 20%, rgba(58,110,175,1) 46%);
+    background: #04AA6D;
 }
 .navbar-light .navbar-nav .nav-link {
     color: rgb(255 255 255);
 }
 [class*=sidebar-dark-] {
-    background: linear-gradient(1deg, rgba(233,104,40,1) 2%, rgba(110,184,232,1) 20%, rgba(58,110,175,1) 46%);
+    background: #04AA6D;
 }
 [class*=sidebar-dark-] .sidebar a {
     color: #ffffff;
@@ -83,4 +83,50 @@
     width: 100%;
     overflow-x: auto
 }
+
+.bottom-navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottom-navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.bottom-navbar a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.bottom-navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.my-options{
+    margin: 5px;
+    border-radius: 8px;
+    box-shadow: 2px 1px 7px 1px #cacaca;
+}
+.my-options i{
+  color:black;
+  font-size:12px;
+  margin-right:10px;
+}
+
+.my-options .righ-arrow{
+  color:black;
+  margin-right: 0;
+
+}
+
   </style>

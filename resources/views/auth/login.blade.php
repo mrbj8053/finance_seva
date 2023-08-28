@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="">
-    <title>{{env('APP_NAME')}}| Loogiin</title>
+    <title>{{env('APP_NAME')}}| Login</title>
 
     <!-- manifest meta -->
 
