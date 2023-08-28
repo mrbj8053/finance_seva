@@ -24,12 +24,12 @@
   @if(Auth::user()->role=='user')
 
   <section class="bottom-navbar">
-    <a href="{{route('home')}}" style="width: 25%" class="active">
+    <a href="{{route('home')}}" style="width: 25%" @if(Route::currentRouteName()=='home')class="active"@endif>
         <i class="fa-solid fa-house"></i><br>
          Home</a>
-    <a href="{{route('products')}}" style="width: 25%"><i class="fa-brands fa-product-hunt"></i><br>Products</a>
-    <a href="{{route('packageRequest.show',['type'=>4])}}" style="width: 25%"><i class="fa-solid fa-cart-shopping"></i><br>Purchased</a>
-    <a href="{{route('profileSection')}}" style="width: 25%"><i class="fa-solid fa-user"></i><br>Profile</a>
+    <a @if(Route::currentRouteName()=='products')class="active"@endif href="{{route('products')}}" style="width: 25%"><i class="fa-brands fa-product-hunt"></i><br>Products</a>
+    <a @if(Route::currentRouteName()=='packageRequest.show')class="active"@endif href="{{route('packageRequest.show',['type'=>4])}}" style="width: 25%"><i class="fa-solid fa-cart-shopping"></i><br>Purchased</a>
+    <a @if(Route::currentRouteName()=='profileSection')class="active"@endif href="{{route('profileSection')}}" style="width: 25%"><i class="fa-solid fa-user"></i><br>Profile</a>
   </section>
   @endif
   <footer class="main-footer">
