@@ -43,10 +43,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link my-options">
+                <a href="javascript:void(0);"  onclick="confirm('Do you want to logout ?')?document.getElementById('logoutForm2').submit():''" class="nav-link my-options">
                     <i class="fa-solid fa-right-from-bracket"></i>
                 Logout
                 </a>
+                <form action="{{ route('logout') }}" method="post" id="logoutForm2">@csrf</form>
+
             </li>
             </ul>
             </div>
