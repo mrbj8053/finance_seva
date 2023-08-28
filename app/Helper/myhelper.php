@@ -1,6 +1,7 @@
 <?php
 namespace App\Helper;
 
+use App\Models\Company;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Session;
@@ -11,6 +12,10 @@ class myhelper
     static function showMessage($msg,$isError=false)
     {
         Session::flash($isError?'errorMessage':'successMessage',$msg);
+    }
+    static function getCompany()
+    {
+       return Company::find(1);
     }
     static function incomeLimitReached($user_id)
     {
