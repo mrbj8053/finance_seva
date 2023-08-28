@@ -37,6 +37,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    @php
+
+                        $company=Helper::getCompany()
+                    @endphp
+                    <a href="{{ asset($company->plan_pdf) }}" target="_blank" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Download Plan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('profile',0) }}" class="nav-link">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
@@ -45,6 +57,14 @@
                     </a>
                 </li>
                 @if (Auth::user()->role=='admin')
+                <li class="nav-item">
+                    <a href="{{ route('company.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Company Setting
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
@@ -88,32 +108,18 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('closings') }}" class="nav-link">
                         <i class="nav-icon fa fa-inr"></i>
                         <p>
                             Closings
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('showRewards') }}" class="nav-link">
-                        <i class="nav-icon fa fa-inr"></i>
-                        <p>
-                            Rewards
-                        </p>
-                    </a>
-                </li>
+                </li> --}}
+
                 @endif
                 @if (Auth::user()->role=='user')
-                <li class="nav-item">
-                    <a href="{{ route('rewardsAchieved') }}" class="nav-link">
-                        <i class="nav-icon fa fa-inr"></i>
-                        <p>
-                            Rewards Achieved
-                        </p>
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a href="{{ route('packageRequest.index') }}" class="nav-link">
                         <i class="nav-icon fa fa-inr"></i>
@@ -165,14 +171,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('incomeReoprt.index', 'ROI') }}" class="nav-link">
-                                <i class="fa fa-minus nav-icon"></i>
-                                <p>
-                                    ROI Income
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('incomeReoprt.index', 'Level') }}" class="nav-link">
                                 <i class="fa fa-minus nav-icon"></i>
                                 <p>
@@ -181,18 +179,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('incomeReoprt.index', 'Reward') }}" class="nav-link">
+                            <a href="{{ route('incomeReoprt.index', 'Booster') }}" class="nav-link">
                                 <i class="fa fa-minus nav-icon"></i>
                                 <p>
-                                    Reward Income
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('incomeReoprt.index', 'Royalty') }}" class="nav-link">
-                                <i class="fa fa-minus nav-icon"></i>
-                                <p>
-                                    Royalty Income
+                                    Booster Income
                                 </p>
                             </a>
                         </li>

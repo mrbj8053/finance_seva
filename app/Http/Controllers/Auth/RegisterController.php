@@ -80,11 +80,11 @@ class RegisterController extends Controller
 
     function generateOwnId()
     {
-        $rand="BVM".rand(1000000,9999999);
+        $rand="FNS".rand(1000000,9999999);
         $count=User::where('own_id',$rand)->count();
         while($count>0)
         {
-            $rand="BM".rand(1000000,9999999);
+            $rand="FNS".rand(1000000,9999999);
             $count=User::where('own_id',$rand)->count();
         }
 

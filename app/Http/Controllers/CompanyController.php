@@ -59,14 +59,26 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
         $this->validate($request,[
-            'name'=>'required|string',
-            'email'=>'email',
-            'mobile'=>'numeric',
-            'address'=>'string',
-            'level_income_type'=>'required|in:All,Packagewise',
-            'reward_income_type'=>'required|in:All,Packagewise',
+            'upi_id'=>'required|string',
+            // 'name'=>'required|string',
+            // 'email'=>'email',
+            // 'mobile'=>'numeric',
+            // 'address'=>'string',
+            // 'level_income_type'=>'required|in:All,Packagewise',
+            // 'reward_income_type'=>'required|in:All,Packagewise',
         ]);
-        if($company->update($request->all()))
+        if(!empty($request->file('qr_code')))
+        {
+        $imagePath=myhelper::uploadImage($request->file('qr_code'),'asset/company/qr_code');
+        $company->qr_code=$imagePath;
+        }
+        if(!empty($request->file('plan_pdf')))
+        {
+        $imagePath=myhelper::uploadImage($request->file('plan_pdf'),'asset/company/plan_pdf');
+        $company->plan_pdf=$imagePath;
+        }
+        $company->upi_id=$request->upi_id;
+        if($company->save())
         {
             myhelper::showMessage('Company updated successfully');
 

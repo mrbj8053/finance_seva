@@ -8,6 +8,7 @@ use App\Models\income_misses;
 use App\Models\Package;
 use App\Models\PackageRequest;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -97,7 +98,7 @@ class PackageRequestController extends Controller
                     //first send direct income
                     $amount=$packageSelected->entry_amount;
                     $directIncome=$amount*($packageSelected->direct_income/100);
-                    $adminCharge=$directIncome*0.10;
+                    $adminCharge=$directIncome*0.15;
 
                     //send only if user is active
                     if($user->sponsor->is_active==1)
@@ -110,7 +111,7 @@ class PackageRequestController extends Controller
                             $income->income_type='Direct';
                             $income->amount=$directIncome;
                             $income->admin_charge=$adminCharge;
-                            $income->admin_charge_per=10;
+                            $income->admin_charge_per=15;
                             $income->net_amount=$directIncome-$adminCharge;
                             $income->save();
 
@@ -127,7 +128,7 @@ class PackageRequestController extends Controller
                             $income->income_type='Direct income becuase id inactive when activated '.$user->id;
                             $income->amount=$directIncome;
                             $income->admin_charge=$adminCharge;
-                            $income->admin_charge_per=10;
+                            $income->admin_charge_per=15;
                             $income->net_amount=$directIncome-$adminCharge;
                             $income->save();
                     }
@@ -139,6 +140,66 @@ class PackageRequestController extends Controller
                     $package->status=1;
                     $package->save();
                     myhelper::showMessage('Package approoved successfully');
+
+
+
+                    $level=1;
+            $sponsor=$user->sponsor;
+            while(!empty($sponsor) && $level<16)
+            {
+
+               if(true/*$sponsor->is_active==1*/)
+               {
+                    //now check if two direct active
+                    //$count=User::where('sponsor_id',$sponsor->own_id)->where('is_active',1)->count();
+                    if(true/*$count>=2*/)
+                    {
+                        if(true/*$this->isEligibleForLevel($sponsor->direct_business,$level)*/)
+                        {
+                            $levelIncomePer=0;
+                            switch($level)
+                            {
+                                case 1:
+                                $levelIncomePer=0.10;
+                                break;
+                                case 2:
+                                    $levelIncomePer=0.03;
+                                    break;
+                                case 3:
+                                    $levelIncomePer=0.02;
+                                    break;
+                                default:
+                                    $levelIncomePer=0.005;
+                                    break;
+
+                            }
+                            $levelIncome=$packageSelected->entry_amount*$levelIncomePer;
+                            $levelAdminCharge=$levelIncome*0.15;
+                            $netLevelIncome=$levelIncome-$levelAdminCharge;
+                            $insertLevelIncome=new Income();
+                            $insertLevelIncome->user_id=$sponsor->id;
+                            $insertLevelIncome->from_user=$user->id;
+                            $insertLevelIncome->income_type="Level";
+                            $insertLevelIncome->amount=$levelIncome;
+                            $insertLevelIncome->level=$level;
+                            $insertLevelIncome->admin_charge=$levelAdminCharge;
+                            $insertLevelIncome->admin_charge_per=15;
+                            $insertLevelIncome->net_amount=$netLevelIncome;
+                            $insertLevelIncome->created_at=Carbon::now();
+                            $insertLevelIncome->updated_at=Carbon::now();
+                            $insertLevelIncome->save();
+                            $level++;
+                        }
+
+               }
+            }
+               $sponsor=User::where('own_id',$sponsor->sponsor_id)->first();
+               if(empty($sponsor))
+               break;
+            }
+
+
+
 
                 }
                 else if($request->type==2)

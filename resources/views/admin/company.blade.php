@@ -27,13 +27,58 @@
                                 <h3 class="card-title">Company</h3>
                             </div>
 
-                            <form action="{{ route('company.update', ['company' => 1]) }}" method="post">
+                            <form action="{{ route('company.update', ['company' => 1]) }}" enctype="multipart/form-data" method="post">
                                 @method('PUT')
                                 @csrf
                                 <div class="card-body">
                                     @include('admin.message')
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">UPI ID</label>
+                                                <input required type="text" value="{{ $company->upi_id ?? old('upi_id') }}"
+                                                    name="upi_id" class="form-control @error('upi_id') is-invalid @enderror"
+                                                    id="exampleInputEmail1" placeholder="Enter upi id">
+                                                @error('upi_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">QR Code</label>
+                                                <input  type="file" value="{{ $company->qr_code ?? old('qr_code') }}"
+                                                    name="qr_code" class="form-control @error('qr_code') is-invalid @enderror"
+                                                    id="exampleInputEmail1" placeholder="QR Code">
+                                                    @if (!empty($company->qr_code))
+                                                        <img src="{{asset($company->qr_code)}}" style="width:200px;">
+                                                    @endif
+                                                @error('qr_code')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Plan PDF</label>
+                                                <input  type="file" value="{{ $company->plan_pdf ?? old('plan_pdf') }}"
+                                                    name="plan_pdf" class="form-control @error('plan_pdf') is-invalid @enderror"
+                                                    id="exampleInputEmail1" placeholder="Plan PDF">
+                                                    @if (!empty($company->plan_pdf))
+                                                        <img src="{{asset($company->plan_pdf)}}" style="width:200px;">
+                                                    @endif
+                                                @error('plan_pdf')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        {{-- <div class="col-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Name</label>
                                                 <input required type="text" value="{{ $company->name ?? old('name') }}"
@@ -86,8 +131,8 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                        </div>
-                                        <div class="col-12 row">
+                                        </div> --}}
+                                        {{-- <div class="col-12 row">
                                             <div class="col-12">
                                                 <h2 style="background: #ebeda3;padding: 5px;">Income Settings</h2>
                                             </div>
@@ -279,7 +324,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <input type="submit" class="btn btn-success"

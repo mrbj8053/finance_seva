@@ -1,140 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-100">
+
+
+<!-- Mirrored from maxartkiller.com/website/mobileux2/HTML/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Aug 2023 15:27:01 GMT -->
 <head>
-  @include('auth.authHead')
+
+    <title>{{env('APP_NAME')}}| Register</title>
+@include('auth.authHead')
 </head>
-<body class="hold-transition register-page" >
-<div class="register-box">
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-        <img src="{{asset('logo.png')}}" style="width:150px" alt="">
-        <br>
-      <a href="{{route('login')}}" class="h3"><b>{{env('APP_NAME')}}</b></a>
-    </div>
-    <div class="card-body">
-      <p class="login-box-msg">Register a new membership</p>
 
-      <form method="POST" action="{{ route('register') }}">
-        @csrf
-        <div class="input-group mb-3">
-            <input id="sponsorId" type="text" onkeyup="checkSponsor(this.value)" maxlength="10" minlength="10" class="form-control @error('sponsarId') is-invalid @enderror" name="sponsorId" value="{{ isset($_GET['sponsor'])?$_GET['sponsor']:old('sponsorId') }}" required autocomplete="name" autofocus placeholder="Enter Sponsor ID">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-user"></span>
-              </div>
+<body class="body-scroll d-flex flex-column h-100 dark-bg" data-page="signin">
+
+    <!-- loader section -->
+    <div class="container-fluid loader-wrap">
+        <div class="row h-100">
+            <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto text-center align-self-center">
+                <div class="loader-cube-wrap mx-auto">
+                    <div class="loader-cube1 loader-cube"></div>
+                    <div class="loader-cube2 loader-cube"></div>
+                    <div class="loader-cube4 loader-cube"></div>
+                    <div class="loader-cube3 loader-cube"></div>
+                </div>
+                <p>Great things ahead!<br><strong>Please wait...</strong></p>
             </div>
+        </div>
+    </div>
+    <!-- loader section ends -->
 
-            @error('sponsorId')
+    <main class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center mb-100px d-grid gap-2">
+                <form action="{{route('register')}}" method="post">
+                    @csrf
+                <h3 class="mb-1">Make your move easy</h3>
+                <p class="text-muted mb-4">Sign up with {{env('APP_NAME')}} now by<br>entering your details</p>
+                <div class="form-group form-floating  @error('sponsarId') is-invalid @enderror">
+                    <input id="sponsorId" type="text" onkeyup="checkSponsor(this.value)" maxlength="10" minlength="10" class="form-control" name="sponsorId" value="{{ isset($_GET['sponsor'])?$_GET['sponsor']:old('sponsorId') }}" required autocomplete="name" autofocus placeholder="Enter Sponsor ID">
+                    <label for="emailphone">Enter sponsor id /Invite code</label>
+                </div>
+                @error('sponsorId')
             <span class="invalid-feedback" style="display:block" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-          </div>
-          <p id="spname" style="font-weight: 700;font-size:smaller"></p>
-          {{-- <div class="input-group mb-3">
-           <select name="position" id="position" class="form-control">
-            <option value="Right" selected>Right</option>
-            <option value="Left">Left</option>
-           </select>
-            @error('position')
-            <span class="invalid-feedback" style="display:block" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-          </div> --}}
-        <div class="input-group mb-3">
-          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Full name">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-          @error('name')
-          <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-          </span>
-      @enderror
-        </div>
-        <div class="input-group mb-3">
-          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-          @error('email')
-          <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-          </span>
-      @enderror
-        </div>
-        <div class="input-group mb-3">
-            <input id="mobile" type="text" onkeypress="return isNumberKey(event)" maxlength="10" minlength="10" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" placeholder="Mobile">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
-            @error('mobile')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-          </div>
-        <div class="input-group mb-3">
-          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-          @error('password')
-          <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-          </span>
-      @enderror
-        </div>
-        <div class="input-group mb-3">
-          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" required id="agreeTerms" name="terms" value="agree">
-              <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
+        <p id="spname" style="font-weight: 700;font-size:smaller"></p>
 
+                <div class="form-group form-floating @error('name') is-invalid @enderror">
+                    <input id="name" type="text" class="form-control " name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Full name">
+                    <label for="emailphone">Full Name</label>
+                </div>
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
+                <div class="form-group mt-2 form-floating @error('email') is-invalid @enderror">
+                    <input id="email" type="email" class="form-control " name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                    <label for="emailphone">Email</label>
+                </div>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <div class="form-group mt-2 form-floating @error('mobile') is-invalid @enderror">
+                    <input id="mobile" type="text" onkeypress="return isNumberKey(event)" maxlength="10" minlength="10" class="form-control " name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" placeholder="Mobile">
+                    <label for="emailphone">Mobile</label>
+                </div>
+                @error('mobile')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <div class="form-floating mt-2 @error('password') is-invalid @enderror">
+                    <input id="password" type="password" class="form-control " name="password" required autocomplete="new-password" placeholder="Password">
+                    <label for="password">Password</label>
+                </div>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <div class="form-floating mt-2">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
+                    <label for="confirmpassword">Confirm Password</label>
+                    <button type="button" class="btn btn-link text-danger tooltip-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="" id="passworderror" data-bs-original-title="Enter valid Password">
+                    </button>
 
-      <a href="{{route('login')}}" class="text-center">Already have an account ? Login Here</a>
-    </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
-</div>
-<!-- /.register-box -->
-@include('auth.authFooter')
-<script>
-    function isNumberKey(evt) {
-  var charCode = (evt.which) ? evt.which : evt.keyCode
-  if (charCode > 31 && (charCode < 48 || charCode > 57))
-    return false;
-  return true;
-}
-</script>
+                </div>
+                <button  type="submit" class="btn btn-lg btn-default mt-3">Signup now</button>
+                <a href="{{route('login')}}" target="_self" class="text-white btn btn-lg btn-link">Already have account?</a>
+            </form>
+            </div>
+        </div>
+    </main>
+
+ @include('auth.authFooter')
+
 </body>
+
+
+<!-- Mirrored from maxartkiller.com/website/mobileux2/HTML/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Aug 2023 15:27:01 GMT -->
 </html>

@@ -127,7 +127,8 @@ class HomeController extends Controller
         $arr['royaltyIncome']=Income::where('income_type','Royalty')->sum('amount');
         $arr['roiIncome']=Income::where('income_type','ROI')->sum('amount');
         $arr['rewardIncome']=Income::where('income_type','Reward')->sum('amount');
-        $arr['totalIncome']=$arr['directIncome']+$arr['roiIncome']+$arr['levelIncome']+$arr['royaltyIncome']+$arr['rewardIncome'];
+        $arr['boosterIncome']=Income::where('income_type','Booster')->sum('amount');
+        $arr['totalIncome']=$arr['levelIncome']+$arr['directIncome']+$arr['roiIncome']+$arr['levelIncome']+$arr['royaltyIncome']+$arr['rewardIncome'];
         $arr['rank']=RewardWinner::with('rewardDetail')->where('user_id',Auth::user()->id)->orderBy('reward_id','desc')->first();
         $arr['closingApplied']=(Income::where('income_type','ROI')->get()->groupBy(function ($item) {
             return Carbon::parse($item->created_at)->format('Y-m-d');

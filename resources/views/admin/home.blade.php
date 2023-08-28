@@ -129,30 +129,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>{{$lastClosing}}</h3>
-                <p>Last Closing</p>
-              </div>
-              <div class="icon">
-                <i class="far fa-calendar-alt"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>{{$nextClosing}}</h3>
-                <p>Next Closing</p>
-              </div>
-              <div class="icon">
-                <i class="far fa-calendar-alt"></i>
-              </div>
-            </div>
-          </div>
+
           @endif
 @if(Auth::user()->role=='user')
 
@@ -270,41 +247,16 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$roiIncome}}</h3>
+                <h3>{{$boosterIncome}}</h3>
 
-                <p>ROI </p>
+                <p>Booster </p>
               </div>
               <div class="icon">
                 <i class="fa fa-inr"></i>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>{{$royaltyIncome}}</h3>
 
-                <p>Royalty </p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-inr"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>{{$rewardIncome}}</h3>
-
-                <p>Reward </p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-inr"></i>
-              </div>
-            </div>
-          </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
@@ -319,7 +271,7 @@
             </div>
           </div>
           <div class="col-12">
-            <h3>Closing Details</h3>
+            <h3>Withdraw Details</h3>
           </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->

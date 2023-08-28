@@ -32,7 +32,7 @@ use Symfony\Component\HttpKernel\DataCollector\AjaxDataCollector;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -43,7 +43,7 @@ Route::get('/sendRoi', [ajaxController::class, 'sendRoiAndLevel'])->name('sendRo
 Route::get('/checkRewards', [ajaxController::class, 'checkRewards'])->name('checkRewards');
 
 Route::post('/checkSponsor', [ajaxController::class, 'checkSponsor'])->name('checkSponsor');
-Route::get('/repair', [ajaxController::class, 'repair'])->name('checkSponsor');
+Route::get('/repair', [ajaxController::class, 'repair'])->name('repair');
 
 Route::middleware(['auth'])->group(function () {
 
