@@ -169,7 +169,7 @@ class PackageRequestController extends Controller
                     //$count=User::where('sponsor_id',$sponsor->own_id)->where('is_active',1)->count();
                     if(true/*$count>=2*/)
                     {
-                        if(true/*$this->isEligibleForLevel($sponsor->direct_business,$level)*/)
+                        if($level>1/*$this->isEligibleForLevel($sponsor->direct_business,$level)*/)
                         {
                             $levelIncomePer=0;
                             switch($level)
