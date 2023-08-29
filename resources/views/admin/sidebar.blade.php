@@ -198,10 +198,26 @@
                     </a>
                     <ul class="nav nav-treeview" >
                         <li class="nav-item">
-                            <a href="{{ route('withdraw.index') }}" class="nav-link">
+                            <a href="{{ route('withdrawRequest.show',0) }}" class="nav-link">
                                 <i class="fa fa-minus nav-icon"></i>
                                 <p>
-                                    Withdraw applied
+                                    Withdraw Pending
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('withdrawRequest.show',1) }}" class="nav-link">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>
+                                    Withdraw Approoved
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('withdrawRequest.show',2) }}" class="nav-link">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>
+                                    Withdraw Declined
                                 </p>
                             </a>
                         </li>

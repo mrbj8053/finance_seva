@@ -107,6 +107,8 @@ Route::get('share-profile/',[HomeController::class,'shareProfile'])->name('share
 
 Route::get('withdraw-apply',[WithdrawController::class,'apply'])->name('withdrawApply');
 Route::post('withdraw-apply',[WithdrawController::class,'applyPost'])->name('withdrawApplyPost');
+Route::get('withdraw-requests/{type?}',[WithdrawController::class,'showRequests'])->name('withdrawRequest.show');
+Route::get('approove-withdraw/{id}/{type}',[WithdrawController::class,'updateRequest'])->name('withdrawRequest.update');
 
 });
 
