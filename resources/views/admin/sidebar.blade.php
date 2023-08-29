@@ -128,14 +128,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('kycRequest.index') }}" class="nav-link">
                         <i class="nav-icon fa fa-address-card"></i>
                         <p>
                             Apply KYC
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('levelMembers') }}" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
@@ -260,7 +260,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
@@ -295,7 +295,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 @endif
 
                 <li class="nav-item">
