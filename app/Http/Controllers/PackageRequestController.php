@@ -113,7 +113,7 @@ class PackageRequestController extends Controller
                     //first send direct income
                     $amount=$packageSelected->entry_amount;
                     $directIncome=$amount*($packageSelected->direct_income/100);
-                    $adminCharge=$directIncome*0.15;
+                    $adminCharge=$directIncome*0.10;
 
                     //send only if user is active
                     if(true/*$user->sponsor->is_active==1*/)
@@ -126,7 +126,7 @@ class PackageRequestController extends Controller
                             $income->income_type='Direct';
                             $income->amount=$directIncome;
                             $income->admin_charge=$adminCharge;
-                            $income->admin_charge_per=15;
+                            $income->admin_charge_per=10;
                             $income->net_amount=$directIncome-$adminCharge;
                             $income->save();
 
@@ -143,7 +143,7 @@ class PackageRequestController extends Controller
                             $income->income_type='Direct income becuase id inactive when activated '.$user->id;
                             $income->amount=$directIncome;
                             $income->admin_charge=$adminCharge;
-                            $income->admin_charge_per=15;
+                            $income->admin_charge_per=10;
                             $income->net_amount=$directIncome-$adminCharge;
                             $income->save();
                     }
@@ -189,7 +189,7 @@ class PackageRequestController extends Controller
 
                             }
                             $levelIncome=$packageSelected->entry_amount*$levelIncomePer;
-                            $levelAdminCharge=$levelIncome*0.15;
+                            $levelAdminCharge=$levelIncome*0.10;
                             $netLevelIncome=$levelIncome-$levelAdminCharge;
                             $insertLevelIncome=new Income();
                             $insertLevelIncome->user_id=$sponsor->id;
@@ -198,7 +198,7 @@ class PackageRequestController extends Controller
                             $insertLevelIncome->amount=$levelIncome;
                             $insertLevelIncome->level=$level;
                             $insertLevelIncome->admin_charge=$levelAdminCharge;
-                            $insertLevelIncome->admin_charge_per=15;
+                            $insertLevelIncome->admin_charge_per=10;
                             $insertLevelIncome->net_amount=$netLevelIncome;
                             $insertLevelIncome->created_at=Carbon::now();
                             $insertLevelIncome->updated_at=Carbon::now();

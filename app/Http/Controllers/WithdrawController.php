@@ -36,14 +36,14 @@ class WithdrawController extends Controller
             myhelper::showMessage("Insufficient balance , you have only $balance Rs in your account", true);
         } else {
             $amount = $request->amount;
-            $adminCharge = $request->amount * 0.15;
-            $adminCharge = $request->amount * 0.15;
+            $adminCharge = $request->amount * 0.10;
+            $adminCharge = $request->amount * 0.10;
             $netAmount = $amount - $adminCharge;
             $withraw = new Withdraw();
             $withraw->user_id = Auth::user()->id;
             $withraw->amount = $amount;
             $withraw->admin_charge = $adminCharge;
-            $withraw->admin_charge_per = 15;
+            $withraw->admin_charge_per = 10;
             $withraw->net_amount = $netAmount;
             $withraw->name = $request->name;
             $withraw->account_number = $request->account_number;
@@ -55,7 +55,7 @@ class WithdrawController extends Controller
             $income->income_type = 'Withdraw';
             $income->amount = $amount * -1;
             $income->admin_charge = $adminCharge;
-            $income->admin_charge_per = 15;
+            $income->admin_charge_per = 10;
             $income->net_amount = $netAmount * -1;
             $income->from_user = $withraw->id; //this is ref id of withdraw
             $income->save();
