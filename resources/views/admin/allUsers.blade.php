@@ -72,6 +72,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
+                                                    @if(Auth::user()->role=='admin')
                                                     <a href="{{route('profile.update',$user->id)}}" class="btn btn-warning">Edit</a>
                                                     <a href="{{route('levelMembers',$user->own_id)}}" class="btn btn-info">Level Members</a>
                                                     <a href="{{route('levelTree',$user->own_id)}}" class="btn btn-primary"><i class="fa fa-tree"></i>&nbsp;Tree</a>
@@ -80,6 +81,7 @@
                                                         @else
                                                     <a onclick="confirmAction('Do you want to Activate the user ?','{{route('changeUserStatus',[Crypt::encrypt($user->id)])}}')" href="javascript:void(0);" class="btn bg-success">UnBlock</a>
 
+                                                    @endif
                                                     @endif
                                                 </td>
 
