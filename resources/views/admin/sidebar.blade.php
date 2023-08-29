@@ -186,6 +186,22 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('incomeReoprt.index', 'Booster') }}" class="nav-link">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>
+                                    Sign In Income
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('incomeReoprt.index', 'Booster') }}" class="nav-link">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>
+                                    Sign Up Income
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">

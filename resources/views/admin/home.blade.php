@@ -250,6 +250,32 @@
               </div>
             </div>
           </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{$signinIncome}}</h3>
+
+                <p>Sign In </p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-inr"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{$signupIncome}}</h3>
+
+                <p>Sign Up </p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-inr"></i>
+              </div>
+            </div>
+          </div>
 
           <div class="col-lg-3 col-6">
             <!-- small box -->
