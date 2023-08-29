@@ -21,6 +21,8 @@ class myhelper
     {
         $user=User::find($user_id);
         $income=$user->income->sum('amount');
+        if(!empty($user->packageRequest))
+        {
         $package=$user->packageRequest->packageApplied;
         $maxIncome=$package->max_income;
 
@@ -28,6 +30,11 @@ class myhelper
         return true;
         else
        return false;
+        }
+        else
+        {
+            return false;
+        }
     }
     static function uploadImage($image,$path)
 {
