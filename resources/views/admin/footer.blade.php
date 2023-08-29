@@ -195,4 +195,14 @@ function confirmAction(msg,url)
         $('.content-wrapper').css('margin-left','auto');
     })
   </script>
+
+  @endif
+
+
+  @if (Auth::user()->role=='user' && Route::currentRouteName()=='home')
+            <script>
+                $(document).ready(function(){
+                    $('#newsModalBtn').trigger('click');
+                })
+            </script>
   @endif
