@@ -78,10 +78,12 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-4 col-lg-4">
-                                            <div class="form-group">
+                                        <div class="col-12 col-md-12 col-lg-12">
+                                            <div class="txtEditor" ></div>
+
+                                            <div class="form-group d-none">
                                                 <label for="exampleInputEmail1">News Popup</label>
-                                                <textarea name="news" class="form-control @error('news') is-invalid @enderror" id="news" cols="30" rows="10">{{ $company->news ?? old('news') }}</textarea>
+                                                <textarea name="news"  id="newsEditor" class=" form-control @error('news') is-invalid @enderror" id="news" cols="30" rows="10">{{ $company->news ?? old('news') }}</textarea>
                                                 @error('news')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

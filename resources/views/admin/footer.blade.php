@@ -199,10 +199,22 @@ function confirmAction(msg,url)
   @endif
 
 
-  @if (Auth::user()->role=='user' && Route::currentRouteName()=='home')
+  @if (Auth::user()->role=='user' && Route::currentRouteName()=='home' && !empty(Helper::getCompany()->news))
             <script>
                 $(document).ready(function(){
                     $('#newsModalBtn').trigger('click');
                 })
             </script>
   @endif
+
+  <script src="{{asset('textEditor/editor.js')}}"></script>
+  <script type="text/javascript">
+    $(document).ready( function() {
+    $(".txtEditor").Editor();
+    $(".txtEditor").Editor('setText','<?=Helper::getCompany()->news?>');
+    });
+    $(document).submit(function(){
+            $("#newsEditor").html($(".txtEditor").Editor("getText"));
+        });
+    </script>
+
