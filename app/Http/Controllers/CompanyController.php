@@ -78,6 +78,7 @@ class CompanyController extends Controller
         $company->plan_pdf=$imagePath;
         }
         $company->upi_id=$request->upi_id;
+        $company->news=$request->news;
         if($company->save())
         {
             myhelper::showMessage('Company updated successfully');
