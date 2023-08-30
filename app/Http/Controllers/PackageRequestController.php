@@ -31,7 +31,7 @@ class PackageRequestController extends Controller
             myhelper::showMessage('Invalid package',true);
             return redirect()->back();
         }
-        $current=PackageRequest::where('user_id',Auth::user()->id)->first();
+        $current=PackageRequest::where('user_id',Auth::user()->id)->where('status',0)->first();
         $company=Company::find(1);
         return view('admin.Package.apply_package',compact('packages','current','pkid','company'));
     }
@@ -50,7 +50,7 @@ class PackageRequestController extends Controller
             return redirect()->back();
 
         }
-        PackageRequest::where('user_id',Auth::user()->id)->delete();
+        //PackageRequest::where('user_id',Auth::user()->id)->delete();
         $packageRequest=new PackageRequest();
         $packageRequest->package=$request->package;
         $packageRequest->transaction_id=$request->transaction_id;
@@ -59,7 +59,7 @@ class PackageRequestController extends Controller
         $packageRequest->payment_screenshot=$imagePath;
         if($packageRequest->save())
         {
-            myhelper::showMessage('Package applied successfully');
+            myhelper::showMessage('Package applied successfully, check in purchase to see the status');
         }
         else
         {
@@ -84,7 +84,7 @@ class PackageRequestController extends Controller
        else
        $packageRequests=PackageRequest::with('packageApplied','user')->where('user_id',Auth::user()->id)->get();
 
-       if($type!=3)
+       if($type!=4)
        $packageRequests=$packageRequests->where('status',$type);
        else
        $packageRequests=$packageRequests;

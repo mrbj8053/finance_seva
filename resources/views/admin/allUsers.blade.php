@@ -61,11 +61,16 @@
 
                                                 {{-- <td>{{$user->parent_id}}</td> --}}
                                                 <td>{{\Carbon\Carbon::parse($user->created_at)->format('d-m-Y')}}</td>
-                                                <td>{{!empty($user->packageRequest)?\Carbon\Carbon::parse($user->packageRequest->updated_at)->format('d-m-Y h:i A'):'--'}}</td>
+                                                <td>{{!empty($user->packageRequest[0])?\Carbon\Carbon::parse($user->packageRequest[0]->updated_at)->format('d-m-Y h:i A'):'--'}}</td>
                                                 <td>
                                                     @if ($user->is_active==1)
 
-                                                    <p class="badge bg-success">User Active with package <br>{{ !empty($user->packageRequest)? $user->packageRequest->packageApplied->package_name:""}}</p>
+                                                    <p class="badge bg-success">User Active with package <br>
+                                                        @foreach ( $user->packageRequest as $pkg)
+                                                            {{$pkg->packageApplied->package_name}},
+                                                        @endforeach
+
+                                                        </p>
                                                         @else
                                                     <p class="badge bg-danger">User Inactive</p>
 

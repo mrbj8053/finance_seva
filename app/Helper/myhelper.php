@@ -26,13 +26,13 @@ class myhelper
         $income=$user->income->sum('amount');
         if(!empty($user->packageRequest))
         {
-        $package=$user->packageRequest->packageApplied;
-        $maxIncome=$package->max_income;
+                // $package=$user->packageRequest->packageApplied;
+                // $maxIncome=$package->max_income;
 
-        if($income>=$maxIncome)
-        return true;
-        else
-       return false;
+                // if($income>=$maxIncome)
+                // return true;
+                // else
+            return false;
         }
         else
         {

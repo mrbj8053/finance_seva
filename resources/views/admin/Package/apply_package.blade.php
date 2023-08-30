@@ -31,14 +31,6 @@
                                       <div class="alert alert-warning">
                                         <strong>Warning !</strong> You have applied for a package , please wait before it is approoved.
                                       </div>
-                                      @elseif(!empty($current) && $current->status==1)
-                                      <div class="alert alert-success">
-                                        <strong>Success !</strong> Package activated successfully
-                                      </div>
-                                      @elseif(!empty($current) && $current->status==2)
-                                      <div class="alert alert-danger">
-                                        <strong>Rejected !</strong> Package declined , please apply for the package again.
-                                      </div>
                                     @endif
                             <form action="{{ route('packageRequest.apply') }}" method="post" enctype="multipart/form-data">
                                 @csrf
@@ -57,12 +49,12 @@
                                         <div class="col-12 col-md-4 d-none">
                                             <div class="form-group">
                                                 <label for="package">Select Package</label>
-                                                <select @if(!empty($current) && $current->status==0) disabled @endif required name="package"
+                                                <select  required name="package"
                                                     class="form-control @error('package') is-invalid @enderror"
                                                     id="">
                                                     @foreach ($packages as $pkg)
                                                         <option value="{{$pkg->id}}"
-                                                            @if ($pkg->id ==old('package') || $pkg->id==$pkid || (!empty($current) && $current->package==$pkg->id)) selected @endif>{{$pkg->package_name."(".$pkg->entry_amount.")" }}</option>
+                                                            @if ($pkg->id ==old('package') || $pkg->id==$pkid) selected @endif>{{$pkg->package_name."(".$pkg->entry_amount.")" }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('package')
@@ -75,8 +67,8 @@
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
                                                 <label for="transaction_id">Transaction Number</label>
-                                                <input  @if(!empty($current) && $current->status==0) disabled @endif type="text"
-                                                    value="{{  !empty($current)?$current->transaction_id:old('transaction_id') }}"
+                                                <input   type="text"
+                                                    value="{{ old('transaction_id') }}"
                                                     name="transaction_id"
                                                     class="form-control @error('transaction_id') is-invalid @enderror"
                                                     id="transaction_id" placeholder="Enter transaction id ">
@@ -91,7 +83,7 @@
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
                                                     <label for="payment_screenshot">Payment Screenshot</label>
-                                                    <input @if(!empty($current) && $current->status==0) disabled @endif required  type="file"
+                                                    <input  required  type="file"
                                                         value="{{ old('payment_screenshot') }}"
                                                         name="payment_screenshot"
                                                         class="form-control @error('payment_screenshot') is-invalid @enderror"
@@ -107,14 +99,14 @@
                                                         @endif
                                                 </div>
                                         </div>
-                                        @if(empty($current) || $current->status==2)
+                                        @if($current->status!=0)
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <input type="submit" class="btn btn-success"
                                                     value="Apply Package">
                                             </div>
                                         </div>
-                            @endif
+                                    @endif
 
                                     </div>
 
