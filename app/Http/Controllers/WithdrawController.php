@@ -30,8 +30,8 @@ class WithdrawController extends Controller
     function applyPost(Request $request)
     {
         $balance = Income::sum('amount');
-        if ($request->amount < 360) {
-            myhelper::showMessage("Minimum withdraw amount is 260", true);
+        if ($request->amount < 300) {
+            myhelper::showMessage("Minimum withdraw amount is 300", true);
         } else if ($request->amount > $balance) {
             myhelper::showMessage("Insufficient balance , you have only $balance Rs in your account", true);
         } else {
