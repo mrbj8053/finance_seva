@@ -83,7 +83,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-                {{-- <p class="mb-0"><a href="forgot-password.html" class="btn btn-link text-white">Forgot your password?</a></p> --}}
+                <p class="mb-0"><a href="{{route('password.request')}}" class="btn btn-link text-white">Forgot your password?</a></p>
                 <button type="submit"  class="btn btn-lg btn-default btn-block mt-3">Sign in now</button>
                 <a href="{{route('register')}}" target="_self" class="text-white btn btn-lg btn-link">Create new account?</a>
     </form>
