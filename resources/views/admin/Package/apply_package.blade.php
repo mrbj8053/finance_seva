@@ -99,7 +99,7 @@
                                                         @endif
                                                 </div>
                                         </div>
-                                        @if($current->status!=0)
+                                        @if(empty($current) || $current->status!=0)
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <input type="submit" class="btn btn-success"
