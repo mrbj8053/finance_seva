@@ -41,7 +41,11 @@
                                             <h3>Rs. {{$item->entry_amount}}</h3>
                                             <h5 class="text-red">Cycle : <strong>150</strong>Days</h5>
                                             <h5 class="text-blue">Daily : Rs. <strong>{{$item->daily}}</strong></h5>
+                                            @if($item->status==1)
                                             <a href="{{route('packageRequest.index',$item->id)}}" class="btn btn-primary">Buy Now</a>
+                                            @else
+                                            <a href="javascript:void(0);" class="btn btn-primary">Coming soon..</a>
+                                            @endif
                                         </div>
                                         </div>
                                     </div>
