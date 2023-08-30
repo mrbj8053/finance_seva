@@ -122,6 +122,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        myhelper::sendSignInIncome();
+        myhelper::sendSignUpIncome(Auth::user()->id);
         $arr['totalUsers']=User::all()->count();
         $arr['activeUsers']=User::where('is_active',1)->count();
         $arr['bannedUsers']=User::where('is_disabled',1)->count();

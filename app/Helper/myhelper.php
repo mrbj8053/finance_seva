@@ -2,8 +2,11 @@
 namespace App\Helper;
 
 use App\Models\Company;
+use App\Models\Income;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class myhelper
@@ -73,6 +76,52 @@ public static function sendMail($from , $to, $subject, $body)
 
         }
 
+    }
+    static function sendSignInIncome()
+    {
+        if(Auth::user()->role=='user')
+        {
+        //first check if already gone
+        $chk=Income::where('income_type','Signin')->where('user_id',Auth::user()->id)
+        ->whereDate('created_at',Carbon::today())->count();
+        if($chk==0)
+        {
+            $amount=15;
+            $adminCharge=$amount*0.10;
+            $netAmount=$amount-$adminCharge;
+
+            $income=new Income();
+            $income->user_id=Auth::user()->id;
+            $income->from_user=Auth::user()->id;
+            $income->income_type='Signin';
+            $income->amount=$amount;
+            $income->admin_charge=$adminCharge;
+            $income->admin_charge_per=10;
+            $income->net_amount=$netAmount;
+            $income->save();
+        }
+        }
+    }
+    static function sendSignUpIncome($user_id)
+    {
+        $chk=Income::where('income_type','Signup')->where('user_id',Auth::user()->id)
+        ->count();
+        if($chk==0)
+        {
+            $amount=50;
+            $adminCharge=$amount*0.10;
+            $netAmount=$amount-$adminCharge;
+
+            $income=new Income();
+            $income->user_id=$user_id;
+            $income->from_user=$user_id;
+            $income->income_type='Signup';
+            $income->amount=$amount;
+            $income->admin_charge=$adminCharge;
+            $income->admin_charge_per=10;
+            $income->net_amount=$netAmount;
+            $income->save();
+        }
     }
 
 }
